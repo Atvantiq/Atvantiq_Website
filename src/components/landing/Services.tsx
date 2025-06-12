@@ -1,28 +1,127 @@
+"use client";
 import { useState } from "react";
 import Image from "next/image";
 
 const services = [
   {
-    title: "Frontend Development",
+    title: "AI & ML Development",
     icon: "/icons/frontend.png",
-    description: "We build modern, responsive UIs using React, Vue, and Angular.",
+    description: "At Atvantiq, we don’t just implement AI — we engineer intelligent solutions that drive real business impact. Our AI & Machine Learning services are designed to help you automate repetitive tasks, make smarter decisions, and unlock powerful insights from your data. ",
     image: "/illustrations/frontend.png",
-    subServices: ["React Development", "Angular Development", "Vue.js Apps"],
+    subServices: ["Generative AI applications ", "Predictive analytics & forecasting ", "Natural Language Processing (NLP) ","ChatGPT integration for business automation ","AI-powered business intelligence dashboards"],
   },
   {
-    title: "Backend Development",
+    title: "Cyber Security",
     icon: "/icons/backend.png",
     description:
-      "Backend developers at Atvantiq have expertise in Node.js, PHP, and Python. We've built over 100 platforms using MEAN and MERN stacks.",
+      "Security isn’t optional — it's essential. That’s why we provide robust, end-to-end cybersecurity solutions designed to protect your digital ecosystem. From advanced threat monitoring to vulnerability assessments and compliance support, we ensure your data, infrastructure, and users are always safeguarded. We help you stay secure, resilient, and compliant in a rapidly evolving threat landscape. ",
     image: "/illustrations/backend.png",
     subServices: [
-      "CodeIgniter Development Services",
-      "Node Js Web Development",
-      "Python Web Development",
+      "Threat detection & prevention ",
+      "Network & endpoint security ",
+      "Security audits & compliance ",
       "Laravel Development Company",
+      'Cloud security solutions '
     ],
   },
-  // Add more services...
+  {
+    title: "Web & Mobile App Development ",
+    icon: "/icons/backend.png",
+    description:
+      "We don’t just build apps — we build experiences. Atvantiq designs and develops high-performing, scalable websites and mobile applications that connect you with your users seamlessly. Whether it’s a complex enterprise solution or a sleek consumer app, we handle everything from strategy to launch with clean code, modern frameworks, and a mobile-first approach. ",
+    image: "/illustrations/backend.png",
+    subServices: [
+      "Custom web development (React, Next.js, Laravel, etc.) ",
+      "Android & iOS mobile apps development ",
+      "Cross-platform solutions using Flutter & React Native ",
+      "E-commerce platforms development  ",
+      'Enterprise app development  '
+    ],
+  },
+  {
+    title: "Cloud Services ",
+    icon: "/icons/backend.png",
+    description:
+      "Move faster, scale smarter, and reduce costs with our cloud-first approach. At Atvantiq, we help businesses embrace the cloud with services that cover architecture, migration, deployment, and ongoing management — across AWS, Azure, and Google Cloud. Whether you're going hybrid, public, or private, we ensure a smooth, secure, and scalable transition.  ",
+    image: "/illustrations/backend.png",
+    subServices: [
+      "Cloud architecture & consulting ",
+      "Cloud migration & deployment ",
+      "AWS, Azure, and Google Cloud solutions",
+      "DevOps & CI/CD pipelines ",
+      'Managed cloud operations & support'
+    ],
+  },
+  {
+    title: "Cyber Security",
+    icon: "/icons/backend.png",
+    description:
+      "Security isn’t optional — it's essential. That’s why we provide robust, end-to-end cybersecurity solutions designed to protect your digital ecosystem. From advanced threat monitoring to vulnerability assessments and compliance support, we ensure your data, infrastructure, and users are always safeguarded. We help you stay secure, resilient, and compliant in a rapidly evolving threat landscape. ",
+    image: "/illustrations/backend.png",
+    subServices: [
+      "Threat detection & prevention ",
+      "Network & endpoint security ",
+      "Security audits & compliance ",
+      "Laravel Development Company",
+      'Cloud security solutions '
+    ],
+  },
+  {
+    title: "Cyber Security",
+    icon: "/icons/backend.png",
+    description:
+      "Security isn’t optional — it's essential. That’s why we provide robust, end-to-end cybersecurity solutions designed to protect your digital ecosystem. From advanced threat monitoring to vulnerability assessments and compliance support, we ensure your data, infrastructure, and users are always safeguarded. We help you stay secure, resilient, and compliant in a rapidly evolving threat landscape. ",
+    image: "/illustrations/backend.png",
+    subServices: [
+      "Threat detection & prevention ",
+      "Network & endpoint security ",
+      "Security audits & compliance ",
+      "Laravel Development Company",
+      'Cloud security solutions '
+    ],
+  },
+  {
+    title: "Cyber Security",
+    icon: "/icons/backend.png",
+    description:
+      "Security isn’t optional — it's essential. That’s why we provide robust, end-to-end cybersecurity solutions designed to protect your digital ecosystem. From advanced threat monitoring to vulnerability assessments and compliance support, we ensure your data, infrastructure, and users are always safeguarded. We help you stay secure, resilient, and compliant in a rapidly evolving threat landscape. ",
+    image: "/illustrations/backend.png",
+    subServices: [
+      "Threat detection & prevention ",
+      "Network & endpoint security ",
+      "Security audits & compliance ",
+      "Laravel Development Company",
+      'Cloud security solutions '
+    ],
+  },
+  {
+    title: "Cyber Security",
+    icon: "/icons/backend.png",
+    description:
+      "Security isn’t optional — it's essential. That’s why we provide robust, end-to-end cybersecurity solutions designed to protect your digital ecosystem. From advanced threat monitoring to vulnerability assessments and compliance support, we ensure your data, infrastructure, and users are always safeguarded. We help you stay secure, resilient, and compliant in a rapidly evolving threat landscape. ",
+    image: "/illustrations/backend.png",
+    subServices: [
+      "Threat detection & prevention ",
+      "Network & endpoint security ",
+      "Security audits & compliance ",
+      "Laravel Development Company",
+      'Cloud security solutions '
+    ],
+  },
+  {
+    title: "Cyber Security",
+    icon: "/icons/backend.png",
+    description:
+      "Security isn’t optional — it's essential. That’s why we provide robust, end-to-end cybersecurity solutions designed to protect your digital ecosystem. From advanced threat monitoring to vulnerability assessments and compliance support, we ensure your data, infrastructure, and users are always safeguarded. We help you stay secure, resilient, and compliant in a rapidly evolving threat landscape. ",
+    image: "/illustrations/backend.png",
+    subServices: [
+      "Threat detection & prevention ",
+      "Network & endpoint security ",
+      "Security audits & compliance ",
+      "Laravel Development Company",
+      'Cloud security solutions '
+    ],
+  },
 ];
 
 export default function ServicesSection() {
@@ -36,7 +135,7 @@ export default function ServicesSection() {
 
       <div className="flex flex-col md:flex-row gap-10">
         {/* Service Cards Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 flex-shrink-0 max-w-[500px]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 flex-shrink-0 max-w-[500px] max-h-[500px]">
           {services.map((service, index) => (
             <div
               key={index}
