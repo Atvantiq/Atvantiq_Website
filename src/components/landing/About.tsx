@@ -98,8 +98,8 @@ const AboutUs = () => {
             </h3>
           </div>
           <div className="text-right">
-            <h2 className="text-xl md:text-[42px] font-bold">
-              Crafting cutting-edge digital solutions
+            <h2 className="text-xl text-[#fff0d9] md:text-[42px] font-bold">
+              Cutting-edge digital solutions
             </h2>
             <p className="text-gray-300 text-lg mt-2">
               with creative minds and technology expertise
