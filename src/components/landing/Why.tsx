@@ -79,9 +79,9 @@ export default function WhyChooseUsSection() {
           </div>
 
           {/* Right Side - Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 min-h-[500px]">
             {/* Tab Navigation */}
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-start">
               <button
                 onClick={() => setActiveTab("Mission")}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
