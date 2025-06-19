@@ -8,7 +8,7 @@ const services = [
     icon: "/service_cards/ai.jpg",
     description: "At Atvantiq, we don't just implement AI — we engineer intelligent solutions that drive real business impact. Our AI & Machine Learning services are designed to help you automate repetitive tasks, make smarter decisions, and unlock powerful insights from your data.",
     image: "/illustrations/frontend.png",
-    subServices: ["Generative AI applications", "Predictive analytics & forecasting", "Natural Language Processing", "ChatGPT integration for business automation", "AI-powered business intelligence dashboards"],
+    subServices: ["• Generative AI applications", "• Predictive analytics & forecasting", "• Natural Language Processing", "• ChatGPT integration for business automation", "• AI-powered business intelligence dashboards"],
   },
   {
     title: "Cyber Security",
@@ -16,11 +16,11 @@ const services = [
     description: "Security isn't optional — it's essential. That's why we provide robust, end-to-end cybersecurity solutions designed to protect your digital ecosystem. From advanced threat monitoring to vulnerability assessments and compliance support, we ensure your data, infrastructure, and users are always safeguarded.",
     image: "/illustrations/backend.png",
     subServices: [
-      "Threat detection & prevention",
-      "Network & endpoint security",
-      "Security audits & compliance",
-      "Laravel Development Company",
-      "Cloud security solutions"
+      "• Threat detection & prevention",
+      "• Network & endpoint security",
+      "• Security audits & compliance",
+      "• Laravel Development Company",
+      "• Cloud security solutions"
     ],
   },
   {
@@ -29,11 +29,11 @@ const services = [
     description: "We don't just build apps — we build experiences. Atvantiq designs and develops high-performing, scalable websites and mobile applications that connect you with your users seamlessly. Whether it's a complex enterprise solution or a sleek consumer app, we handle everything from strategy to launch.",
     image: "/illustrations/backend.png",
     subServices: [
-      "Custom web development",
-      "Android & iOS mobile apps development",
-      "Cross-platform solutions using Flutter & React Native",
-      "E-commerce platforms development",
-      "Enterprise app development"
+      "• Custom web development",
+      "• Android & iOS mobile apps development",
+      "• Cross-platform solutions using Flutter & React Native",
+      "• E-commerce platforms development",
+      "• Enterprise app development"
     ],
   },
   {
@@ -42,11 +42,11 @@ const services = [
     description: "Move faster, scale smarter, and reduce costs with our cloud-first approach. At Atvantiq, we help businesses embrace the cloud with services that cover architecture, migration, deployment, and ongoing management — across AWS, Azure, and Google Cloud.",
     image: "/illustrations/backend.png",
     subServices: [
-      "Cloud architecture & consulting",
-      "Cloud migration & deployment",
-      "AWS, Azure, and Google Cloud solutions",
-      "DevOps & CI/CD pipelines",
-      "Managed cloud operations & support"
+      "• Cloud architecture & consulting",
+      "• Cloud migration & deployment",
+      "• AWS, Azure, and Google Cloud solutions",
+      "• DevOps & CI/CD pipelines",
+      "• Managed cloud operations & support"
     ],
   },
   {
@@ -55,11 +55,11 @@ const services = [
     description: "We believe in powering a greener tomorrow. Atvantiq offers end-to-end solar energy solutions for residential, commercial, and industrial needs. From site assessment and installation to battery storage and ongoing maintenance, we make your switch to solar simple, reliable, and cost-effective.",
     image: "/illustrations/backend.png",
     subServices: [
-      "Residential & commercial solar panel installations",
-      "Battery storage solutions",
-      "System maintenance & repair",
-      "Solar energy consultation",
-      "Green energy audits"
+      "• Residential & commercial solar panel installations",
+      "• Battery storage solutions",
+      "• System maintenance & repair",
+      "• Solar energy consultation",
+      "• Green energy audits"
     ],
   },
   {
@@ -68,10 +68,10 @@ const services = [
     description: "Telecom is the backbone of digital infrastructure — and we help you strengthen it. Our telecom services include RF deployment, fiber network design, infrastructure implementation, and performance optimization. Whether it's building from the ground up or upgrading existing systems.",
     image: "/illustrations/backend.png",
     subServices: [
-      "Planning & design",
-      "Deployment",
-      "Service migration & Validation",
-      "Operations & Optimization",
+      "• Planning & design",
+      "• Deployment",
+      "• Service migration & Validation",
+      "• Operations & Optimization",
     ],
   },
   {
@@ -80,11 +80,11 @@ const services = [
     description: "The right people make all the difference. With Atvantiq's Tech Talent Solutions, we help you find and deploy skilled developers, engineers, and IT professionals exactly when you need them. Whether you need short-term contract roles, dedicated development teams, or long-term hires.",
     image: "/illustrations/backend.png",
     subServices: [
-      "Contract & full-time placements",
-      "Project-based outsourcing",
-      "Technical recruiters & HR consulting",
-      "Software base onboarding process",
-      "Payroll Management"
+      "• Contract & full-time placements",
+      "• Project-based outsourcing",
+      "• Technical recruiters & HR consulting",
+      "• Software base onboarding process",
+      "• Payroll Management"
     ],
   },
 ];
@@ -93,7 +93,7 @@ export default function ServicesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#fff0d9] py-12 px-4 md:px-8 min-h-screen">
+    <section className="bg-[#fff0d9] py-8 px-4 md:px-8 ">
       <div className="max-w-7xl mx-auto h-full">
         <div className="flex items-start gap-4 pt-2 pb-8">
           <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
@@ -172,7 +172,7 @@ export default function ServicesSection() {
                           {service.subServices.map((subService, i) => (
                             <div
                               key={i}
-                              className=" text-white text-sm transition-all duration-300 font-semibold hover:scale-105 flex items-center  min-h-[60px]"
+                              className=" text-white text-sm transition-all duration-300 font-semibold hover:scale-105 flex items-start  min-h-[60px]"
                             >
                               <span className="">{subService}</span>
                             </div>

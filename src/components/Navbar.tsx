@@ -116,7 +116,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className={`bg-transparent top-0 w-full z-50 transition-colors duration-300`}>
+    <header className="absolute top-0 w-full z-50 bg-transparent">
       <div className=" mx-auto px-4 sm:px-8 lg:px-10">
         <div className="flex justify-start h-20">
           <div className="flex">
