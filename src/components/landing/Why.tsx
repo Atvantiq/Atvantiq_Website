@@ -1,0 +1,157 @@
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+
+export default function WhyChooseUsSection() {
+  const [activeTab, setActiveTab] = useState("Mission");
+
+  const mission = [
+    "Enterprise ready",
+    "Startup friendly",
+    "Cost-Effectiveness",
+    "Unlock Cross-Platform AI",
+    "Most advanced technology",
+    "Quality-Driven Process",
+  ];
+
+  const vision = [
+    " Client-Centric Approach",
+    "Innovation and Excellence",
+    "Sustainable Solutions",
+    "Integrity and Transparency",
+    "Continuous Improvement",
+    "Expert Team",
+  ];
+
+  const values = [
+    "Customer-centricity",
+    "Innovation and flexibility",
+    "Creative",
+    "Quality and reliability",
+  ];
+
+  return (
+    <section className="bg-gradient-to-br from-purple-50 to-white py-16 px-4 md:px-8 relative overflow-hidden">
+      {/* Background Geometric Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 border-2 border-purple-200 rounded-full opacity-30"></div>
+        <div className="absolute bottom-20 right-20 w-24 h-24 border-2 border-purple-200 rounded-full opacity-20"></div>
+        <div className="absolute top-1/2 left-20 w-16 h-16 bg-purple-100 rounded-full opacity-40"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Main Heading */}
+        <div className="flex items-start gap-4 pt-2 mb-15">
+          <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
+          <h3 className="uppercase tracking-wider text-[#2674D3] font-bold text-[25px]">
+            Why Choose Us
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Side - Hero Image with CTA */}
+          <div className="relative">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              {/* Background Image */}
+              <div className="aspect-[4/3]  relative">
+                <Image
+                  src="/why_section.jpg"
+                  alt="AI Technology"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+
+              {/* CTA Overlay */}
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="bg-black/20 backdrop-blur-md rounded-2xl p-4 border border-white/20">
+                  <h3 className="text-white text-xl md:text-2xl font-medium mb-2">
+                    Get started!
+                  </h3>
+                  <button className="bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:from-[#2861B3] hover:to-[#24579e] text-white px-4 py-2 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <span>→</span>
+                    <span>Free Trail</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - Content */}
+          <div className="space-y-8">
+            {/* Tab Navigation */}
+            <div className="flex gap-4">
+              <button
+                onClick={() => setActiveTab("Mission")}
+                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  activeTab === "Mission"
+                    ? "bg-gradient-to-r from-[#2674D3] to-[#2861B3] text-white shadow-lg"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                Our Mission
+              </button>
+              <button
+                onClick={() => setActiveTab("Vision")}
+                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  activeTab === "Vision"
+                    ? "bg-gradient-to-r from-[#2674D3] to-[#2861B3] text-white shadow-lg"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                Our Vision
+              </button>
+              <button
+                onClick={() => setActiveTab("Values")}
+                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  activeTab === "Values"
+                    ? "bg-gradient-to-r from-[#2674D3] to-[#2861B3] text-white shadow-lg"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                Our Values
+              </button>
+            </div>
+
+            {/* Main Content */}
+            <div className="space-y-6">
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                Transform your online presence with AI website design.
+              </h3>
+
+              <p className="text-gray-600 text-lg leading-relaxed">
+                {activeTab === "Mission" &&
+                  "To empower businesses through smart, secure, and sustainable technology solutions that drive growth, innovation, and operational efficiency. "}
+                {activeTab === "Vision" &&
+                  "To be the most trusted partner for global enterprises in their journey toward digital transformation, sustainability, and excellence. "}
+                {activeTab === "Values" &&
+                  "Our core values steer the course of our work and the approach we take. "}
+              </p>
+
+              {/* Features/Values Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-8">
+                {(activeTab === "Mission"
+                  ? mission
+                  : activeTab === "Vision"
+                  ? vision
+                  : values
+                ).map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 p-4 rounded-lg hover:bg-purple-50 transition-all duration-300 group"
+                  >
+                    <div className="w-3 h-3 bg-gradient-to-r from-[#2674D3] to-[#2861B3] rounded-full flex-shrink-0"></div>
+                    <span className="text-gray-700 font-medium group-hover:text-[#2674D3] transition-colors duration-300">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

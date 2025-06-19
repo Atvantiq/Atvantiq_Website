@@ -93,7 +93,7 @@ const AboutUs = () => {
         <div className="grid md:grid-cols-[auto_1fr] gap-8 mb-16 items-center">
           <div className="flex items-start gap-4 pt-2">
             <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
-            <h3 className="uppercase tracking-wider text-[#2674D3] font-semibold text-[25px]">
+            <h3 className="uppercase tracking-wider text-[#2674D3] font-bold text-[25px]">
               About Us
             </h3>
           </div>

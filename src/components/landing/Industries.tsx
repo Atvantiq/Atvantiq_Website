@@ -84,14 +84,14 @@ const IndustriesSection = () => {
   };
 
   return (
-    <section className="bg-[#fff9f0] text-white py-8 px-4 md:px-20">
+    <section className="bg-[#fff9f0] text-white py-12 px-4 md:px-20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-18 items-start">
           {/* Left Section - Industries Grid */}
           <div className="lg:col-span-1">
             <div className="flex items-start gap-4 pt-2 mb-15">
               <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
-              <h3 className="uppercase tracking-wider text-[#2674D3] font-semibold text-[25px]">
+              <h3 className="uppercase tracking-wider text-[#2674D3] font-bold text-[25px]">
                 Industries we serve
               </h3>
             </div>

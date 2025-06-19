@@ -24,6 +24,18 @@ const services = [
     ],
   },
   {
+    title: "Telecom Services",
+    icon: "/service_cards/telecom.jpeg",
+    description: "Telecom is the backbone of digital infrastructure — and we help you strengthen it. Our telecom services include RF deployment, fiber network design, infrastructure implementation, and performance optimization. Whether it's building from the ground up or upgrading existing systems.",
+    image: "/illustrations/backend.png",
+    subServices: [
+      "• Planning & design",
+      "• Deployment",
+      "• Service migration & Validation",
+      "• Operations & Optimization",
+    ],
+  },
+  {
     title: "Web & Mobile App Development",
     icon: "/service_cards/webdev.jpeg",
     description: "We don't just build apps — we build experiences. Atvantiq designs and develops high-performing, scalable websites and mobile applications that connect you with your users seamlessly. Whether it's a complex enterprise solution or a sleek consumer app, we handle everything from strategy to launch.",
@@ -63,18 +75,6 @@ const services = [
     ],
   },
   {
-    title: "Telecom Services",
-    icon: "/service_cards/telecom.jpeg",
-    description: "Telecom is the backbone of digital infrastructure — and we help you strengthen it. Our telecom services include RF deployment, fiber network design, infrastructure implementation, and performance optimization. Whether it's building from the ground up or upgrading existing systems.",
-    image: "/illustrations/backend.png",
-    subServices: [
-      "• Planning & design",
-      "• Deployment",
-      "• Service migration & Validation",
-      "• Operations & Optimization",
-    ],
-  },
-  {
     title: "Talent Outsourcing Services",
     icon: "/service_cards/hr.png",
     description: "The right people make all the difference. With Atvantiq's Tech Talent Solutions, we help you find and deploy skilled developers, engineers, and IT professionals exactly when you need them. Whether you need short-term contract roles, dedicated development teams, or long-term hires.",
@@ -97,7 +97,7 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto h-full">
         <div className="flex items-start gap-4 pt-2 pb-8">
           <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
-          <h3 className="uppercase tracking-wider text-[#2674D3] font-semibold text-[25px]">
+          <h3 className="uppercase tracking-wider text-[#2674D3] font-bold text-[25px]">
             Our Services
           </h3>
         </div>
@@ -196,7 +196,7 @@ export default function ServicesSection() {
 
                   {/* Compressed Content - Just Icon */}
                   {isCompressed && (
-                    <div className="flex-grow flex items-center justify-center">
+                    <div className="flex-grow flex items-end justify-center">
                       <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center">
                         <span className="text-white text-xs">→</span>
                       </div>
