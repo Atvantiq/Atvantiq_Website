@@ -182,8 +182,8 @@ export default function ServicesSection() {
 
                       {/* Action Buttons */}
                       <div className="flex gap-4 mt-auto">
-                        <div className="flex items-center group-hover:gap-3 transition-all duration-300">
-                          <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+                        <div className="flex items-center text-white group-hover:gap-3 transition-all duration-300">
+                          <span className=" opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
                             Explore More
                           </span>
                           <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">

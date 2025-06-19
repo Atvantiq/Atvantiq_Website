@@ -34,11 +34,12 @@ const HeroSection = () => {
   return (
     <section className="relative h-screen flex justify-end px-10 py-40 text-white overflow-hidden transition-all duration-1000">
       
+      <div className="absolute right-0 top-0 h-full w-full bg-gradient-to-l from-[#1a1a1a] to-transparent z-10 pointer-events-none" />
       <Image
         src={current.image}
         alt="Background"
         fill
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-50 transition-opacity duration-1000"
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-100 transition-opacity duration-1000"
         priority
         sizes="100vw"
       />
