@@ -6,28 +6,30 @@ export default function WhyChooseUsSection() {
   const [activeTab, setActiveTab] = useState("Mission");
 
   const mission = [
-    "Enterprise ready",
-    "Startup friendly",
-    "Cost-Effectiveness",
-    "Unlock Cross-Platform AI",
-    "Most advanced technology",
-    "Quality-Driven Process",
+    "Empowering Innovation",
+"Driving Digital Growth",
+"Enabling Smart Solutions",
+"Building Trusted Partnerships",
+"Delivering Business Value",
+"Drive Smart Transformation"
   ];
 
   const vision = [
-    " Client-Centric Approach",
-    "Innovation and Excellence",
-    "Sustainable Solutions",
-    "Integrity and Transparency",
-    "Continuous Improvement",
-    "Expert Team",
+    "Global Tech Leadership",
+"Smarter Connected Future",
+"Innovation-Driven Growth",
+"Sustainable Digital Impact",
+"Excellence Through Technology",
+"Shape Tomorrow’s Technology"
   ];
 
   const values = [
-    "Customer-centricity",
-    "Innovation and flexibility",
-    "Creative",
-    "Quality and reliability",
+    "Innovation First ",
+"Customer-Centricity ",
+"Integrity & Trust ",
+"Excellence in Execution ",
+"Sustainability & Responsibility ",
+"Collaboration & Growth "
   ];
 
   return (
@@ -115,9 +117,14 @@ export default function WhyChooseUsSection() {
             </div>
 
             {/* Main Content */}
-            <div className="space-y-6">
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                Transform your online presence with AI website design.
+            <div className="space-y-4 pb-1">
+              <h3 className="text-xl md:text-2xl font-medium text-gray-900 leading-tight">
+                {activeTab === "Mission" &&
+                  "Deliver excellence in AI, Cloud, Cybersecurity, Telecom, Solar, and Talent Services."}
+                {activeTab === "Vision" &&
+                  "Be a global leader in next-generation technology and infrastructure services."}
+                {activeTab === "Values" &&
+                  "We operate with honesty, transparency, and accountability."}
               </h3>
 
               <p className="text-gray-600 text-lg leading-relaxed">
@@ -139,7 +146,7 @@ export default function WhyChooseUsSection() {
                 ).map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-3 p-4 rounded-lg hover:bg-purple-50 transition-all duration-300 group"
+                    className="flex items-center gap-2 p-4 rounded-lg hover:bg-purple-50 transition-all duration-300 group"
                   >
                     <div className="w-3 h-3 bg-gradient-to-r from-[#2674D3] to-[#2861B3] rounded-full flex-shrink-0"></div>
                     <span className="text-gray-700 font-medium group-hover:text-[#2674D3] transition-colors duration-300">
