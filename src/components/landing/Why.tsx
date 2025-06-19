@@ -124,7 +124,7 @@ export default function WhyChooseUsSection() {
                 {activeTab === "Vision" &&
                   "Be a global leader in next-generation technology and infrastructure services."}
                 {activeTab === "Values" &&
-                  "We operate with honesty, transparency, and accountability."}
+                  "Build lasting partnerships through trust, transparency, and performance."}
               </h3>
 
               <p className="text-gray-600 text-lg leading-relaxed">
@@ -133,7 +133,7 @@ export default function WhyChooseUsSection() {
                 {activeTab === "Vision" &&
                   "To be the most trusted partner for global enterprises in their journey toward digital transformation, sustainability, and excellence. "}
                 {activeTab === "Values" &&
-                  "Our core values steer the course of our work and the approach we take. "}
+                  "Every solution that we build is aligned with the unique needs and goals of our clients. "}
               </p>
 
               {/* Features/Values Grid */}
