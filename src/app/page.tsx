@@ -1,7 +1,9 @@
 import AboutUs from "@/components/landing/About";
+import BlogSection from "@/components/landing/Blog";
 import HeroSection from "@/components/landing/Hero";
 import IndustriesSection from "@/components/landing/Industries";
 import ServicesSection from "@/components/landing/Services";
+import TestimonialsSection from "@/components/landing/Testimonials";
 import WhyChooseUsSection from "@/components/landing/Why";
 import Navbar from "@/components/Navbar";
 export default function Home() {
@@ -14,6 +16,8 @@ export default function Home() {
         <ServicesSection />
         <IndustriesSection/>
         <WhyChooseUsSection />
+        <TestimonialsSection />
+        <BlogSection />
       </main>
     </div>
   );
