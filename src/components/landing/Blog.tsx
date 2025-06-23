@@ -141,10 +141,12 @@ const BlogSection = () => {
                   
                   {/* Latest Blog Header */}
                   <div className="mb-8">
-                    <div className="flex items-center gap-4 mb-6">
-                      <h2 className="text-4xl md:text-5xl font-bold text-gray-900">Latest Blog</h2>
-                      <div className="w-16 h-1 bg-gradient-to-r from-[#2674D3] to-[#2861B3] rounded-full"></div>
-                    </div>
+                    <div className="flex items-start gap-4 pt-2 pb-8">
+          <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
+          <h3 className="uppercase tracking-wider text-[#2674D3] font-bold text-[25px]">
+            Latest Blogs
+          </h3>
+        </div>
                     
                     <p className="text-gray-600 text-lg leading-relaxed">
                       In the tapestry of Atvantiq, our core values are the threads weaving excellence. Integrity is the backbone, 
