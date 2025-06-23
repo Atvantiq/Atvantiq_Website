@@ -127,7 +127,7 @@ export default function TestimonialsSection() {
                           <p className={`text-lg leading-relaxed transition-colors duration-500 ${
                             shouldShowDark ? 'text-white' : 'text-gray-700'
                           }`}>
-                            "{testimonial.text}"
+                            &quot;{testimonial.text}&quot;
                           </p>
                         </div>
 
@@ -178,7 +178,7 @@ export default function TestimonialsSection() {
                         ? 'bottom-6 transform translate-y-0' 
                         : 'top-6 transform translate-y-0'
                     }`}>
-                      "
+                      &quot;
                     </div>
 
                       {/* Arrow Icon Link - Positioned like in original */}
