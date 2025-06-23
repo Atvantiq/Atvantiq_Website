@@ -12,7 +12,7 @@ export default function TestimonialsSection() {
       text: "Our experience with Atvantiq, India has been excellent. The delivery has been prompt and the entire team right from the CEO to senior management team members have listened to the voice of the customer.",
       author: "Gurpreet Singh",
       position: "Director of Appilo",
-      avatar: "/profile/profile1.png",
+      avatar: "/profile/profile3.png",
       rating: 5,
       featured: false
     },
@@ -155,8 +155,8 @@ export default function TestimonialsSection() {
                             <Image
                               src={testimonial.avatar}
                               alt={testimonial.author}
-                              width={60}
-                              height={60}
+                              width={70}
+                              height={70}
                               className="rounded-full border-4 border-white/20"
                             />
                           </div>
