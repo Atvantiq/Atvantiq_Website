@@ -12,7 +12,7 @@ export default function TestimonialsSection() {
       text: "Our experience with Atvantiq, India has been excellent. The delivery has been prompt and the entire team right from the CEO to senior management team members have listened to the voice of the customer.",
       author: "Gurpreet Singh",
       position: "Director of Appilo",
-      avatar: "/api/placeholder/60/60",
+      avatar: "/profile/profile1.png",
       rating: 5,
       featured: false
     },
@@ -21,7 +21,7 @@ export default function TestimonialsSection() {
       text: "Atvantiq Solutions' timely advice and support to smoothly manage our entire telecom installations and get optimum performance was commendable. Atvantiq exceeded our expectations.",
       author: "Vishal Verma",
       position: "Director of Appilo", 
-      avatar: "/api/placeholder/60/60",
+      avatar: "/profile/profile.png",
       rating: 5,
       featured: true
     },
@@ -30,7 +30,7 @@ export default function TestimonialsSection() {
       text: "I was looking for an IT development partner that has sound knowledge and experience with developing applications. Atvantiq Solutions delivered the project on-time and with almost zero bugs.",
       author: "Manjeet Singh",
       position: "Director of Appilo",
-      avatar: "/api/placeholder/60/60", 
+      avatar: "/profile/profile2.png", 
       rating: 5,
       featured: false
     },
@@ -39,10 +39,10 @@ export default function TestimonialsSection() {
       text: "Atvantiq Solutions' timely advice and support to smoothly manage our entire telecom installations and get optimum performance was commendable. Atvantiq exceeded our expectations.",
       author: "Sarah Chen",
       position: "Director of Appilo",
-      avatar: "/api/placeholder/60/60",
+      avatar: "/profile/profile1.png",
       rating: 5, 
       featured: false
-    }
+    },
   ];
 
   const nextSlide = () => {
@@ -79,7 +79,7 @@ export default function TestimonialsSection() {
           {/* Testimonials Carousel */}
           <div className="relative">
             <div className="flex gap-6 transition-transform duration-500 ease-in-out" 
-                 style={{ transform: `translateX(-${currentSlide * (100 / 3)}%)` }}>
+                 style={{ transform: `translateX(-${currentSlide * (100 / 10)}%)` }}>
               {testimonials.map((testimonial) => {
                 const isHovered = hoveredCard === testimonial.id;
                 const shouldShowDark = isHovered;
@@ -91,7 +91,7 @@ export default function TestimonialsSection() {
                     onMouseEnter={() => setHoveredCard(testimonial.id)}
                     onMouseLeave={() => setHoveredCard(null)}
                   >
-                    <div className="relative min-h-[420px]">
+                    <div className="relative min-h-[520px]">
                       {/* Background Layer */}
                       <div className={`absolute inset-0 transition-all duration-300 ${
                         shouldShowDark ? 'opacity-100' : 'opacity-100'

@@ -3,7 +3,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const BlogSection = () => {
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [isAtTop, setIsAtTop] = useState(true);
   const [isAtBottom, setIsAtBottom] = useState(false);
 
@@ -12,7 +13,7 @@ const BlogSection = () => {
       id: 1,
       title: "How AI is enhancing customer experience in retail",
       description: "AI is enhancing retail customer experience by leveraging data analytics and machine learning to offer personalized recommendations and seamless shopping journeys.",
-      image: "/blog/ai-retail.jpg",
+      image: "/blog/retail.png",
       author: {
         name: "Smith",
         avatar: "/avatars/smith.jpg"
@@ -25,7 +26,7 @@ const BlogSection = () => {
       id: 2,
       title: "How our AI services can transform your business",
       description: "Paraphrasing features are prevalent in AI tools, allowing users to alter text effectively. Merlin and Quillbot are key platforms offering advanced paraphrasing options.",
-      image: "/blog/ai-business.jpg",
+      image: "/blog/business.jpg",
       author: {
         name: "Smith",
         avatar: "/avatars/smith.jpg"
@@ -36,22 +37,9 @@ const BlogSection = () => {
     },
     {
       id: 3,
-      title: "Top programming languages for AI development",
-      description: "Rewriting text has become easier with paraphrasing tools found on most AI platforms. Both Merlin and Quillbot deliver comprehensive text transformation capabilities.",
-      image: "/blog/programming-ai.jpg",
-      author: {
-        name: "Johnson",
-        avatar: "/avatars/johnson.jpg"
-      },
-      date: "15th Jul '24",
-      category: "DEVELOPMENT",
-      categoryColor: "bg-[#1A82E8]"
-    },
-    {
-      id: 4,
       title: "The Future of Machine Learning in Healthcare",
       description: "Exploring how machine learning algorithms are revolutionizing medical diagnosis, treatment planning, and patient care in modern healthcare systems.",
-      image: "/blog/ml-healthcare.jpg",
+      image: "/blog/healthcare.jpg",
       author: {
         name: "Williams",
         avatar: "/avatars/williams.jpg"
@@ -61,10 +49,10 @@ const BlogSection = () => {
       categoryColor: "bg-[#2861B3]"
     },
     {
-      id: 5,
+      id: 4,
       title: "Cybersecurity in the Age of AI",
       description: "Understanding the dual role of AI in cybersecurity - both as a powerful defense mechanism and a potential vector for sophisticated cyber attacks.",
-      image: "/blog/ai-cybersecurity.jpg",
+      image: "/blog/cyber.jpg",
       author: {
         name: "Davis",
         avatar: "/avatars/davis.jpg"
@@ -74,10 +62,10 @@ const BlogSection = () => {
       categoryColor: "bg-[#2674D3]"
     },
     {
-      id: 6,
+      id: 5,
       title: "Cloud Computing Trends for 2025",
       description: "Analyzing the latest trends in cloud computing, including serverless architecture, edge computing, and multi-cloud strategies for modern enterprises.",
-      image: "/blog/cloud-trends.jpg",
+      image: "/blog/cloud.jpg",
       author: {
         name: "Brown",
         avatar: "/avatars/brown.jpg"
@@ -87,6 +75,8 @@ const BlogSection = () => {
       categoryColor: "bg-[#1A82E8]"
     }
   ];
+
+  
 
   // Handle scroll behavior
   useEffect(() => {
@@ -137,7 +127,7 @@ const BlogSection = () => {
         }
       `}</style>
       
-      <section className="bg-[#fff0d9]">
+      <section ref={sectionRef} className="bg-white min-h-screen">
         <div 
           ref={scrollContainerRef}
           className="h-screen overflow-y-auto no-scrollbar"
@@ -151,12 +141,10 @@ const BlogSection = () => {
                   
                   {/* Latest Blog Header */}
                   <div className="mb-8">
-                   <div className="flex items-start gap-4 pt-2 pb-8">
-              <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
-              <h3 className="uppercase tracking-wider text-[#2674D3] font-bold text-[25px]">
-                Latest Blogs
-              </h3>
-            </div>
+                    <div className="flex items-center gap-4 mb-6">
+                      <h2 className="text-4xl md:text-5xl font-bold text-gray-900">Latest Blog</h2>
+                      <div className="w-16 h-1 bg-gradient-to-r from-[#2674D3] to-[#2861B3] rounded-full"></div>
+                    </div>
                     
                     <p className="text-gray-600 text-lg leading-relaxed">
                       In the tapestry of Atvantiq, our core values are the threads weaving excellence. Integrity is the backbone, 
@@ -171,8 +159,7 @@ const BlogSection = () => {
                       More Blogs
                     </button>
                   </div>
-
-
+                 
                 </div>
               </div>
 
@@ -181,7 +168,7 @@ const BlogSection = () => {
                 <div className="space-y-6 py-8">
                   {blogPosts.map((post) => (
                     <article key={post.id}>
-                      <div className="relative flex flex-col md:flex-row bg-[#fffcf8] rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border border-gray-100">
+                      <div className="relative flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border border-gray-100">
                         
                         {/* Blog Image and Category Badge */}
                         <div className="relative w-full md:w-64 h-48 md:h-auto flex-shrink-0">
