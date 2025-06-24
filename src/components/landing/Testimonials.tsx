@@ -79,7 +79,7 @@ export default function TestimonialsSection() {
           {/* Testimonials Carousel */}
           <div className="relative">
             <div className="flex gap-6 transition-transform duration-500 ease-in-out" 
-                 style={{ transform: `translateX(-${currentSlide * (100 / 10)}%)` }}>
+                 style={{ transform: `translateX(-${currentSlide * (100 / 50)}%)` }}>
               {testimonials.map((testimonial) => {
                 const isHovered = hoveredCard === testimonial.id;
                 const shouldShowDark = isHovered;
