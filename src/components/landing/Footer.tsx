@@ -64,9 +64,9 @@ export default function FooterSection() {
 
             {/* Let's Get In Touch */}
             <div>
-              <h3 className="text-[#2674D3] text-xl font-bold mb-6">Let's Get In Touch</h3>
+              <h3 className="text-[#2674D3] text-xl font-bold mb-6">Let&#39;s Get In Touch</h3>
               <p className="text-white text-lg font-semibold mb-8 leading-relaxed">
-                Say Hi! And we won't disappoint you.... Promise!
+                Say Hi! And we won&#39;t disappoint you.... Promise!
               </p>
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-[#2674D3] rounded-full flex items-center justify-center">
