@@ -170,7 +170,7 @@ const BlogSection = () => {
                 <div className="space-y-6 py-8">
                   {blogPosts.map((post) => (
                     <article key={post.id}>
-                      <div className="relative flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border border-gray-100">
+                      <div className="relative flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl border-gray-100">
                         
                         {/* Blog Image and Category Badge */}
                         <div className="relative w-full md:w-64 h-48 md:h-auto flex-shrink-0">

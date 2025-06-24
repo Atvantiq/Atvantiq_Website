@@ -33,15 +33,15 @@ export default function WhyChooseUsSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-purple-50 to-white py-16 px-4 md:px-8 relative overflow-hidden">
+    <section className="bg-gradient-to-br from-purple-50 to-white  relative overflow-hidden">
       {/* Background Geometric Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none ">
         <div className="absolute top-20 left-10 w-32 h-32 border-2 border-purple-200 rounded-full opacity-30"></div>
         <div className="absolute bottom-20 right-20 w-24 h-24 border-2 border-purple-200 rounded-full opacity-20"></div>
         <div className="absolute top-1/2 left-20 w-16 h-16 bg-purple-100 rounded-full opacity-40"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 py-16 px-4 md:px-8">
         {/* Main Heading */}
         <div className="flex items-start gap-4 pt-2 mb-15">
           <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
@@ -159,6 +159,38 @@ export default function WhyChooseUsSection() {
           </div>
         </div>
       </div>
-    </section>
+    <div className="mt-16">
+        <div className="bg-black relative overflow-hidden h-28">
+          {/* Gradient Strip */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2674D3] via-[#1A82E8] to-[#2861B3] h-28 top-1/2 transform -translate-y-1/2"></div>
+          
+          {/* Large Blue Circle Overlay */}
+          <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 w-120 h-100 bg-gradient-to-l from-[#2861B3] via-[#5b8ed5] to-[#b3c7e3] rounded-full opacity-90"></div>
+          
+          <div className="max-w-7xl mx-auto h-full relative z-10">
+            <div className="flex items-center justify-between h-full">
+              
+              {/* Left Side - Content */}
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
+                  Join Our Team
+                </h2>
+              </div>
+
+              {/* Right Side - CTA Button */}
+              <div  className="flex flex-row items-center  space-x-8">
+                
+                <p className="text-lg md:text-xl text-white">
+                  Be an Atvantiq member and Accelerate your Growth
+                </p>
+                <button className="border-2 border-white text-white hover:bg-white hover:text-black font-medium px-4 py-2 rounded-lg transition-all duration-300 text-md justify-self-end justify-end">
+                  View All Current Opening
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
   );
 }
