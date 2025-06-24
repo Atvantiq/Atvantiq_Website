@@ -167,7 +167,7 @@ export default function WhyChooseUsSection() {
           {/* Large Blue Circle Overlay */}
           <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 w-120 h-100 bg-gradient-to-l from-[#2861B3] via-[#5b8ed5] to-[#b3c7e3] rounded-full opacity-90"></div>
           
-          <div className="max-w-7xl mx-auto h-full relative z-10">
+          <div className="max-w-7xl mx-27 h-full relative z-10">
             <div className="flex items-center justify-between h-full">
               
               {/* Left Side - Content */}
