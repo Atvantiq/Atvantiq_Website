@@ -118,26 +118,29 @@ export default function WhyChooseUsSection() {
 
             {/* Main Content */}
             <div className="space-y-4 pb-1">
-              <h3 className="text-xl md:text-2xl font-medium text-gray-900 leading-tight">
-                {activeTab === "Mission" &&
-                  "Deliver excellence in AI, Cloud, Cybersecurity, Telecom, Solar, and Talent Services."}
-                {activeTab === "Vision" &&
-                  "Be a global leader in next-generation technology and infrastructure services."}
-                {activeTab === "Values" &&
-                  "Build lasting partnerships through trust, transparency, and performance."}
-              </h3>
+              <div className="min-h-[160px] space-y-4">
+  <h3 className="text-xl md:text-2xl font-medium text-gray-900 leading-tight">
+    {activeTab === "Mission" &&
+      "Deliver excellence in AI, Cloud, Cybersecurity, Telecom, Solar, and Talent Services."}
+    {activeTab === "Vision" &&
+      "Be a global leader in next-generation technology and infrastructure services."}
+    {activeTab === "Values" &&
+      "Build lasting partnerships through trust, transparency, and performance."}
+  </h3>
 
-              <p className="text-gray-600 text-lg leading-relaxed">
-                {activeTab === "Mission" &&
-                  "To empower businesses through smart, secure, and sustainable technology solutions that drive growth, innovation, and operational efficiency. "}
-                {activeTab === "Vision" &&
-                  "To be the most trusted partner for global enterprises in their journey toward digital transformation, sustainability, and excellence. "}
-                {activeTab === "Values" &&
-                  "Every solution that we build is aligned with the unique needs and goals of our clients. "}
-              </p>
+  <p className="text-gray-600 text-lg leading-relaxed">
+    {activeTab === "Mission" &&
+      "To empower businesses through smart, secure, and sustainable technology solutions that drive growth, and operational efficiency. "}
+    {activeTab === "Vision" &&
+      "To be the most trusted partner for global enterprises in their journey toward digital transformation, sustainability, and excellence. "}
+    {activeTab === "Values" &&
+      "Every solution that we build is aligned with the unique needs and goals of our clients. "}
+  </p>
+</div>
+
 
               {/* Features/Values Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 ">
                 {(activeTab === "Mission"
                   ? mission
                   : activeTab === "Vision"

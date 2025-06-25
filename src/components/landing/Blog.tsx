@@ -7,6 +7,7 @@ const BlogSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isAtTop, setIsAtTop] = useState(true);
   const [isAtBottom, setIsAtBottom] = useState(false);
+  const [isHoveringSection, setIsHoveringSection] = useState(false);
 
   const blogPosts = [
     {
@@ -76,8 +77,6 @@ const BlogSection = () => {
     }
   ];
 
-  
-
   // Handle scroll behavior
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
@@ -96,15 +95,35 @@ const BlogSection = () => {
     return () => scrollContainer.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent page scroll when not at boundaries
+  // Handle mouse enter/leave for the section
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const handleMouseEnter = () => setIsHoveringSection(true);
+    const handleMouseLeave = () => setIsHoveringSection(false);
+
+    section.addEventListener('mouseenter', handleMouseEnter);
+    section.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      section.removeEventListener('mouseenter', handleMouseEnter);
+      section.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
+  // Prevent page scroll ONLY when hovering over the blog section
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
+      // Only prevent default if we're hovering over the blog section
+      if (!isHoveringSection) return;
+      
       const scrollContainer = scrollContainerRef.current;
       if (!scrollContainer) return;
 
       const deltaY = e.deltaY;
       
-      // Prevent page scroll if we're not at boundaries
+      // Prevent page scroll if we're not at boundaries and we're in the blog section
       if ((deltaY < 0 && !isAtTop) || (deltaY > 0 && !isAtBottom)) {
         e.preventDefault();
         scrollContainer.scrollTop += deltaY;
@@ -113,7 +132,7 @@ const BlogSection = () => {
 
     document.addEventListener('wheel', handleWheel, { passive: false });
     return () => document.removeEventListener('wheel', handleWheel);
-  }, [isAtTop, isAtBottom]);
+  }, [isAtTop, isAtBottom, isHoveringSection]);
 
   return (
     <>

@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const services = [
@@ -91,9 +91,39 @@ const services = [
 
 export default function ServicesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slidesToShow, setSlidesToShow] = useState(4);
+
+  // Responsive slides calculation
+  useEffect(() => {
+    const updateSlidesToShow = () => {
+      const width = window.innerWidth;
+      if (width < 768) setSlidesToShow(2);
+      else if (width < 1024) setSlidesToShow(3);
+      else setSlidesToShow(4);
+    };
+
+    updateSlidesToShow();
+    window.addEventListener('resize', updateSlidesToShow);
+    return () => window.removeEventListener('resize', updateSlidesToShow);
+  }, []);
+
+  const maxSlide = Math.max(0, services.length - slidesToShow);
+
+  const nextSlide = () => {
+    setCurrentSlide(prev => Math.min(prev + 1, maxSlide));
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(prev => Math.max(prev - 1, 0));
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(Math.min(index, maxSlide));
+  };
 
   return (
-    <section className="bg-[#fff0d9] py-8 px-4 md:px-8 ">
+    <section className="bg-[#e5e4e2] py-8 px-4 md:px-8 ">
       <div className="max-w-7xl mx-auto h-full">
         <div className="flex items-start gap-4 pt-2 pb-8">
           <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
@@ -102,144 +132,223 @@ export default function ServicesSection() {
           </h3>
         </div>
 
-        {/* Horizontal Masonry Layout */}
-        <div className="flex gap-4 h-[600px] overflow-hidden">
-          {services.map((service, index) => {
-            const isExpanded = hoveredIndex === index;
-            const isCompressed = hoveredIndex !== null && hoveredIndex !== index;
-            
-            return (
-              <div
-                key={index}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className={`relative rounded-2xl cursor-pointer group transition-all duration-500 ease-in-out overflow-hidden ${
-                  isExpanded ? 'flex-[3]' : isCompressed ? 'flex-[0.5]' : 'flex-1'
-                }`}
-                style={{
-                  minWidth: isCompressed ? '120px' : isExpanded ? '400px' : '200px',
-                  height: '100%'
-                }}
+        {/* Desktop/Tablet Horizontal Masonry Layout with Slider */}
+        <div className="hidden md:block relative">
+          {/* Navigation Buttons */}
+          {maxSlide > 0 && (
+            <>
+              <button
+                onClick={prevSlide}
+                disabled={currentSlide === 0}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110"
               >
-                {/* Background Image */}
-                <div className="absolute inset-0 w-full h-full overflow-hidden rounded-2xl">
-                  <Image
-                    src={service.icon}
-                    alt={service.title}
-                    fill
-                    className={`object-cover transition-all duration-700 ${
-                      isExpanded ? 'scale-110 brightness-50' : 'scale-100'
-                    }`}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    priority={index < 4}
-                  />
-                </div>
+                <svg className="w-6 h-6 text-[#2674D3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
 
-                {/* Gradient Overlay */}
-                <div className={`absolute inset-0 rounded-2xl transition-all duration-500 ${
-                  isExpanded 
-                    ? 'bg-gradient-to-b from-black/50 to-black/90' 
-                    : 'bg-gradient-to-b from-black/20 to-black/60'
-                }`} />
+              <button
+                onClick={nextSlide}
+                disabled={currentSlide === maxSlide}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110"
+              >
+                <svg className="w-6 h-6 text-[#2674D3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </>
+          )}
 
-                {/* Content Container */}
-                <div className="relative z-20 p-4 h-full flex flex-col">
-                  {/* Title - Always Visible */}
-                  <div className={`transition-all duration-500 ${isCompressed ? 'writing-mode-vertical text-orientation-mixed' : ''}`}>
-                    <h3 className={`text-white font-semibold transition-all duration-300 ${
+          {/* Slider Container */}
+          <div 
+            className={`transition-all duration-500 ease-in-out ${hoveredIndex !== null ? 'overflow-visible' : 'overflow-hidden'}`}
+            style={{ 
+              marginLeft: maxSlide > 0 ? '3rem' : '0', 
+              marginRight: maxSlide > 0 ? '3rem' : '0'
+            }}
+          >
+            <div 
+              className="flex gap-4 h-[500px] transition-transform duration-500 ease-in-out"
+              style={{ 
+                transform: `translateX(-${currentSlide * (100 / slidesToShow)}%)`,
+                width: `${(services.length * 100) / slidesToShow}%`
+              }}
+            >
+              {services.map((service, index) => {
+                const isExpanded = hoveredIndex === index;
+                const isCompressed = hoveredIndex !== null && hoveredIndex !== index;
+                const isRightmostVisible = (index - currentSlide) === (slidesToShow - 1);
+                const adjustedExpansion = isExpanded && isRightmostVisible ? 'flex-[1]' : isExpanded ? 'flex-[1]' : isCompressed ? 'flex-[0.5]' : 'flex-1';
+                const adjustedMinWidth = isExpanded && isRightmostVisible ? '320px' : isCompressed ? '120px' : isExpanded ? '400px' : '200px';
+                
+                return (
+                  <div
+                    key={index}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    className={`relative rounded-2xl cursor-pointer group transition-all duration-500 ease-in-out overflow-hidden ${adjustedExpansion}`}
+                    style={{
+                      minWidth: adjustedMinWidth,
+                      height: '100%',
+                      width: `${100 / slidesToShow}%`,
+                      // Ensure rightmost expanded service has enough space
+                      zIndex: isExpanded ? 10 : 1
+                    }}
+                  >
+                    {/* Background Image */}
+                    <div className="absolute inset-0 w-full h-full overflow-hidden rounded-2xl">
+                      <Image
+                        src={service.icon}
+                        alt={service.title}
+                        fill
+                        className={`object-cover transition-all duration-700 ${
+                          isExpanded ? 'scale-110 brightness-50' : 'scale-100'
+                        }`}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        priority={index < 4}
+                      />
+                    </div>
+
+                    {/* Gradient Overlay */}
+                    <div className={`absolute inset-0 rounded-2xl transition-all duration-500 ${
                       isExpanded 
-                        ? 'text-2xl mb-6' 
-                        : isCompressed 
-                          ? 'text-md transform ' 
-                          : 'text-xl mb-4'
-                    }`}>
-                      {service.title}
-                    </h3>
-                  </div>
+                        ? 'bg-gradient-to-b from-black/50 to-black/90' 
+                        : 'bg-gradient-to-b from-black/20 to-black/60'
+                    }`} />
 
-                  {/* Expanded Content */}
-                  {isExpanded && (
-                    <div className="flex-grow flex flex-col animate-in fade-in duration-500">
-                      {/* Description */}
-                      <p className="text-white/90 text-sm leading-relaxed mb-12">
-                        {service.description}
-                      </p>
-                      
-                      {/* Sub-services Grid */}
-                      <div className="flex-grow mb-4">
-                        <h4 className="text-white font-semibold text-xl mb-2">Key Services:</h4>
-                        <div className="grid grid-cols-2 gap-2">
-                          {service.subServices.map((subService, i) => (
-                            <div
-                              key={i}
-                              className=" text-white text-sm transition-all duration-300 font-semibold hover:scale-105 flex items-start  min-h-[60px]"
-                            >
-                              <span className="">{subService}</span>
+                    {/* Content Container */}
+                    <div className="relative z-20 p-4 h-full flex flex-col">
+                      {/* Title - Always Visible */}
+                      {(() => {
+                        const isCompressedLocal = hoveredIndex !== null && hoveredIndex !== index;
+                        return (
+                          <div className={`transition-all duration-500 ${isCompressedLocal ? 'writing-mode-vertical text-orientation-mixed' : ''}`}>
+                            <h3 className={`text-white font-semibold transition-all duration-300 ${
+                              isExpanded 
+                                ? 'text-2xl mb-6' 
+                                : isCompressedLocal 
+                                  ? 'text-md transform ' 
+                                  : 'text-xl mb-4'
+                            }`}>
+                              {service.title}
+                            </h3>
+                          </div>
+                        );
+                      })()}
+
+                      {/* Expanded Content */}
+                      {isExpanded && (
+                        <div className="flex-grow flex flex-col animate-in fade-in duration-500">
+                          {/* Description */}
+                          <p className="text-white/90 text-sm leading-relaxed mb-12">
+                            {service.description}
+                          </p>
+                          
+                          {/* Sub-services Grid */}
+                          <div className="flex-grow mb-4">
+                            <h4 className="text-white font-semibold text-xl mb-2">Key Services:</h4>
+                            <div className="grid grid-cols-2 gap-4">
+                              {service.subServices.map((subService, i) => (
+                                <div
+                                  key={i}
+                                  className=" text-white text-sm transition-all duration-300 font-semibold hover:scale-105 flex items-start min-h-[40px]"
+                                >
+                                  <span className="">{subService}</span>
+                                </div>
+                              ))}
                             </div>
-                          ))}
-                        </div>
-                      </div>
+                          </div>
 
-                      {/* Action Buttons */}
-                      <div className="flex gap-4 mt-auto">
-                        <div className="flex items-center text-white group-hover:gap-3 transition-all duration-300">
-                          <span className=" opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
-                            Explore More
-                          </span>
-                          <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
-                            <span className="text-xs">→</span>
+                          {/* Action Buttons */}
+                          <div className="flex gap-4 mt-auto">
+                            <div className="flex items-center text-white group-hover:gap-3 transition-all duration-300">
+                              <span className=" opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+                                Explore More
+                              </span>
+                              <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
+                                <span className="text-xs">→</span>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  )}
+                      )}
 
-                  {/* Compressed Content - Just Icon */}
-                  {isCompressed && (
-                    <div className="flex-grow flex items-end justify-center">
-                      <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center">
-                        <span className="text-white text-xs">→</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Default State Content */}
-                  {!isExpanded && !isCompressed && (
-                    <div className="mt-auto">
-                      <div className="flex items-center text-white text-sm font-medium">
-                        <div className="flex items-center group-hover:gap-3 transition-all duration-300">
-                          <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
-                            <span className="text-xs">→</span>
+                      {/* Compressed Content - Just Icon */}
+                      {isCompressed && (
+                        <div className="flex-grow flex items-end justify-center">
+                          <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center">
+                            <span className="text-white text-xs">→</span>
                           </div>
-                          <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
-                            Explore More
-                          </span>
                         </div>
-                      </div>
+                      )}
+
+                      {/* Default State Content */}
+                      {(() => {
+                        // Define isCompressed in this scope for conditional rendering
+                        const isCompressed = hoveredIndex !== null && hoveredIndex !== index;
+                        return !isExpanded && !isCompressed;
+                      })() && (
+                        <div className="mt-auto">
+                          <div className="flex items-center text-white text-sm font-medium">
+                            <div className="flex items-center group-hover:gap-3 transition-all duration-300">
+                              <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
+                                <span className="text-xs">→</span>
+                              </div>
+                              <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+                                Explore More
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
 
-                {/* Enhanced Border Effects */}
-                <div className="absolute inset-0 pointer-events-none rounded-2xl">
-                  <div className={`absolute left-0 top-0 transition-all duration-500 ${
-                    isExpanded ? "opacity-100 w-2" : "opacity-0 w-1 group-hover:opacity-100"
-                  } rounded-tl-2xl rounded-bl-2xl`} />
-                  
-                  <div className={`absolute bottom-0 left-0  transition-all duration-500 ${
-                    isExpanded ? "opacity-100 h-2" : "opacity-0 h-1 group-hover:opacity-100"
-                  } rounded-bl-2xl rounded-br-2xl`} />
-                </div>
+                    {/* Enhanced Border Effects */}
+                    <div className="absolute inset-0 pointer-events-none rounded-2xl">
+                      {(() => {
+                        const isExpandedLocal = hoveredIndex === index;
+                        return (
+                          <>
+                            <div className={`absolute left-0 top-0 transition-all duration-500 ${
+                              isExpandedLocal ? "opacity-100 w-2" : "opacity-0 w-1 group-hover:opacity-100"
+                            } rounded-tl-2xl rounded-bl-2xl`} />
+                            
+                            <div className={`absolute bottom-0 left-0  transition-all duration-500 ${
+                              isExpandedLocal ? "opacity-100 h-2" : "opacity-0 h-1 group-hover:opacity-100"
+                            } rounded-bl-2xl rounded-br-2xl`} />
+                          </>
+                        );
+                      })()}
+                    </div>
 
-                {/* Glow Effect */}
-                {isExpanded && (
-                  <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute -inset-2 bg-gradient-to-br from-[#2674D3]/30 via-[#1A82E8]/20 to-[#2861B3]/30 blur-xl rounded-3xl opacity-75" />
+                    {/* Glow Effect */}
+                    {isExpanded && (
+                      <div className="absolute inset-0 pointer-events-none">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-[#2674D3]/30 via-[#1A82E8]/20 to-[#2861B3]/30 blur-xl rounded-3xl opacity-75" />
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Slide Indicators */}
+          {maxSlide > 0 && (
+            <div className="flex justify-center mt-6 gap-2">
+              {Array.from({ length: maxSlide + 1 }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    currentSlide === index 
+                      ? 'bg-[#2674D3] scale-125' 
+                      : 'bg-gray-400 hover:bg-gray-600'
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Mobile Layout */}
