@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 
 const services = [
@@ -93,6 +93,9 @@ export default function ServicesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(4);
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
+  const autoScrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   // Responsive slides calculation
   useEffect(() => {
@@ -110,9 +113,15 @@ export default function ServicesSection() {
 
   const maxSlide = Math.max(0, services.length - slidesToShow);
 
-  const nextSlide = () => {
-    setCurrentSlide(prev => Math.min(prev + 1, maxSlide));
-  };
+  // removed misplaced import
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide(prev => {
+      // If at the end, go back to start
+      if (prev >= maxSlide) return 0;
+      return prev + 1;
+    });
+  }, [maxSlide]);
 
   const prevSlide = () => {
     setCurrentSlide(prev => Math.max(prev - 1, 0));
@@ -122,8 +131,69 @@ export default function ServicesSection() {
     setCurrentSlide(Math.min(index, maxSlide));
   };
 
+  // Auto-scroll functionality
+  useEffect(() => {
+    const startAutoScroll = () => {
+      if (autoScrollIntervalRef.current) {
+        clearInterval(autoScrollIntervalRef.current);
+      }
+      
+      autoScrollIntervalRef.current = setInterval(() => {
+        if (hoveredIndex === null && !isAutoScrollPaused && maxSlide > 0) {
+          nextSlide();
+        }
+      }, 2000); // Auto-scroll every 2 seconds
+    };
+
+    const stopAutoScroll = () => {
+      if (autoScrollIntervalRef.current) {
+        clearInterval(autoScrollIntervalRef.current);
+        autoScrollIntervalRef.current = null;
+      }
+    };
+
+    // Start auto-scroll if there are slides to show
+    if (maxSlide > 0) {
+      startAutoScroll();
+    }
+
+    return () => stopAutoScroll();
+  }, [hoveredIndex, isAutoScrollPaused, maxSlide, nextSlide]);
+
+  // Handle section hover to pause auto-scroll
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const handleMouseEnter = () => {
+      // Section is hovered
+    };
+
+    const handleMouseLeave = () => {
+      setHoveredIndex(null); // Reset hovered service when leaving section
+    };
+    section.addEventListener('mouseenter', handleMouseEnter);
+    section.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      section.removeEventListener('mouseenter', handleMouseEnter);
+      section.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
+  // Pause auto-scroll on manual interaction
+  const handleManualNavigation = (action: () => void) => {
+    setIsAutoScrollPaused(true);
+    action();
+    
+    // Resume auto-scroll after 5 seconds of no interaction
+    setTimeout(() => {
+      setIsAutoScrollPaused(false);
+    }, 5000);
+  };
+
   return (
-    <section className="bg-[#e5e4e2] py-8 px-4 md:px-8 ">
+    <section ref={sectionRef} className="bg-[#e5e4e2] py-8 px-4 md:px-8 ">
       <div className="max-w-7xl mx-auto h-full">
         <div className="flex items-start gap-4 pt-2 pb-8">
           <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
@@ -138,7 +208,7 @@ export default function ServicesSection() {
           {maxSlide > 0 && (
             <>
               <button
-                onClick={prevSlide}
+                onClick={() => handleManualNavigation(prevSlide)}
                 disabled={currentSlide === 0}
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110"
               >
@@ -148,7 +218,7 @@ export default function ServicesSection() {
               </button>
 
               <button
-                onClick={nextSlide}
+                onClick={() => handleManualNavigation(nextSlide)}
                 disabled={currentSlide === maxSlide}
                 className="absolute right-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110"
               >
@@ -158,6 +228,8 @@ export default function ServicesSection() {
               </button>
             </>
           )}
+
+          
 
           {/* Slider Container */}
           <div 
@@ -170,7 +242,7 @@ export default function ServicesSection() {
             <div 
               className="flex gap-4 h-[500px] transition-transform duration-500 ease-in-out"
               style={{ 
-                transform: `translateX(-${currentSlide * (100 / slidesToShow)}%)`,
+                transform: `translateX(-${currentSlide * (60 / slidesToShow)}%)`,
                 width: `${(services.length * 100) / slidesToShow}%`
               }}
             >
@@ -191,7 +263,6 @@ export default function ServicesSection() {
                       minWidth: adjustedMinWidth,
                       height: '100%',
                       width: `${100 / slidesToShow}%`,
-                      // Ensure rightmost expanded service has enough space
                       zIndex: isExpanded ? 10 : 1
                     }}
                   >
@@ -284,7 +355,6 @@ export default function ServicesSection() {
 
                       {/* Default State Content */}
                       {(() => {
-                        // Define isCompressed in this scope for conditional rendering
                         const isCompressed = hoveredIndex !== null && hoveredIndex !== index;
                         return !isExpanded && !isCompressed;
                       })() && (
@@ -339,7 +409,7 @@ export default function ServicesSection() {
               {Array.from({ length: maxSlide + 1 }, (_, index) => (
                 <button
                   key={index}
-                  onClick={() => goToSlide(index)}
+                  onClick={() => handleManualNavigation(() => goToSlide(index))}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     currentSlide === index 
                       ? 'bg-[#2674D3] scale-125' 

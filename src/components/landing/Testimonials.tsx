@@ -12,7 +12,6 @@ export default function TestimonialsSection() {
       id: 1,
       text: "Our experience with Atvantiq, India has been excellent. The delivery has been prompt and the entire team right from the CEO to senior management team members have listened to the voice of the customer.",
       author: "Gurpreet Singh",
-      position: "Director of Appilo",
       avatar: "/profile/profile3.png",
       rating: 5,
     },
@@ -20,7 +19,6 @@ export default function TestimonialsSection() {
       id: 2, 
       text: "Atvantiq Solutions' timely advice and support to smoothly manage our entire telecom installations and get optimum performance was commendable. Atvantiq exceeded our expectations.",
       author: "Vishal Verma",
-      position: "Director of Appilo", 
       avatar: "/profile/profile.png",
       rating: 5,
     },
@@ -28,7 +26,6 @@ export default function TestimonialsSection() {
       id: 3,
       text: "I was looking for an IT development partner that has sound knowledge and experience with developing applications. Atvantiq Solutions delivered the project on-time and with almost zero bugs.",
       author: "Manjeet Singh",
-      position: "Director of Appilo",
       avatar: "/profile/profile2.png", 
       rating: 5,
     },
@@ -36,17 +33,8 @@ export default function TestimonialsSection() {
       id: 4,
       text: "Atvantiq Solutions' timely advice and support to smoothly manage our entire telecom installations and get optimum performance was commendable. Atvantiq exceeded our expectations.",
       author: "Sarah Chen",
-      position: "Director of Appilo",
       avatar: "/profile/profile1.png",
       rating: 5, 
-    },
-    {
-      id: 1,
-      text: "Our experience with Atvantiq, India has been excellent. The delivery has been prompt and the entire team right from the CEO to senior management team members have listened to the voice of the customer.",
-      author: "Gurpreet Singh",
-      position: "Director of Appilo",
-      avatar: "/profile/profile3.png",
-      rating: 5,
     },
   ];
 
@@ -89,7 +77,7 @@ export default function TestimonialsSection() {
             className="flex transition-transform duration-500 ease-in-out"
             style={{
               width: `${(testimonials.length / visibleCards) * 100}%`,
-              transform: `translateX(-${(100 / testimonials.length) * currentSlide * visibleCards}%)`,
+              transform: `translateX(-${currentSlide * (100 / 5)}%)`,
             }}
           >
             {testimonials.map((testimonial) => {
