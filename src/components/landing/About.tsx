@@ -32,13 +32,13 @@ const stats = [
 ];
 
 const clientLogos = [
-  "/clients/canon 1.png",
-  "/clients/epson 1.png",
-  "/clients/hikvision 1.png",
-  "/clients/logitech 1.png",
   "/clients/nokia.png",
   "/clients/ceragon 1.png",
-  "/clients/tata 1.png",
+  "/clients/erricson.png",
+  "/clients/jio.png",
+  "/clients/hfcl.png",
+  "/clients/cisco 1.png",
+  "/clients/paloalto.png",
 ];
 
 const AboutUs = () => {

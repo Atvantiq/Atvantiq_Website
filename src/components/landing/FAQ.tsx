@@ -28,8 +28,37 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="bg-[#3b4246] py-16 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#3b4246] py-16 px-4 md:px-8 relative overflow-hidden">
+      <div className="absolute top-0 right-0 pointer-events-none z-10">
+        {/* Half Circle 1 - Larger */}
+        <div className="absolute top-24 -right-60 w-120 h-120 opacity-80">
+          <div className="relative w-full h-full">
+            {/* Half circle border */}
+            <div className="absolute inset-0 border-3 border-[#2674D3] rounded-full"></div>
+            
+            {/* Revolving dot */}
+            <div className="absolute inset-0 animate-spin-slow">
+              <div className="absolute top-0 left-1/2 w-3 h-3 bg-[#2674D3] rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Half Circle 2 - Smaller, overlapping */}
+        <div className="absolute -top-5 -right-60 w-120 h-120 opacity-70">
+          <div className="relative w-full h-full">
+            {/* Half circle border */}
+            <div className="absolute inset-0 border-3 border-[#2861B3] rounded-full">
+            </div>
+            
+            {/* Revolving dot */}
+            <div className="absolute inset-0 animate-reverse-spin">
+              <div className="absolute right-0 top-1/2 w-2.5 h-2.5 bg-[#2861B3] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className=" mb-12">
           <div className="flex items-start gap-4 pt-2 pb-8">
@@ -100,6 +129,34 @@ export default function FAQSection() {
         </div>
 
       </div>
+
+      <style jsx>{`
+        @keyframes spin-slow {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes reverse-spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(-360deg);
+          }
+        }
+
+        .animate-spin-slow {
+          animation: spin-slow 8s linear infinite;
+        }
+
+        .animate-reverse-spin {
+          animation: reverse-spin 6s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }
