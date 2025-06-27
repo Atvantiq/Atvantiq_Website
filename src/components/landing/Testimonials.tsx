@@ -77,7 +77,7 @@ export default function TestimonialsSection() {
             className="flex transition-transform duration-500 ease-in-out"
             style={{
               width: `${(testimonials.length / visibleCards) * 100}%`,
-              transform: `translateX(-${currentSlide * (100 / 5)}%)`,
+              transform: `translateX(-${currentSlide * (100 / 4)}%)`,
             }}
           >
             {testimonials.map((testimonial) => {

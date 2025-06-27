@@ -89,9 +89,9 @@ const services = [
   },
   {
     title: "Digital Marketing Services",
-    icon: "/service_cards/hr.png",
+    icon: "/service_cards/digital-marketing.jpg",
     description: "Atvantiq helps businesses build strong digital visibility and generate measurable results with data-driven digital marketing strategies. From SEO, PPC, and social media to email marketing and content creation, we offer tailored campaigns that boost brand awareness, drive high-quality leads, and improve ROI across channels.",
-    image: "/illustrations/backend.png",
+    image: "/illustrations/backend.jpg",
     subServices: [
       "• Search engine optimization ",
       "• Social media marketing",
@@ -403,7 +403,7 @@ export default function ServicesSection() {
 
         {/* Mobile Layout */}
         <div className="block md:hidden">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 gap-2">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -427,18 +427,18 @@ export default function ServicesSection() {
 
                 {/* Content */}
                 <div className="relative z-20 p-2 h-full flex flex-col">
-                  <h3 className="text-white text-md font-semibold mb-2">{service.title}</h3>
+                  <h3 className="text-white text-xl font-semibold mb-4">{service.title}</h3>
                   
                   <div className={`flex-grow transition-all duration-300 ${
                     hoveredIndex === index ? 'opacity-100' : 'opacity-0 max-h-0 overflow-hidden'
                   }`}>
-                    <p className="text-white/90 text-[11px] leading-relaxed mb-2">
+                    <p className="text-white/90 text-sm leading-relaxed mb-2">
                       {service.description}
                     </p>
                   </div>
 
                   <div className="mt-auto">
-                    <div className="flex items-center text-white text-[10px] font-normal">
+                    <div className="flex items-center text-white text-xs font-normal">
                       <div className="flex items-center gap-3 transition-all duration-300">
                         <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
                           <span className="text-xs">→</span>
