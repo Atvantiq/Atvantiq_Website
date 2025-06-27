@@ -32,7 +32,7 @@ const HeroSection = () => {
   const current = slides[index];
 
   return (
-    <section className="relative h-screen flex justify-end md:px-10 md:py-40 sm:px-8 sm:py-10 py-15 px-6 text-white overflow-hidden transition-all duration-1000">
+    <section className="relative h-screen flex justify-end md:px-10 md:py-40 sm:px-10 sm:py-25 pt-25 px-8 text-white overflow-hidden transition-all duration-1000">
       
       <div className="absolute right-0 top-0 h-full w-full bg-gradient-to-l from-[#1a1a1a] to-transparent z-10 pointer-events-none" />
       <Image
@@ -45,7 +45,7 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="relative z-20 text-right md:px-20 sm:px-8 max-w-4xl transition-all duration-1000">
+      <div className="relative z-20 text-right md:px-20 sm:px-8 pt-10 max-w-4xl transition-all duration-1000">
         <h2 className=" md:text-[40px] sm:text-[20px] text-[20px] font-semibold text-[#1A82E8]">
           {current.subheading}
         </h2>
@@ -62,13 +62,13 @@ const HeroSection = () => {
             className="inline-block text-white"
           />
         </h1>
-        <p className="pt-8 md:pt-15 text-xs md:text-[20px] font-medium text-white/90">
+        <p className="pt-15 md:pt-15 text-xs md:text-[20px] font-medium text-white/90">
           Atvantiq empowers businesses with intelligent, scalable technology<br />
           solutions—driving transformation and growth through AI, Cybersecurity,<br />
           Cloud, Telecom, Solar, and Talent Outsourcing.
         </p>
 
-        <div className="pt-10 md:pt-25 flex flex-col md:flex-row justify-end gap-2 md:gap-4">
+        <div className="pt-20 md:pt-25 flex flex-col md:flex-row justify-end gap-2 md:gap-4">
           <button className="transition-all duration-300 transform hover:-translate-y-1 hover:opacity-90 text-white px-4 py-2 rounded-xl font-medium text-xs md:text-sm border-2 border-white hover:bg-gradient-to-r from-[#2674D3] to-[#2861B3]">
             Explore Our Services
           </button>
