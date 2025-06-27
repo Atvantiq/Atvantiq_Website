@@ -168,7 +168,7 @@ export default function WhyChooseUsSection() {
     <div className="absolute inset-0 bg-gradient-to-r from-[#2674D3] via-[#1A82E8] to-[#2861B3] h-20 md:h-28 top-1/2 transform -translate-y-1/2"></div>
     
     {/* Large Blue Circle Overlay */}
-    <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 w-28 h-30 sm:w-50 smh-50 md:w-120 md:h-100 bg-gradient-to-l from-[#2861B3] via-[#5b8ed5] to-[#b3c7e3] rounded-full opacity-90"></div>
+    <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 w-28 h-30 sm:w-50 sm:h-50 md:w-120 md:h-100 bg-gradient-to-l from-[#2861B3] via-[#5b8ed5] to-[#b3c7e3] rounded-full opacity-90"></div>
     
     <div className="max-w-7xl mx-4 sm:mx-6 md:mx-8 lg:mx-27 h-full relative z-10">
       <div className="flex items-center justify-between h-full">
