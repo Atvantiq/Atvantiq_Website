@@ -42,10 +42,10 @@ const services = [
     image: "/illustrations/backend.png",
     subServices: [
       "• Custom web development",
-      "• Android & iOS mobile apps development",
+      "• Enterprise app development",
       "• Cross-platform solutions using Flutter & React Native",
       "• E-commerce platforms development",
-      "• Enterprise app development"
+      "• Android & iOS mobile apps development",
     ],
   },
   {
@@ -85,6 +85,19 @@ const services = [
       "• Technical recruiters & HR consulting",
       "• Software base onboarding process",
       "• Payroll Management"
+    ],
+  },
+  {
+    title: "Digital Marketing Services",
+    icon: "/service_cards/hr.png",
+    description: "Atvantiq helps businesses build strong digital visibility and generate measurable results with data-driven digital marketing strategies. From SEO, PPC, and social media to email marketing and content creation, we offer tailored campaigns that boost brand awareness, drive high-quality leads, and improve ROI across channels.",
+    image: "/illustrations/backend.png",
+    subServices: [
+      "• Search engine optimization ",
+      "• Social media marketing",
+      "• Pay per click",
+      "• Content Marketing",
+      "• Email Marketing"
     ],
   },
 ];
@@ -165,18 +178,18 @@ export default function ServicesSection() {
                     {isExpanded && (
                       <div className="flex-grow flex flex-col">
                         {/* Description */}
-                        <p className="text-white/90 text-sm leading-relaxed mb-4">
+                        <p className="text-white/90 text-[13px] leading-relaxed mb-4">
                           {service.description}
                         </p>
                         
                         {/* Sub-services Grid */}
                         <div className="flex-grow mb-3">
-                          <h4 className="text-white font-semibold text-xl mb-2">Key Services:</h4>
+                          <h4 className="text-white font-semibold text-lg mb-2">Key Services:</h4>
                           <div className="grid grid-cols-2 gap-2">
                             {service.subServices.map((subService, i) => (
                               <div
                                 key={i}
-                                className="text-white text-sm transition-all duration-300 font-semibold hover:scale-105 flex items-start min-h-[25px]"
+                                className="text-white text-[13px] transition-all duration-300 font-semibold hover:scale-105 flex items-start min-h-[25px]"
                               >
                                 <span>{subService}</span>
                               </div>
@@ -246,9 +259,9 @@ export default function ServicesSection() {
             })}
           </div>
 
-          {/* Second Row - 3 Services */}
+          {/* Second Row  */}
           <div className="flex gap-4 h-[400px] justify-center">
-            {services.slice(4, 7).map((service, index) => {
+            {services.slice(4, 8).map((service, index) => {
               const actualIndex = index + 4;
               const isExpanded = hoveredIndex === actualIndex;
               const isCompressed = hoveredIndex !== null && hoveredIndex !== actualIndex;
@@ -293,7 +306,7 @@ export default function ServicesSection() {
                     <div className={`transition-all duration-500 ${isCompressed ? 'writing-mode-vertical text-orientation-mixed' : ''}`}>
                       <h3 className={`text-white font-semibold transition-all duration-300 ${
                         isExpanded 
-                          ? 'text-2xl mb-5' 
+                          ? 'text-2xl mb-4' 
                           : isCompressed 
                             ? 'text-md transform ' 
                             : 'text-xl mb-4'
@@ -306,18 +319,18 @@ export default function ServicesSection() {
                     {isExpanded && (
                       <div className="flex-grow flex flex-col">
                         {/* Description */}
-                        <p className="text-white/90 text-sm leading-relaxed mb-5">
+                        <p className="text-white/90 text-[13px] leading-relaxed mb-4">
                           {service.description}
                         </p>
                         
                         {/* Sub-services Grid */}
                         <div className="flex-grow mb-3">
-                          <h4 className="text-white font-semibold text-xl mb-2">Key Services:</h4>
+                          <h4 className="text-white font-semibold text-lg mb-2">Key Services:</h4>
                           <div className="grid grid-cols-2 gap-4">
                             {service.subServices.map((subService, i) => (
                               <div
                                 key={i}
-                                className="text-white text-sm transition-all duration-300 font-semibold hover:scale-105 flex items-start min-h-[30px]"
+                                className="text-white text-[13px] transition-all duration-300 font-semibold hover:scale-105 flex items-start min-h-[30px]"
                               >
                                 <span>{subService}</span>
                               </div>
@@ -390,7 +403,7 @@ export default function ServicesSection() {
 
         {/* Mobile Layout */}
         <div className="block md:hidden">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-2">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -413,24 +426,26 @@ export default function ServicesSection() {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70 rounded-2xl transition-all duration-300" />
 
                 {/* Content */}
-                <div className="relative z-20 p-6 h-full flex flex-col">
-                  <h3 className="text-white text-xl font-bold mb-3">{service.title}</h3>
+                <div className="relative z-20 p-2 h-full flex flex-col">
+                  <h3 className="text-white text-md font-semibold mb-2">{service.title}</h3>
                   
                   <div className={`flex-grow transition-all duration-300 ${
                     hoveredIndex === index ? 'opacity-100' : 'opacity-0 max-h-0 overflow-hidden'
                   }`}>
-                    <p className="text-white/90 text-sm leading-relaxed mb-3">
+                    <p className="text-white/90 text-[11px] leading-relaxed mb-2">
                       {service.description}
                     </p>
                   </div>
 
                   <div className="mt-auto">
-                    <div className="flex items-center text-white text-sm font-medium">
-                      <div className="flex items-center group-hover:gap-3 transition-all duration-300">
+                    <div className="flex items-center text-white text-[10px] font-normal">
+                      <div className="flex items-center gap-3 transition-all duration-300">
                         <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
                           <span className="text-xs">→</span>
                         </div>
-                        <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+                        <span className={`transition-all duration-300 whitespace-nowrap ${
+                    hoveredIndex === index ? 'opacity-100' : 'opacity-0 overflow-hidden'
+                  }`}>
                           Explore More
                         </span>
                       </div>

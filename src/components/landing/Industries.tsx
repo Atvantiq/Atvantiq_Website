@@ -84,9 +84,9 @@ const IndustriesSection = () => {
   };
 
   return (
-    <section className="bg-[#fff9f0] text-white py-12 px-4 md:px-20">
+    <section className="bg-white text-white py-12 px-4 md:px-20">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-18 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-18 items-start">
           {/* Left Section - Industries Grid */}
           <div className="lg:col-span-1">
             <div className="flex items-start gap-4 pt-2 mb-15">
@@ -118,8 +118,8 @@ const IndustriesSection = () => {
           </div>
 
           {/* Right Section - Technology Showcase */}
-          <div className="lg:col-span-1 pt-18">
-            <div className="bg-gradient-to-br from-[#2674D3] to-[#2861B3] rounded-3xl p-8 relative overflow-hidden max-w-2xl mx-auto">
+          <div className="lg:col-span-1 pt-4 md:pt-18">
+            <div className="bg-gradient-to-br from-[#2674D3] to-[#2861B3] rounded-3xl p-8 relative overflow-hidden max-w-2xl mx-auto min-h-[510px]">
               <h3 className="text-xl md:text-2xl font-semibold text-white mb-6">Delivering High-Tech Solutions <br/> to Transform Key Industries</h3>
               <div className="flex gap-6 h-full">
                 {/* Categories Sidebar */}
@@ -153,12 +153,12 @@ const IndustriesSection = () => {
                         className="bg-white rounded-xl p-2 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg"
                       >
                         <div 
-                          className="text-2xl font-bold mb-2"
+                          className="text-[15px] md:text-2xl font-bold mb-2"
                           style={{ color: tech.color }}
                         >
                           {tech.logo}
                         </div>
-                        <h4 className="text-sm font-semibold text-gray-800">
+                        <h4 className="text-xs md:text-sm font-semibold text-gray-800">
                           {tech.name}
                         </h4>
                       </div>

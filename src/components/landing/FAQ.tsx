@@ -39,6 +39,10 @@ export default function FAQSection() {
             {/* Revolving dot */}
             <div className="absolute inset-0 animate-spin-slow">
               <div className="absolute top-0 left-1/2 w-5 h-5 bg-[#2674D3] rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+              
+            </div>
+            <div className="absolute inset-0 animate-reverse-spin">
+            <div className="absolute top-0 left-1/2 w-5 h-5 bg-[#c5dfff] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
             </div>
           </div>
         </div>
@@ -52,7 +56,7 @@ export default function FAQSection() {
             
             {/* Revolving dot */}
             <div className="absolute inset-0 animate-reverse-spin">
-              <div className="absolute right-0 top-1/2 w-3.5 h-3.5 bg-[#2861B3] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute right-0 top-1/2 w-3.5 h-3.5 bg-purple-200 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
             </div>
           </div>
         </div>

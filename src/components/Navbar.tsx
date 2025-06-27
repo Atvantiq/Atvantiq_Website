@@ -196,7 +196,7 @@ const Navbar = () => {
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
-                className="inline-flex items-center justify-start p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
+                className="inline-flex items-center justify-end p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
               >
                 <span className="sr-only">Open main menu</span>
                 {!isOpen ? (
@@ -222,7 +222,7 @@ const Navbar = () => {
                 <Link
                   key={item.title}
                   href={item.path}
-                  className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-[#2861B3] hover:text-[#3c3f94ca]"
+                  className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-xs font-medium text-white hover:bg-gray-50 hover:border-[#2861B3] hover:text-[#3c3f94ca]"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}
@@ -231,7 +231,7 @@ const Navbar = () => {
                 <div key={item.title} className="space-y-1">
                   <button
                     onClick={() => toggleMobileDropdown(item.title)}
-                    className="w-full flex items-center justify-start pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-[#3c3f94] hover:text-[#3c3f94ca]"
+                    className="w-full flex items-center justify-end pl-3 pr-4 py-2 border-l-4 border-transparent text-xs font-medium text-gray-700 hover:bg-gray-50 hover:border-[#3c3f94] hover:text-[#3c3f94ca]"
                   >
                     {item.title}
                     <svg
@@ -254,7 +254,7 @@ const Navbar = () => {
                         <Link
                           key={dropdownItem.title}
                           href={dropdownItem.path}
-                          className="block pl-6 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-[#3c3f94] hover:text-[#3c3f94ca]"
+                          className="block pl-6 pr-4 py-2 border-l-4 border-transparent text-xs font-medium text-white hover:bg-gray-50 hover:border-[#3c3f94] hover:text-[#3c3f94ca]"
                           onClick={() => setIsOpen(false)}
                         >
                           {dropdownItem.title}

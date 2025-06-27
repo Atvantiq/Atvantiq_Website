@@ -33,7 +33,7 @@ export default function WhyChooseUsSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-purple-50 to-white  relative overflow-hidden">
+    <section className="bg-white relative overflow-hidden">
       {/* Background Geometric Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none ">
         <div className="absolute top-20 left-10 w-32 h-32 border-2 border-purple-200 rounded-full opacity-30"></div>
@@ -163,19 +163,19 @@ export default function WhyChooseUsSection() {
         </div>
       </div>
     <div className="mt-16">
-        <div className="bg-black relative overflow-hidden h-28">
+        <div className="bg-black relative overflow-hidden h-20 md:h-28">
           {/* Gradient Strip */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#2674D3] via-[#1A82E8] to-[#2861B3] h-28 top-1/2 transform -translate-y-1/2"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2674D3] via-[#1A82E8] to-[#2861B3] h-20 md:h-28 top-1/2 transform -translate-y-1/2"></div>
           
           {/* Large Blue Circle Overlay */}
           <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 w-120 h-100 bg-gradient-to-l from-[#2861B3] via-[#5b8ed5] to-[#b3c7e3] rounded-full opacity-90"></div>
           
-          <div className="max-w-7xl mx-27 h-full relative z-10">
+          <div className="max-w-7xl mx-8 md:mx-27 h-full relative z-10">
             <div className="flex items-center justify-between h-full">
               
               {/* Left Side - Content */}
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
+                <h2 className="text-lg md:text-5xl font-bold text-white mb-2">
                   Join Our Team
                 </h2>
               </div>
@@ -183,10 +183,10 @@ export default function WhyChooseUsSection() {
               {/* Right Side - CTA Button */}
               <div  className="flex flex-row items-center  space-x-8">
                 
-                <p className="text-lg md:text-xl text-white">
+                <p className="text-xs md:text-xl text-white">
                   Be an Atvantiq member and Accelerate your Growth
                 </p>
-                <button className="border-2 border-white text-white hover:bg-white hover:text-black font-medium px-4 py-2 rounded-lg transition-all duration-300 text-md justify-self-end justify-end">
+                <button className="border-2 border-white text-white hover:bg-white hover:text-black font-medium px-2 py-1 md:px-4 md:py-2 rounded-lg transition-all duration-300 text-[12px] md:text-[16px] justify-self-end justify-end">
                   View All Current Opening
                 </button>
               </div>
