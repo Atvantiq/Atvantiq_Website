@@ -1,6 +1,6 @@
 "use client";
-import React, { useRef, useEffect, useState } from 'react';
-import Image from 'next/image';
+import React, { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 
 const BlogSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -13,68 +13,73 @@ const BlogSection = () => {
     {
       id: 1,
       title: "How AI is enhancing customer experience in retail",
-      description: "AI is enhancing retail customer experience by leveraging data analytics and machine learning to offer personalized recommendations and seamless shopping journeys.",
+      description:
+        "AI is enhancing retail customer experience by leveraging data analytics and machine learning to offer personalized recommendations and seamless shopping journeys.",
       image: "/blog/retail.png",
       author: {
         name: "Smith",
-        avatar: "/avatars/smith.jpg"
+        avatar: "/avatars/smith.jpg",
       },
       date: "16th Apr '25",
       category: "AI AGENCY",
-      categoryColor: "bg-[#2674D3]"
+      categoryColor: "bg-[#2674D3]",
     },
     {
       id: 2,
       title: "How our AI services can transform your business",
-      description: "Paraphrasing features are prevalent in AI tools, allowing users to alter text effectively. Merlin and Quillbot are key platforms offering advanced paraphrasing options.",
+      description:
+        "Paraphrasing features are prevalent in AI tools, allowing users to alter text effectively. Merlin and Quillbot are key platforms offering advanced paraphrasing options.",
       image: "/blog/business.jpg",
       author: {
         name: "Smith",
-        avatar: "/avatars/smith.jpg"
+        avatar: "/avatars/smith.jpg",
       },
       date: "29th Aug '24",
       category: "AI AGENCY",
-      categoryColor: "bg-[#2674D3]"
+      categoryColor: "bg-[#2674D3]",
     },
     {
       id: 3,
       title: "The Future of Machine Learning in Healthcare",
-      description: "Exploring how machine learning algorithms are revolutionizing medical diagnosis, treatment planning, and patient care in modern healthcare systems.",
+      description:
+        "Exploring how machine learning algorithms are revolutionizing medical diagnosis, treatment planning, and patient care in modern healthcare systems.",
       image: "/blog/healthcare.jpg",
       author: {
         name: "Williams",
-        avatar: "/avatars/williams.jpg"
+        avatar: "/avatars/williams.jpg",
       },
       date: "3rd Jun '24",
       category: "HEALTHCARE",
-      categoryColor: "bg-[#2861B3]"
+      categoryColor: "bg-[#2861B3]",
     },
     {
       id: 4,
       title: "Cybersecurity in the Age of AI",
-      description: "Understanding the dual role of AI in cybersecurity - both as a powerful defense mechanism and a potential vector for sophisticated cyber attacks.",
+      description:
+        "Understanding the dual role of AI in cybersecurity - both as a powerful defense mechanism and a potential vector for sophisticated cyber attacks.",
       image: "/blog/cyber.jpg",
       author: {
         name: "Davis",
-        avatar: "/avatars/davis.jpg"
+        avatar: "/avatars/davis.jpg",
       },
       date: "22nd May '24",
       category: "SECURITY",
-      categoryColor: "bg-[#2674D3]"
+      categoryColor: "bg-[#2674D3]",
     },
     {
       id: 5,
       title: "Cloud Computing Trends for 2025",
-      description: "Analyzing the latest trends in cloud computing, including serverless architecture, edge computing, and multi-cloud strategies for modern enterprises.",
+      description:
+        "Analyzing the latest trends in cloud computing, including serverless architecture, edge computing, and multi-cloud strategies for modern enterprises.",
       image: "/blog/cloud.jpg",
       author: {
         name: "Brown",
-        avatar: "/avatars/brown.jpg"
+        avatar: "/avatars/brown.jpg",
       },
       date: "10th Apr '24",
       category: "CLOUD",
-      categoryColor: "bg-[#1A82E8]"
-    }
+      categoryColor: "bg-[#1A82E8]",
+    },
   ];
 
   // Handle scroll behavior
@@ -86,13 +91,13 @@ const BlogSection = () => {
       const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
       const isTop = scrollTop <= 10;
       const isBottom = scrollTop >= scrollHeight - clientHeight - 10;
-      
+
       setIsAtTop(isTop);
       setIsAtBottom(isBottom);
     };
 
-    scrollContainer.addEventListener('scroll', handleScroll);
-    return () => scrollContainer.removeEventListener('scroll', handleScroll);
+    scrollContainer.addEventListener("scroll", handleScroll);
+    return () => scrollContainer.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Handle mouse enter/leave for the section
@@ -103,12 +108,12 @@ const BlogSection = () => {
     const handleMouseEnter = () => setIsHoveringSection(true);
     const handleMouseLeave = () => setIsHoveringSection(false);
 
-    section.addEventListener('mouseenter', handleMouseEnter);
-    section.addEventListener('mouseleave', handleMouseLeave);
+    section.addEventListener("mouseenter", handleMouseEnter);
+    section.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      section.removeEventListener('mouseenter', handleMouseEnter);
-      section.removeEventListener('mouseleave', handleMouseLeave);
+      section.removeEventListener("mouseenter", handleMouseEnter);
+      section.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
@@ -117,12 +122,12 @@ const BlogSection = () => {
     const handleWheel = (e: WheelEvent) => {
       // Only prevent default if we're hovering over the blog section
       if (!isHoveringSection) return;
-      
+
       const scrollContainer = scrollContainerRef.current;
       if (!scrollContainer) return;
 
       const deltaY = e.deltaY;
-      
+
       // Prevent page scroll if we're not at boundaries and we're in the blog section
       if ((deltaY < 0 && !isAtTop) || (deltaY > 0 && !isAtBottom)) {
         e.preventDefault();
@@ -130,8 +135,8 @@ const BlogSection = () => {
       }
     };
 
-    document.addEventListener('wheel', handleWheel, { passive: false });
-    return () => document.removeEventListener('wheel', handleWheel);
+    document.addEventListener("wheel", handleWheel, { passive: false });
+    return () => document.removeEventListener("wheel", handleWheel);
   }, [isAtTop, isAtBottom, isHoveringSection]);
 
   return (
@@ -145,31 +150,31 @@ const BlogSection = () => {
           display: none;
         }
       `}</style>
-      
+
       <section ref={sectionRef} className="bg-white min-h-screen">
-        <div 
+        <div
           ref={scrollContainerRef}
           className="h-screen overflow-y-auto no-scrollbar"
         >
           <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 min-h-screen">
-              
               {/* Fixed Left Sidebar - No Box */}
               <div className="lg:col-span-2 lg:sticky lg:top-16 lg:h-fit">
                 <div className="py-8">
-                  
                   {/* Latest Blog Header */}
                   <div className="mb-8">
                     <div className="flex items-start gap-4 pt-2 pb-8">
-          <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
-          <h3 className="uppercase tracking-wider text-[#2674D3] font-bold text-[25px]">
-            Latest Blogs
-          </h3>
-        </div>
-                    
+                      <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
+                      <h3 className="uppercase tracking-wider text-[#2674D3] font-bold text-[25px]">
+                        Latest Blogs
+                      </h3>
+                    </div>
+
                     <p className="text-gray-600 text-lg leading-relaxed">
-                      In the tapestry of Atvantiq, our core values are the threads weaving excellence. Integrity is the backbone, 
-                      anchoring our commitment to transparency, honesty, and ethical practices.
+                      In the tapestry of Atvantiq, our core values are the
+                      threads weaving excellence. Integrity is the backbone,
+                      anchoring our commitment to transparency, honesty, and
+                      ethical practices.
                     </p>
                   </div>
 
@@ -180,7 +185,6 @@ const BlogSection = () => {
                       More Blogs
                     </button>
                   </div>
-                 
                 </div>
               </div>
 
@@ -190,7 +194,6 @@ const BlogSection = () => {
                   {blogPosts.map((post) => (
                     <article key={post.id}>
                       <div className="relative flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl border-gray-100">
-                        
                         {/* Blog Image and Category Badge */}
                         <div className="relative w-full md:w-64 h-48 md:h-auto flex-shrink-0">
                           <Image
@@ -204,10 +207,12 @@ const BlogSection = () => {
                               target.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"><rect width="300" height="200" fill='%23e5e7eb'/><text x='150' y='100' text-anchor='middle' fill='%236b7280' font-size='14' font-family='Arial'>Blog Image</text></svg>`;
                             }}
                           />
-                          
+
                           {/* Category Badge */}
                           <div className="absolute top-4 left-4">
-                            <span className={`${post.categoryColor} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg`}>
+                            <span
+                              className={`${post.categoryColor} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg`}
+                            >
                               {post.category}
                             </span>
                           </div>
@@ -219,9 +224,11 @@ const BlogSection = () => {
                             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#2674D3] transition-colors duration-300">
                               {post.title}
                             </h3>
-                            <p className="text-gray-700 mb-4 leading-relaxed">{post.description}</p>
+                            <p className="text-gray-700 mb-4 leading-relaxed">
+                              {post.description}
+                            </p>
                           </div>
-                          
+
                           <div className="flex items-center gap-3 mt-4">
                             <div className="relative w-8 h-8">
                               <Image
@@ -232,9 +239,14 @@ const BlogSection = () => {
                                 height={32}
                                 onError={(e) => {
                                   const target = e.target as HTMLImageElement;
-                                  target.style.display = 'none';
-                                  if (target.nextSibling && target.nextSibling instanceof HTMLElement) {
-                                    (target.nextSibling as HTMLElement).style.display = 'flex';
+                                  target.style.display = "none";
+                                  if (
+                                    target.nextSibling &&
+                                    target.nextSibling instanceof HTMLElement
+                                  ) {
+                                    (
+                                      target.nextSibling as HTMLElement
+                                    ).style.display = "flex";
                                   }
                                 }}
                               />
