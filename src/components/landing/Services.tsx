@@ -423,15 +423,13 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70 rounded-2xl transition-all duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/40 rounded-2xl transition-all duration-300" />
 
                 {/* Content */}
-                <div className="relative z-20 p-2 h-full flex flex-col">
+                <div className="relative z-20 p-2 h-full flex flex-col opacity-100">
                   <h3 className="text-white text-xl font-semibold mb-4">{service.title}</h3>
                   
-                  <div className={`flex-grow transition-all duration-300 ${
-                    hoveredIndex === index ? 'opacity-100' : 'opacity-0 max-h-0 overflow-hidden'
-                  }`}>
+                  <div className="flex-grow transition-all duration-300 ">
                     <p className="text-white/90 text-sm leading-relaxed mb-2">
                       {service.description}
                     </p>
@@ -443,9 +441,7 @@ export default function ServicesSection() {
                         <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
                           <span className="text-xs">→</span>
                         </div>
-                        <span className={`transition-all duration-300 whitespace-nowrap ${
-                    hoveredIndex === index ? 'opacity-100' : 'opacity-0 overflow-hidden'
-                  }`}>
+                        <span className="transition-all duration-300 whitespace-nowrap opacity-100 overflow-hidden">
                           Explore More
                         </span>
                       </div>
