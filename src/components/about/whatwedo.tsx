@@ -40,7 +40,12 @@ const WhatWeDoBest = () => {
     <section className="bg-[#f1f5f9] py-20 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <h2 className="text-4xl font-bold text-black mb-14 text-center">What We Do Best</h2>
+        <div className="flex items-start gap-4 pt-2 pb-8">
+                      <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
+                      <h3 className="uppercase tracking-wider text-[#2674D3] font-bold text-[25px]">
+                        What We Do Best
+                      </h3>
+                    </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const AboutUsHero = () => {
   return (
-    <section className="relative text-white py-20 md:py-40 px-6 md:px-20 min-h-screen overflow-hidden">
+    <section className="relative text-white pt-20 md:pt-40 pb-10 md:pb-20 px-6 md:px-20 min-h-screen overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
