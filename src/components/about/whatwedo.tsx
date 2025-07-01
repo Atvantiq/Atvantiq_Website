@@ -1,225 +1,66 @@
-"use client"
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React from 'react';
 
 const services = [
   {
-    title: "AI & ML Development",
-    description: "Building intelligent systems that automate, predict, and improve business outcomes through data-driven insights.",
-    image: "/service_cards/ai.jpg"
+    title: 'AI & ML Development',
+    desc: 'Building intelligent systems that automate, predict, and improve business outcomes through data-driven insights.',
   },
   {
-    title: "Cybersecurity Solutions",
-    description: "Comprehensive security strategies to protect your digital assets, networks, and data in an evolving threat landscape.",
-    image: "/service_cards/cyber.jpg"
+    title: 'Cybersecurity Solutions',
+    desc: 'Comprehensive security strategies to protect your digital assets, networks, and data in an evolving threat landscape.',
   },
   {
-    title: "Web & Mobile App Development",
-    description: "High-performance digital experiences built with modern frameworks for web and mobile platforms.",
-    image: "/service_cards/webdev.jpeg"
+    title: 'Web & Mobile App Development',
+    desc: 'High-performance digital experiences built with modern frameworks for web and mobile platforms.',
   },
   {
-    title: "Cloud Services",
-    description: "From migration to management, we offer complete cloud solutions using AWS, Azure, and GCP.",
-    image: "/service_cards/cloud.jpg"
+    title: 'Cloud Services',
+    desc: 'From migration to management, we offer complete cloud solutions using AWS, Azure, and GCP.',
   },
   {
-    title: "Solar Energy Solutions",
-    description: "Delivering end-to-end solar infrastructure and consultation for commercial and residential needs.",
-    image: "/service_cards/solar.jpeg"
+    title: 'Solar Energy Solutions',
+    desc: 'Delivering end-to-end solar infrastructure and consultation for commercial and residential needs.',
   },
   {
-    title: "Telecom Services",
-    description: "Infrastructure design, deployment, and maintenance solutions for next-gen telecom operations.",
-    image: "/service_cards/telecom.jpeg"
+    title: 'Telecom Services',
+    desc: 'Infrastructure design, deployment, and maintenance solutions for next-gen telecom operations.',
   },
   {
-    title: "Digital Marketing Services",
-    description: "Digital marketing strategies that drive engagement, boost visibility, and deliver measurable growth.",
-    image: "/service_cards/digital-marketing.jpg"
+    title: 'IT Infrastructure Services',
+    desc: 'Managed services and enterprise IT solutions that ensure performance, reliability, and uptime.',
   },
   {
-    title: "Talent Outsourcing Services",
-    description: "Flexible hiring and outsourcing models to connect you with the right tech talent, fast.",
-    image: "/service_cards/hr.png"
-  }
+    title: 'Talent Outsourcing Services',
+    desc: 'Flexible hiring and outsourcing models to connect you with the right tech talent, fast.',
+  },
 ];
 
 const WhatWeDoBest = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
-    <section className="bg-black py-16 md:py-24 px-4 md:px-8">
+    <section className="bg-[#f1f5f9] py-20 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
-        
-        {/* Section Header */}
-                  <div className="flex items-start gap-4 pt-2">
-            <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-4"></div>
-            <h3 className="uppercase tracking-wider text-[#2674D3] font-bold text-[25px]">
-              What We Do Best
-            </h3>
-          </div>
+        {/* Section Heading */}
+        <h2 className="text-4xl font-bold text-black mb-14 text-center">What We Do Best</h2>
 
         {/* Services Grid */}
-        <div className="space-y-6">
-          
-          {/* First Row - 4 Services */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {services.slice(0, 4).map((service, index) => (
-              <div
-                key={index}
-                className="relative h-64 md:h-80 perspective-1000"
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <div className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d cursor-pointer ${
-                  hoveredIndex === index ? 'rotate-y-180' : ''
-                }`}>
-                  
-                  {/* Front Side - Image + Title */}
-                  <div className="absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden">
-                    {/* Background Image */}
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 25vw"
-                    />
-                    
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    
-                    {/* Title */}
-                    <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end">
-                      <h3 className="text-white font-bold text-base md:text-lg leading-tight">
-                        {service.title}
-                      </h3>
-                    </div>
-                  </div>
-
-                  {/* Back Side - Blue Background + Content */}
-                  <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl overflow-hidden bg-gradient-to-br from-[#2674D3] via-[#1A82E8] to-[#2861B3]">
-                    <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-between">
-                      
-                      {/* Title */}
-                      <h3 className="text-white font-bold text-lg md:text-xl mb-4">
-                        {service.title}
-                      </h3>
-                      
-                      {/* Description */}
-                      <p className="text-white/95 text-sm md:text-base leading-relaxed flex-grow">
-                        {service.description}
-                      </p>
-                      
-                      {/* Learn More Button */}
-                      <div className="mt-4">
-                        <div className="flex items-center text-white text-sm font-medium group">
-                          <span>Learn More</span>
-                          <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Decorative Elements */}
-                    <div className="absolute top-4 right-4 w-12 h-12 border-2 border-white/30 rounded-full"></div>
-                    <div className="absolute bottom-4 left-4 w-8 h-8 border-2 border-white/20 rounded-full"></div>
-                  </div>
-                </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {services.map((service, index) => (
+            <div key={index} className="text-center">
+              {/* Icon Placeholder */}
+              <div className="mb-4 mx-auto w-16 h-16 rounded-xl bg-white shadow-lg shadow-blue-300/30 flex items-center justify-center">
+                {/* Replace this with your custom icon */}
+                <div className="w-8 h-8 bg-blue-600 rounded-full"></div>
               </div>
-            ))}
-          </div>
 
-          {/* Second Row - 4 Services */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {services.slice(4, 8).map((service, index) => {
-              const actualIndex = index + 4;
-              return (
-                <div
-                  key={actualIndex}
-                  className="relative h-64 md:h-80 perspective-1000"
-                  onMouseEnter={() => setHoveredIndex(actualIndex)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  <div className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d cursor-pointer ${
-                    hoveredIndex === actualIndex ? 'rotate-y-180' : ''
-                  }`}>
-                    
-                    {/* Front Side - Image + Title */}
-                    <div className="absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden">
-                      {/* Background Image */}
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 25vw"
-                      />
-                      
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                      
-                      {/* Title */}
-                      <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end">
-                        <h3 className="text-white font-bold text-base md:text-lg leading-tight">
-                          {service.title}
-                        </h3>
-                      </div>
-                    </div>
+              {/* Title */}
+              <h3 className="text-lg font-semibold text-black mb-2">{service.title}</h3>
 
-                    {/* Back Side - Blue Background + Content */}
-                    <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl overflow-hidden bg-gradient-to-br from-[#2674D3] via-[#1A82E8] to-[#2861B3]">
-                      <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-between">
-                        
-                        {/* Title */}
-                        <h3 className="text-white font-bold text-lg md:text-xl mb-4">
-                          {service.title}
-                        </h3>
-                        
-                        {/* Description */}
-                        <p className="text-white/95 text-sm md:text-base leading-relaxed flex-grow">
-                          {service.description}
-                        </p>
-                        
-                        {/* Learn More Button */}
-                        <div className="mt-4">
-                          <div className="flex items-center text-white text-sm font-medium group">
-                            <span>Learn More</span>
-                            <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Decorative Elements */}
-                      <div className="absolute top-4 right-4 w-12 h-12 border-2 border-white/30 rounded-full"></div>
-                      <div className="absolute bottom-4 left-4 w-8 h-8 border-2 border-white/20 rounded-full"></div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+              {/* Description */}
+              <p className="text-gray-700 text-sm">{service.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-        .transform-style-preserve-3d {
-          transform-style: preserve-3d;
-        }
-        .backface-hidden {
-          backface-visibility: hidden;
-        }
-        .rotate-y-180 {
-          transform: rotateY(180deg);
-        }
-      `}</style>
     </section>
   );
 };

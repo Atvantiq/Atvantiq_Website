@@ -1,3 +1,4 @@
+import ApproachSection from "@/components/about/approach";
 import AboutUsHero from "@/components/about/hero";
 import WhatWeDoBest from "@/components/about/whatwedo";
 import AboutUs from "@/components/landing/About";
@@ -12,6 +13,7 @@ export default function about() {
         <AboutUsHero />
         <WhatWeDoBest />
         <AboutUs />
+        <ApproachSection />
         <WhyChooseUsSection />
         <FooterSection />
         </main>

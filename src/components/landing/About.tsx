@@ -27,8 +27,12 @@ const stats = [
   },
 ];
 
+import { usePathname } from 'next/navigation';
 
 const AboutUs = () => {
+  const pathname = usePathname();
+  const showMoreButton = pathname !== '/about'; // hide on /about
+
   return (
     <section className="bg-[#3b4246] text-white pb-20 ">
       <div className="px-6 md:px-20 py-18">
@@ -154,9 +158,10 @@ const AboutUs = () => {
       </ul>
     </div>
 
+{showMoreButton && (
     <button className="text-white mt-18 px-4 py-2 rounded-xl font-medium text-md bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:border-2 border-white hover:opacity-90 transition">
             More About Us
-          </button>
+          </button>)}
   </div>
 </div>
 
