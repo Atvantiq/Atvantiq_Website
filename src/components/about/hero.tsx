@@ -1,7 +1,46 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
+
 const AboutUsHero = () => {
+  const [word1, setWord1] = useState('');
+  const [word2, setWord2] = useState('');
+
+  useEffect(() => {
+    const text1 = "Innnovation";
+    const text2 = "Trransformation";
+
+    let i = 0;
+    let j = 0;
+
+    const interval1 = setInterval(() => {
+      if (i < text1.length) {
+        setWord1((prev) => prev + text1.charAt(i));
+        i++;
+      } else {
+        clearInterval(interval1);
+
+        // Start typing the second word after a short delay
+        setTimeout(() => {
+          const interval2 = setInterval(() => {
+            if (j < text2.length) {
+              setWord2((prev) => prev + text2.charAt(j));
+              j++;
+            } else {
+              clearInterval(interval2);
+            }
+          }, 100);
+        }, 300);
+      }
+    }, 100);
+
+    return () => {
+      clearInterval(interval1);
+    };
+  }, []);
+
   return (
     <section className="relative text-white pt-20 md:pt-40 pb-10 md:pb-20 px-6 md:px-20 min-h-screen overflow-hidden">
       {/* Background Image */}
@@ -19,12 +58,13 @@ const AboutUsHero = () => {
 
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Top Row: Text Left, Image Right */}
+        {/* Top Row */}
         <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between gap-10 mb-12">
-          {/* Text Left */}
+          {/* Left Text */}
           <div className="w-full lg:w-1/2 text-left">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-[#2674D3] via-[#1A82E8] to-[#2861B3] bg-clip-text text-transparent mb-12">
-              Empowering Innovation.<br />Driving Transformation.
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#2674D3] mb-12">
+              Empowering <span className="text-white">{word1}</span><br />
+              Driving <span className="text-white">{word2}</span>
             </h2>
             <p className="text-lg md:text-xl leading-relaxed text-white">
               Atvantiq is a global technology consulting and services company with a 
@@ -32,7 +72,7 @@ const AboutUsHero = () => {
             </p>
           </div>
 
-          {/* Image Right */}
+          {/* Right Image */}
           <div className="w-full lg:w-1/2">
             <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden">
               <Image
@@ -47,7 +87,7 @@ const AboutUsHero = () => {
           </div>
         </div>
 
-        {/* Bottom Text & Button */}
+        {/* Bottom Paragraphs & CTA */}
         <div className="max-w-4xl mx-auto text-center space-y-6 text-white/90">
           <p className="text-base md:text-lg leading-relaxed text-white/80">
             We specialize in{' '}

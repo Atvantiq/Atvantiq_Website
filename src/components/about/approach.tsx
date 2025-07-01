@@ -2,12 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 const whyAtvantiqPoints = [
   {
-    title: "20+ Years",
-    subtitle: "Industry Experience"
+    title: "Empowered",
+    subtitle: "Clients"
   },
   {
-    title: "5+ Countries",
-    subtitle: "Global Presence"
+    title: "Technology",
+    subtitle: "Following Agile Technologies"
   },
   {
     title: "Expert Teams",
@@ -57,7 +57,7 @@ const ApproachSection = () => {
           {/* Right Image */}
           <div className="lg:w-1/2">
               <Image
-                src="/aboutsec/about_img.jpg"
+                src="/aboutsec/approach.png"
                 alt="Atvantiq Team"
                 width={800}
                 height={500}
