@@ -1,6 +1,7 @@
 import FooterSection from '@/components/landing/Footer';
 import Navbar from '@/components/Navbar';
 import AIServicesSection from '@/components/services/ai_services';
+import AIBenefitsSection from '@/components/services/benifits';
 import AIMLHeroSection from '@/components/services/hero_ai';
 import TrustedAISection from '@/components/services/trusted_ai';
 
@@ -12,6 +13,7 @@ export default function ai_ml() {
         <AIMLHeroSection />
         <TrustedAISection />
         <AIServicesSection />
+        <AIBenefitsSection />
         <FooterSection />
      </main>
       </div>

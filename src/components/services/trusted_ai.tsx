@@ -86,10 +86,10 @@ const TrustedAISection = () => {
                   </div>
                 </div>
 
-                <div className="absolute top-1/2 right-6 transform -translate-y-1/2 bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+                <div className="absolute top-1/2 right-6 transform -translate-y-1/2 bg-black/20 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
                   <div className="text-center">
-                    <div className="text-[#1A82E8] text-lg font-bold">6+</div>
-                    <div className="text-black text-xs">Countries</div>
+                    <div className="text-white text-lg font-bold">6+</div>
+                    <div className="text-white text-xs">Countries</div>
                   </div>
                 </div>
               </div>
