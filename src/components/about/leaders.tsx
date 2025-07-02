@@ -2,24 +2,25 @@ import React from 'react';
 import Image from 'next/image';
 
 const leaders = [
-  {
-    name: "Vikram Sachdeva",
-    role: "Director",
-    image: "/leaders/ceo.jpg"
-  },
+  
   {
     name: "Karanvir Singh",
-    role: "Director",
+    role: "Co-Founder",
     image: "/leaders/cto.jpg"
   },
   {
+    name: "Vikram Sachdeva",
+    role: "Co-Founder",
+    image: "/team/Vikramsir.png"
+  },
+  {
     name: "Kenny Sandhu",
-    role: "Director",
-    image: "/leaders/coo.jpg"
+    role: "Co-Founder",
+    image: "/team/Kennysir.png"
   },
   {
     name: "Maninder Singh",
-    role: "Director",
+    role: "Co-Founder",
     image: "/leaders/cmo.jpg"
   }
 ];
@@ -51,13 +52,13 @@ const OurLeadersSection = () => {
             >
               {/* Leader Photo */}
               <div className="relative mb-6 overflow-hidden rounded-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#2674D3]/80 via-[#1A82E8]/60 to-[#2861B3]/80 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#2674D3]/80 via-[#1A82E8]/60 to-[#2861B3]/80 "></div>
                 <div className="relative h-64 md:h-80">
                   <Image
                     src={leader.image}
                     alt={leader.name}
                     fill
-                    className="object-cover object-center"
+                    className="object-cover object-center h-56 md:h-72"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>

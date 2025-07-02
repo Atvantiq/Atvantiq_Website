@@ -13,6 +13,7 @@ interface MenuItem {
   dropdownItems?: Array<{
     title: string;
     path: string;
+    icon?: string;
   }>;
 }
 
@@ -24,23 +25,80 @@ const Navbar = () => {
   const linkRefs = useRef<(HTMLDivElement | null)[]>([]);
   const navRef = useRef<HTMLDivElement | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const pathname = usePathname();
 
   const menuItems: MenuItem[] = [
     { title: "About", path: "/about" },
-    { title: "Services", path: "/service" },
+    { 
+      title: "Services", 
+      path: "/services",
+      hasDropdown: true,
+      dropdownItems: [
+        {
+          title: "AI & ML Development",
+          path: "/services/ai-ml-development",
+          icon: "🤖"
+        },
+        {
+          title: "Cybersecurity Solutions",
+          path: "/services/cybersecurity",
+          icon: "🛡️"
+        },
+        {
+          title: "Web & Mobile App Development",
+          path: "/services/web-mobile-development",
+          icon: "📱"
+        },
+        {
+          title: "Cloud Services",
+          path: "/services/cloud-services",
+          icon: "☁️"
+        },
+        {
+          title: "Solar Energy Solutions",
+          path: "/services/solar-energy",
+          icon: "☀️"
+        },
+        {
+          title: "Telecom Services",
+          path: "/services/telecom",
+          icon: "📡"
+        },
+        {
+          title: "Digital Marketing Services",
+          path: "/services/digital-marketing",
+        },
+        {
+          title: "Talent Outsourcing Services",
+          path: "/services/talent-outsourcing",
+        }
+      ]
+    },
     { title: "People", path: "/people" },
     { title: "Case Study", path: "/casestudy" },
     { title: "Blog", path: "/blog" }
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  const toggleDropdown = (title: string) => {
-    if (window.innerWidth >= 768) {
-      setActiveDropdown(activeDropdown === title ? null : title);
+  
+  const handleDropdownEnter = (title: string) => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
     }
+    setActiveDropdown(title);
   };
+
+  const handleDropdownLeave = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 200);
+  };
+
   const toggleMobileDropdown = (title: string) => {
     setActiveMobileDropdown(activeMobileDropdown === title ? null : title);
   };
@@ -50,6 +108,14 @@ const Navbar = () => {
     setActiveDropdown(null);
     setActiveMobileDropdown(null);
     setHoveredLink(null);
+    
+    // Clear timeouts on route change
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
   }, [pathname]);
 
   useEffect(() => {
@@ -64,6 +130,11 @@ const Navbar = () => {
       if (clickedOutside) {
         setActiveDropdown(null);
         setActiveMobileDropdown(null);
+        
+        // Clear dropdown timeout
+        if (dropdownTimeoutRef.current) {
+          clearTimeout(dropdownTimeoutRef.current);
+        }
       }
     };
     document.addEventListener('click', handleClickOutside);
@@ -78,6 +149,19 @@ const Navbar = () => {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Cleanup timeouts on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const navElement = navRef.current;
     if (!navElement) return;
@@ -117,12 +201,12 @@ const Navbar = () => {
 
   return (
     <header className="absolute top-0 w-full z-50 bg-transparent">
-      <div className=" mx-auto px-4 sm:px-8 lg:px-10">
+      <div className="mx-auto px-4 sm:px-8 lg:px-10">
         <div className="flex justify-start h-20">
           <div className="flex">
-            <div className="flex-shrink-0 flex items-center justify-start ">
+            <div className="flex-shrink-0 flex items-center justify-start">
               <Link href="/">
-                <Image src="/logo.png" alt="Logo" width={210} height={45}  />
+                <Image src="/logo.png" alt="Logo" width={210} height={45} />
               </Link>
             </div>
           </div>
@@ -144,7 +228,7 @@ const Navbar = () => {
                   >
                     <Link
                       href={item.path}
-                      className="inline-flex items-center px-1 pt-1 text-md font-normal text-white "
+                      className="inline-flex items-center px-1 pt-1 text-md font-normal text-white"
                     >
                       {item.title}
                     </Link>
@@ -156,21 +240,53 @@ const Navbar = () => {
                       linkRefs.current[index] = el;
                     }}
                     className="relative"
-                    onMouseEnter={() => toggleDropdown(item.title)}
-                    onMouseLeave={() => setActiveDropdown(null)}
+                    onMouseEnter={() => handleDropdownEnter(item.title)}
+                    onMouseLeave={handleDropdownLeave}
                   >
+                    <button className="inline-flex items-center px-1 pt-1 text-md font-normal text-white">
+                      {item.title}
+                      <svg
+                        className="ml-2 h-4 w-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
                     {activeDropdown === item.title && (
-                      <div className="absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                        <div className="py-1">
-                          {item.dropdownItems?.map((dropdownItem) => (
-                            <Link
-                              key={dropdownItem.title}
-                              href={dropdownItem.path}
-                              className="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100"
-                            >
-                              {dropdownItem.title}
-                            </Link>
-                          ))}
+                      <div 
+                        className="absolute left-0 z-10 mt-1 w-52 rounded-2xl shadow-2xl bg-gradient-to-l from-[#1a1a1a9e] to-[#1a1a1a] "
+                        onMouseEnter={() => handleDropdownEnter(item.title)}
+                        onMouseLeave={handleDropdownLeave}
+                      >
+                        <div className="py-3">
+                          <div className="grid gap-1 p-2">
+                            {item.dropdownItems?.map((dropdownItem) => (
+                              <Link
+                                key={dropdownItem.title}
+                                href={dropdownItem.path}
+                                className="flex items-center px-3 py-3 text-sm text-white hover:bg-gradient-to-r hover:from-[#2674D3]/10 hover:to-[#2861B3]/10 hover:text-[#2674D3] transition-all duration-200 group rounded-xl"
+                              >
+                                <div className="flex-1">
+                                  <div className="font-medium text-xs leading-tight">{dropdownItem.title}</div>
+                                </div>
+                                <svg
+                                  className="ml-1 h-3 w-3 text-white group-hover:text-[#2674D3] group-hover:translate-x-1 transition-all duration-200"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     )}
@@ -215,14 +331,14 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden bg-white shadow-lg">
           <div className="pt-2 pb-3 space-y-1">
             {menuItems.map((item) =>
               !item.hasDropdown ? (
                 <Link
                   key={item.title}
                   href={item.path}
-                  className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-xs font-medium text-white hover:bg-gray-50 hover:border-[#2861B3] hover:text-[#3c3f94ca]"
+                  className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-[#2861B3] hover:text-[#2674D3]"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}
@@ -231,11 +347,13 @@ const Navbar = () => {
                 <div key={item.title} className="space-y-1">
                   <button
                     onClick={() => toggleMobileDropdown(item.title)}
-                    className="w-full flex items-center justify-end pl-3 pr-4 py-2 border-l-4 border-transparent text-xs font-medium text-gray-700 hover:bg-gray-50 hover:border-[#3c3f94] hover:text-[#3c3f94ca]"
+                    className="w-full flex items-center justify-between pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-[#2674D3] hover:text-[#2674D3]"
                   >
                     {item.title}
                     <svg
-                      className={`ml-2 h-5 w-5 transform ${activeMobileDropdown === item.title ? 'rotate-180' : ''}`}
+                      className={`ml-2 h-5 w-5 transform transition-transform duration-200 ${
+                        activeMobileDropdown === item.title ? 'rotate-180' : ''
+                      }`}
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
@@ -249,14 +367,15 @@ const Navbar = () => {
                     </svg>
                   </button>
                   {activeMobileDropdown === item.title && (
-                    <div className="space-y-1">
+                    <div className="space-y-1 bg-gray-50">
                       {item.dropdownItems?.map((dropdownItem) => (
                         <Link
                           key={dropdownItem.title}
                           href={dropdownItem.path}
-                          className="block pl-6 pr-4 py-2 border-l-4 border-transparent text-xs font-medium text-white hover:bg-gray-50 hover:border-[#3c3f94] hover:text-[#3c3f94ca]"
+                          className="flex items-center pl-6 pr-4 py-3 text-sm font-medium text-gray-600 hover:bg-white hover:text-[#2674D3] transition-colors duration-200"
                           onClick={() => setIsOpen(false)}
                         >
+                          <span className="text-base mr-3">{dropdownItem.icon}</span>
                           {dropdownItem.title}
                         </Link>
                       ))}
@@ -265,7 +384,6 @@ const Navbar = () => {
                 </div>
               )
             )}
-            
           </div>
         </div>
       )}
