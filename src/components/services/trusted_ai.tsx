@@ -59,14 +59,14 @@ const TrustedAISection = () => {
               {/* Main Image Container */}
               <div className="relative h-96 md:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden">
                 <Image
-                  src="/services/ai/trusted.png"
+                  src="/services/ai/trusted.jpg"
                   alt="Trusted AI & ML Development Company"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent rounded-3xl"></div>
                 
                 {/* Floating Elements */}
                 <div className="absolute top-6 right-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">

@@ -67,7 +67,7 @@ const WhyAISection = () => {
           <div className="order-2 lg:order-1">
             <div className="relative h-96 md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden">
               <Image
-                src="/about/why-choose-atvantiq.jpg"
+                src="/services/ai/why.png"
                 alt="Why Global Businesses Choose Atvantiq"
                 fill
                 className="object-cover"
