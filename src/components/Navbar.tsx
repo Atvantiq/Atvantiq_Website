@@ -13,7 +13,6 @@ interface MenuItem {
   dropdownItems?: Array<{
     title: string;
     path: string;
-    icon?: string;
   }>;
 }
 
@@ -39,32 +38,26 @@ const Navbar = () => {
         {
           title: "AI & ML Development",
           path: "/services/ai-ml-development",
-          icon: "🤖"
         },
         {
           title: "Cybersecurity Solutions",
           path: "/services/cybersecurity",
-          icon: "🛡️"
         },
         {
           title: "Web & Mobile App Development",
           path: "/services/web-mobile-development",
-          icon: "📱"
         },
         {
           title: "Cloud Services",
           path: "/services/cloud-services",
-          icon: "☁️"
         },
         {
           title: "Solar Energy Solutions",
           path: "/services/solar-energy",
-          icon: "☀️"
         },
         {
           title: "Telecom Services",
           path: "/services/telecom",
-          icon: "📡"
         },
         {
           title: "Digital Marketing Services",
@@ -100,7 +93,11 @@ const Navbar = () => {
   };
 
   const toggleMobileDropdown = (title: string) => {
-    setActiveMobileDropdown(activeMobileDropdown === title ? null : title);
+    console.log('Toggling mobile dropdown for:', title);
+    console.log('Current activeMobileDropdown:', activeMobileDropdown);
+    const newValue = activeMobileDropdown === title ? null : title;
+    console.log('Setting activeMobileDropdown to:', newValue);
+    setActiveMobileDropdown(newValue);
   };
 
   useEffect(() => {
@@ -261,7 +258,7 @@ const Navbar = () => {
                     </button>
                     {activeDropdown === item.title && (
                       <div 
-                        className="absolute left-0 z-10 mt-1 w-52 rounded-2xl shadow-2xl bg-gradient-to-l from-[#1a1a1a9e] to-[#1a1a1a] "
+                        className="absolute left-0 z-10 mt-1 w-52 rounded-2xl shadow-2xl bg-gradient-to-l from-[#1a1a1a9e] to-[#1a1a1a]"
                         onMouseEnter={() => handleDropdownEnter(item.title)}
                         onMouseLeave={handleDropdownLeave}
                       >
@@ -312,7 +309,7 @@ const Navbar = () => {
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
-                className="inline-flex items-center justify-end p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
+                className="inline-flex items-center justify-end p-2 rounded-md text-white hover:text-gray-300 hover:bg-white/10"
               >
                 <span className="sr-only">Open main menu</span>
                 {!isOpen ? (
@@ -338,7 +335,7 @@ const Navbar = () => {
                 <Link
                   key={item.title}
                   href={item.path}
-                  className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-[#2861B3] hover:text-[#2674D3]"
+                  className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-[#2674D3] hover:text-[#2674D3]"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}
@@ -351,7 +348,7 @@ const Navbar = () => {
                   >
                     {item.title}
                     <svg
-                      className={`ml-2 h-5 w-5 transform transition-transform duration-200 ${
+                      className={`ml-2 h-5 w-5 transform transition-transform duration-200 text-gray-700 ${
                         activeMobileDropdown === item.title ? 'rotate-180' : ''
                       }`}
                       xmlns="http://www.w3.org/2000/svg"
@@ -366,21 +363,22 @@ const Navbar = () => {
                       />
                     </svg>
                   </button>
-                  {activeMobileDropdown === item.title && (
-                    <div className="space-y-1 bg-gray-50">
+                  {/* Simplified conditional rendering */}
+                  {activeMobileDropdown === item.title ? (
+                    <div className="space-y-1 bg-gray-50 border-l-2 border-blue-300">
+                      {console.log(' Dropdown is:', item.title)}
                       {item.dropdownItems?.map((dropdownItem) => (
                         <Link
                           key={dropdownItem.title}
                           href={dropdownItem.path}
-                          className="flex items-center pl-6 pr-4 py-3 text-sm font-medium text-gray-600 hover:bg-white hover:text-[#2674D3] transition-colors duration-200"
+                          className="block pl-8 pr-4 py-3 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-[#2674D3] transition-colors duration-200"
                           onClick={() => setIsOpen(false)}
                         >
-                          <span className="text-base mr-3">{dropdownItem.icon}</span>
                           {dropdownItem.title}
                         </Link>
                       ))}
                     </div>
-                  )}
+                  ) : null}
                 </div>
               )
             )}

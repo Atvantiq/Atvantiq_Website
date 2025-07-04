@@ -7,13 +7,14 @@ import "swiper/css";
 import "swiper/css/autoplay";
 
 const clientLogos = [
-  "/clients/nokia.png",
-  "/clients/ceragon 1.png",
-  "/clients/erricson.png",
-  "/clients/jio.png",
-  "/clients/hfcl1.png",
+  "/clients/asus.png",
+  "/clients/aws.png",
   "/clients/cisco 1.png",
-  "/clients/paloalto.png",
+  "/clients/azure.png",
+  "/clients/molex 1.png",
+  "/clients/hp.png",
+  "/clients/hewlett.png",
+  "/clients/honeywell.png",
 ];
 
 export default function Partners(){
@@ -52,7 +53,7 @@ return (
           alt={`Client ${index + 1}`}
           width={100}
           height={24}
-          className="max-h-[30px] w-auto object-contain grayscale brightness-200 contrast-200 hover:grayscale-0 transition duration-300"
+          className="max-h-[35px] w-auto object-contain grayscale brightness-200 contrast-200 hover:grayscale-0 transition duration-300"
         />
       </SwiperSlide>
     ))}

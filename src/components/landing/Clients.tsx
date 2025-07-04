@@ -12,7 +12,9 @@ const clientLogos = [
   "/clients/erricson.png",
   "/clients/jio.png",
   "/clients/hfcl1.png",
-  "/clients/cisco 1.png",
+  "/clients/tata 1.png",
+  "/clients/aws.png",
+  "/clients/azure.png",
   "/clients/paloalto.png",
 ];
 
