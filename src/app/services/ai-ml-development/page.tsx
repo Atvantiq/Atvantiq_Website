@@ -5,9 +5,9 @@ import AICTASection from '@/components/services/cta';
 import { AIMLHeroSection } from '@/components/services/ai_ml/hero_ai';
 import AITechStackSection from '@/components/services/technology';
 import { TrustedAISection } from '@/components/services/ai_ml/trusted_ai';
-import WhyAISection from '@/components/services/why_ai';
 import { AIServicesSection } from '@/components/services/ai_ml/services_ai';
 import { AIIndustriesSection } from '@/components/services/ai_ml/industries_ai';
+import { WhyAISection } from '@/components/services/ai_ml/why_ai';
 
 export default function ai_ml() {
   return (
