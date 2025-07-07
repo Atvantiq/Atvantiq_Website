@@ -366,7 +366,6 @@ const Navbar = () => {
                   {/* Simplified conditional rendering */}
                   {activeMobileDropdown === item.title ? (
                     <div className="space-y-1 bg-gray-50 border-l-2 border-blue-300">
-                      {console.log(' Dropdown is:', item.title)}
                       {item.dropdownItems?.map((dropdownItem) => (
                         <Link
                           key={dropdownItem.title}

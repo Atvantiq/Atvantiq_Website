@@ -9,7 +9,7 @@ import { AIIndustriesSection } from '@/components/services/ai_ml/industries_ai';
 import { WhyAISection } from '@/components/services/ai_ml/why_ai';
 import { AITechStackSection } from '@/components/services/ai_ml/technology_ai';
 
-export default function ai_ml() {
+export default function web_app() {
   return (
     <div className="min-h-screen max-w-screen ">
       <main>

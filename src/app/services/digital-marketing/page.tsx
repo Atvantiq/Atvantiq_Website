@@ -6,6 +6,7 @@ import { TrustedDigitalMarketingSection } from '@/components/services/digital_ma
 import { DigitalMarketingServicesSection } from '@/components/services/digital_marketing/services_digital';
 import { DigitalMarketingIndustriesSection } from '@/components/services/digital_marketing/industies_ai';
 import { WhyDigitalMarketingSection } from '@/components/services/digital_marketing/why_digital';
+import { DigitalMarketingTechStackSection } from '@/components/services/digital_marketing/technology_digital';
 
 export default function digital_maketing() {
   return (
@@ -16,6 +17,7 @@ export default function digital_maketing() {
         <TrustedDigitalMarketingSection/>
         <DigitalMarketingServicesSection/>
         <DigitalMarketingIndustriesSection/>
+        <DigitalMarketingTechStackSection />
         <WhyDigitalMarketingSection />
         <AICTASection />
         <FooterSection />
