@@ -55,14 +55,6 @@ const cybersecurityIndustries = [
     )
   }
 ];
-
-// AI Industries Component
-
-
-// Digital Marketing Industries Component
-
-
-// Cybersecurity Industries Component
 export const CybersecurityIndustriesSection = () => (
   <IndustriesSection
     sectionTitle="Industries We Protect"
