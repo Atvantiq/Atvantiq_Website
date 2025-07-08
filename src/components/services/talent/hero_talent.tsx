@@ -5,6 +5,6 @@ export const TalentOutsourcingHeroSection = () => (
     title="Services"
     subtitle="Build Agile, High-Performing Teams with Scalable Talent Solutions"
     backgroundImage="/service_cards/hr.png"
-    accentColor="#10ab63" 
+    accentColor="#7C3AED" 
   />
 );

@@ -7,6 +7,7 @@ import { CybersecurityIndustriesSection } from '@/components/services/cybersecur
 import { WhyCybersecuritySection } from '@/components/services/cybersecurity/why_cyber';
 import { CybersecurityCTASection } from '@/components/services/cybersecurity/cta_cyber';
 import CyberThreatsSection from '@/components/services/cybersecurity/threats_cyber';
+import ComplianceStandardsSection from '@/components/services/cybersecurity/compliances_cyber';
 
 export default function cybersecuity() {
   return (
@@ -19,6 +20,7 @@ export default function cybersecuity() {
         <CyberThreatsSection />
         <CybersecurityIndustriesSection/>
         <WhyCybersecuritySection />
+        <ComplianceStandardsSection />
         <CybersecurityCTASection />
         <FooterSection />
      </main>

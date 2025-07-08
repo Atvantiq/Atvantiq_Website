@@ -1,4 +1,4 @@
-import WhyServiceSection from "../why_services";
+import WhySection from "../why_us";
 const cloudReasons = [
   {
     title: "Global Reach",
@@ -56,11 +56,8 @@ const cloudReasons = [
   }
 ];
 export const WhyCloudSection = () => (
-  <WhyServiceSection
+  <WhySection
     sectionTitle="Why Choose Atvantiq for Cloud Services?"
-    reasons={cloudReasons}
-    imagePath="/services/cloud/why.jpg"
-    imageAlt="Why Choose Atvantiq for Cloud Services"
-    ctaText="Start Cloud Transformation"
+    points={cloudReasons}
   />
 );

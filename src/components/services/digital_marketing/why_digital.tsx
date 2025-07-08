@@ -1,4 +1,4 @@
-import WhyServiceSection from "../why_services";
+import WhySection from "../why_us";
 
 const digitalMarketingReasons = [
   {
@@ -57,16 +57,9 @@ const digitalMarketingReasons = [
   }
 ];
 
-// Cybersecurity Reasons Data
-
-
-// Digital Marketing Why Choose Component
 export const WhyDigitalMarketingSection = () => (
-  <WhyServiceSection
-    sectionTitle="Why Choose Atvantiq"
-    reasons={digitalMarketingReasons}
-    imagePath="/services/digital-marketing/why.jpg"
-    imageAlt="Why Choose Atvantiq for Digital Marketing"
-    ctaText="Start Your Marketing Journey"
+  <WhySection
+    sectionTitle="Why Choose Atvantiq?"
+    points={digitalMarketingReasons}
   />
 );

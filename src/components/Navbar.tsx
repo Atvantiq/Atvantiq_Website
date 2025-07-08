@@ -48,20 +48,20 @@ const Navbar = () => {
           path: "/services/web-mobile-development",
         },
         {
-          title: "Cloud Services",
-          path: "/services/cloud-services",
-        },
-        {
-          title: "Solar Energy Solutions",
-          path: "/services/solar-energy",
+          title: "Digital Marketing Services",
+          path: "/services/digital-marketing",
         },
         {
           title: "Telecom Services",
           path: "/services/telecom",
         },
         {
-          title: "Digital Marketing Services",
-          path: "/services/digital-marketing",
+          title: "Cloud Services",
+          path: "/services/cloud-services",
+        },
+        {
+          title: "Solar Energy Solutions",
+          path: "/services/solar-energy",
         },
         {
           title: "Talent Outsourcing Services",
