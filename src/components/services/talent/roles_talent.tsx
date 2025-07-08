@@ -4,47 +4,47 @@ const RolesSupportedSection = () => {
   const roles = [
   {
     name: "Software Engineers & Full Stack Developers",
-    bgColor: "bg-gradient-to-br from-[#2563eb] to-[#1d4ed8]", // Blue
+    bgColor: "bg-gradient-to-br from-[#2563eb] to-[#1d4ed8]",
     textColor: "text-white",
   },
   {
     name: "Cloud & DevOps Engineers",
-    bgColor: "bg-gradient-to-br from-[#6366f1] to-[#4338ca]", // Indigo
+    bgColor: "bg-gradient-to-br from-[#6366f1] to-[#4338ca]",
     textColor: "text-white",
   },
   {
     name: "Data Scientists & AI/ML Engineers",
-    bgColor: "bg-gradient-to-br from-[#10b981] to-[#047857]", // Emerald/Green
+    bgColor: "bg-gradient-to-br from-[#10b981] to-[#047857]",
     textColor: "text-white",
   },
   {
     name: "Cybersecurity Specialists",
-    bgColor: "bg-gradient-to-br from-[#ef4444] to-[#b91c1c]", // Red
+    bgColor: "bg-gradient-to-br from-[#ef4444] to-[#b91c1c]", 
     textColor: "text-white",
   },
   {
     name: "UI/UX Designers",
-    bgColor: "bg-gradient-to-br from-[#f59e0b] to-[#b45309]", // Amber/Orange
+    bgColor: "bg-gradient-to-br from-[#f59e0b] to-[#b45309]",
     textColor: "text-white",
   },
   {
     name: "IT Project Managers",
-    bgColor: "bg-gradient-to-br from-[#ec4899] to-[#be185d]", // Pink
+    bgColor: "bg-gradient-to-br from-[#ec4899] to-[#be185d]", 
     textColor: "text-white",
   },
   {
     name: "Business Analysts",
-    bgColor: "bg-gradient-to-br from-[#f97316] to-[#c2410c]", // Deep Orange
+    bgColor: "bg-gradient-to-br from-[#f97316] to-[#c2410c]",
     textColor: "text-white",
   },
   {
     name: "Telecom & Network Engineers",
-    bgColor: "bg-gradient-to-br from-[#3b82f6] to-[#1e40af]", // Azure Blue
+    bgColor: "bg-gradient-to-br from-[#3b82f6] to-[#1e40af]",
     textColor: "text-white",
   },
   {
     name: "HR & Talent Acquisition Professionals",
-    bgColor: "bg-gradient-to-br from-[#6b7280] to-[#374151]", // Gray
+    bgColor: "bg-gradient-to-br from-[#6b7280] to-[#374151]",
     textColor: "text-white",
   },
 ];
