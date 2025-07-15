@@ -6,7 +6,7 @@ export const AICTASection = () => (
       <>
         Whether you&apos;re a startup in <span className="text-[#1A82E8] font-medium">Toronto</span>, a fintech in{' '}
         <span className="text-[#1A82E8] font-semibold">Dubai</span>, or a healthcare provider in{' '}
-        <span className="text-[#1A82E8] font-semibold">Melbourne</span>, our AI experts are ready to help. 
+        <span className="text-[#1A82E8] font-semibold">Melbourne</span>, our AI experts are ready to help.
         Let&apos;s create tailored, future-ready AI systems that help you lead your industry.
       </>
     }
