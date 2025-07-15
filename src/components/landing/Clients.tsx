@@ -25,7 +25,7 @@ return (
 <div className="relative bg-[#1a1a1a] py-4 md:py-6 overflow-hidden">
   {/* Heading */}
   <h3 className="text-center text-sm sm:text-base md:text-xl text-gray-300 font-medium font-['Plus_Jakarta_Sans'] mb-4 md:mb-6 px-4">
-    Trusted by <span className="text-[#2674D3] font-semibold">500+</span> companies worldwide
+    Trusted by <span className="text-[#2674D3] font-semibold">100+</span> clients worldwide
   </h3>
 
   {/* Fading overlays (left & right) */}

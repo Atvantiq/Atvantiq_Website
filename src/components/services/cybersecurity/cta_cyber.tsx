@@ -8,7 +8,7 @@ export const CybersecurityCTASection = () => (
       </>
     }
     ctaText="Schedule a free cybersecurity assessment"
-    imagePath="/services/cybersecurity/callaction.jpg"
+    imagePath="/services/cybersecurity/cta.jpg"
     imageAlt="Cybersecurity Assessment"
   />
 );

@@ -86,13 +86,6 @@ const cybersecurityServices = [
   },
 ];
 
-// AI Services Component
-
-
-// Digital Marketing Services Component
-
-
-// Cybersecurity Services Component
 export const CybersecurityServicesSection = () => (
   <ServicesSection
     headerTitle="Our Cybersecurity Services Include:"

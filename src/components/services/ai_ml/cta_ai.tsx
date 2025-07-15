@@ -11,7 +11,7 @@ export const AICTASection = () => (
       </>
     }
     ctaText="Schedule your free AI consultation"
-    imagePath="/services/callaction.jpg"
+    imagePath="/services/ai/callaction.jpg"
     imageAlt="AI Development Workspace"
   />
 );

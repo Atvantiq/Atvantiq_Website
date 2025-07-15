@@ -60,7 +60,7 @@ export const WhyWebMobileSection = () => (
   <WhyServiceSection
     sectionTitle="Why Choose Atvantiq?"
     reasons={webMobileReasons}
-    imagePath="/services/web-mobile/why.jpg"
+    imagePath="/services/web_app/why.jpg"
     imageAlt="Why Choose Atvantiq for Web & Mobile Development"
     ctaText="Start Your Project"
   />
