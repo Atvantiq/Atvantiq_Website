@@ -1,4 +1,4 @@
-import ServicesSection from "../subservices";
+import SubServicesSection from "../subsections2";
 
 const telecomServices = [
   {
@@ -54,7 +54,7 @@ const telecomServices = [
 ];
 
 export const TelecomServicesSection = () => (
-  <ServicesSection
+  <SubServicesSection
     headerTitle="Our Telecom Service Domains"
     headerDescription={
       <>

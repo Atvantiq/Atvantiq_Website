@@ -1,4 +1,5 @@
-import ServicesSection from "../subservices";
+import SubServicesSection  from "../subsections2";
+
 const webMobileServices = [
   {
     title: "Custom Web Application Development",
@@ -86,8 +87,8 @@ const webMobileServices = [
   },
 ];
 export const WebMobileServicesSection = () => (
-  <ServicesSection
-    headerTitle="Our Web & Mobile App Development Services"
+  <SubServicesSection
+  headerTitle="Our Web & Mobile App Development Services"
     headerDescription={
       <>
         At <span className="text-[#2674D3] font-semibold">Atvantiq</span>,
@@ -100,5 +101,5 @@ export const WebMobileServicesSection = () => (
     }
     services={webMobileServices}
     ctaText="Build Your App"
-  />
+    />
 );
