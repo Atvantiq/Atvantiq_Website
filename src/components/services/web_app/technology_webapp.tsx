@@ -6,13 +6,13 @@ const webMobileTechCategories = [
     technologies: [
       { name: "React", logo: "/services/web-mobile/technology/react.png" },
       { name: "Angular", logo: "/services/web-mobile/technology/angular.png" },
-      { name: "Vue.js", logo: "/services/web-mobile/technology/vuejs.png" }
+      { name: "Vue.js", logo: "/services/web-mobile/technology/vue.png" }
     ]
   },
   {
     title: "Backend",
     technologies: [
-      { name: "Node.js", logo: "/services/web-mobile/technology/nodejs.png" },
+      { name: "Node.js", logo: "/services/web-mobile/technology/node.png" },
       { name: "Django", logo: "/services/web-mobile/technology/django.png" },
       { name: "Laravel", logo: "/services/web-mobile/technology/laravel.png" },
       { name: "PHP", logo: "/services/web-mobile/technology/php.png" },
@@ -30,9 +30,9 @@ const webMobileTechCategories = [
   {
     title: "Mobile App Development",
     technologies: [
-      { name: "Swift (iOS)", logo: "/services/web-mobile/technology/swift.png" },
-      { name: "Kotlin (Android)", logo: "/services/web-mobile/technology/kotlin.png" },
-      { name: "React Native", logo: "/services/web-mobile/technology/react-native.png" },
+      { name: "Swift (iOS)", logo: "/services/web-mobile/technology/swift.jpg" },
+      { name: "Kotlin (Android)", logo: "/services/web-mobile/technology/kotlin.jpg" },
+      { name: "React Native", logo: "/services/web-mobile/technology/react.png" },
       { name: "Flutter", logo: "/services/web-mobile/technology/flutter.png" },
       { name: "Ionic", logo: "/services/web-mobile/technology/ionic.png" }
     ]

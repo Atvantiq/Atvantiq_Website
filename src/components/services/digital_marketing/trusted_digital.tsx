@@ -17,7 +17,7 @@ export const TrustedDigitalMarketingSection = () => (
         <span className="font-semibold">Our goal?</span> To transform your digital presence into measurable growth and lasting customer relationships.
       </>
     }
-    imagePath="/services/digital-marketing/trusted.jpg"
+    imagePath="/services/digital/trusted.jpg"
     imageAlt="Trusted Digital Marketing Services"
     floatingElements={[
       {

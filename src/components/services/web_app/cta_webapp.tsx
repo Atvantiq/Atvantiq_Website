@@ -8,7 +8,7 @@ export const WebMobileCTASection = () => (
       </>
     }
     ctaText="Start your development journey"
-    imagePath="/services/web_app/cta.png"
+    imagePath="/services/web_app/calltoaction.jpg"
     imageAlt="Web & Mobile Development"
   />
 );
