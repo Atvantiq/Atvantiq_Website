@@ -57,7 +57,7 @@ const TechStackSection = ({
           {techCategories[activeCategory].technologies.map((tech, index) => (
             <div
               key={index}
-              className="w-[140px] h-[170px] bg-white rounded-2xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col items-center text-center"
+              className="w-[145px] h-[180px] bg-white rounded-2xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col items-center text-center"
             >
               {/* Logo Area */}
               <div className="w-20 h-20 mb-4 rounded-2xl bg-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300 p-3">

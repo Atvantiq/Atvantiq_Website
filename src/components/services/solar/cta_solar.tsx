@@ -8,7 +8,7 @@ export const SolarCTASection = () => (
       </>
     }
     ctaText="Contact us today for a free solar consultation"
-    imagePath="/services/solar/callaction.jpg"
+    imagePath="/services/solar/cta.jpg"
     imageAlt="Solar Energy Solutions"
   />
 );

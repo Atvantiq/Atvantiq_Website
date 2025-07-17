@@ -8,7 +8,7 @@ export const TalentCTASection = () => (
       </>
     }
     ctaText="Request a free hiring strategy consultation"
-    imagePath="/services/talent/callaction.jpg"
+    imagePath="/services/talent/cta.jpg"
     imageAlt="Tech Team Building"
   />
 );

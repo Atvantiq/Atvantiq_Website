@@ -4,7 +4,7 @@ const aiTechCategories = [
   {
     title: "Languages & Frameworks",
     technologies: [
-      { name: "Python", logo: "/services/ai/technology/pythn.jpg" },
+      { name: "Python", logo: "/services/ai/technology/python.jpg" },
       { name: "R", logo: "/services/ai/technology/r.jpg" },
       { name: "TensorFlow", logo: "/services/ai/technology/tensorflow.png" },
       { name: "PyTorch", logo: "/services/ai/technology/pytorch.png" },
@@ -14,7 +14,7 @@ const aiTechCategories = [
   {
     title: "Cloud Platforms",
     technologies: [
-      { name: "AWS SageMaker", logo: "/services/ai/technology/aws_sagemaker.jpg" },
+      { name: "AWS SageMaker", logo: "/services/ai/technology/asw_sagemaker.jpg" },
       { name: "Azure ML", logo: "/services/ai/technology/azure_ml.png" },
       { name: "Google AI Platform", logo: "/services/ai/technology/google_ai.png" }
     ]

@@ -8,7 +8,7 @@ export const CloudCTASection = () => (
       </>
     }
     ctaText="Get a free consultation with our certified cloud experts"
-    imagePath="/services/cloud/callaction.jpg"
+    imagePath="/services/cloud/cta.png"
     imageAlt="Cloud Transformation"
   />
 );

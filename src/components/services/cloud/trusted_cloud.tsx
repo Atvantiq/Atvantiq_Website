@@ -20,7 +20,7 @@ export const TrustedCloudSection = () => (
         <span className="font-semibold">Our vision?</span> To make cloud transformation seamless, secure, and cost-effective for businesses of all sizes.
       </>
     }
-    imagePath="/services/cloud/trusted.jpg"
+    imagePath="/services/cloud/trusted2.jpg"
     imageAlt="Trusted Cloud Services"
     floatingElements={[
       {

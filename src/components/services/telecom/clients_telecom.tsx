@@ -13,7 +13,7 @@ const clientLogos = [
 const ClientsSection = () => {
   return (
     <section className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 
         {/* Left Text Block */}
         <div>
@@ -29,15 +29,15 @@ const ClientsSection = () => {
         </div>
 
         {/* Right Image Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-12 justify-end items-end">
           {clientLogos.map((logo, index) => (
             <div key={index} className="flex justify-center items-center justify-items-center h-20">
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={130}
+                width={120}
                 height={64}
-                className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition duration-300"
+                className="h-10 w-auto object-contain grayscale hover:grayscale-0 transition duration-300"
               />
             </div>
           ))}
