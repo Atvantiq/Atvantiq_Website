@@ -8,7 +8,7 @@ export const DigitalMarketingCTASection = () => (
       </>
     }
     ctaText="Get your free digital marketing audit"
-    imagePath="/services/digital/cta.jpg"
+    imagePath="/services/digital-marketing/cta.jpg"
     imageAlt="Digital Marketing Strategy"
   />
 );

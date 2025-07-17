@@ -46,13 +46,13 @@ const SubServicesSection = ({
                 key={index}
                 className={`pb-4 border-b border-white/30 cursor-pointer text-lg font-medium flex items-start space-x-3 transition-all duration-300 ${
                   selectedService === index
-                    ? "text-white font-bold"
-                    : "text-white/70"
+                    ? "text-white font-extrabold"
+                    : "text-white/50"
                 }`}
                 onClick={() => setSelectedService(index)}
               >
                 <span className="text-white/90 font-bold text-xl w-10">
-                  {String(index + 1).padStart(2, "0")}.
+                  →
                 </span>
                 <span>{service.title}</span>
               </div>
@@ -100,7 +100,7 @@ const SubServicesSection = ({
                       </svg>
                     </div>
                     <span className="text-white text-lg font-medium">
-                      {feature}s
+                      {feature}
                     </span>
                   </li>
                 ))}

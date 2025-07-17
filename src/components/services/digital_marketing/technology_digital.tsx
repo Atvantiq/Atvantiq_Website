@@ -13,8 +13,8 @@ const digitalMarketingTechCategories = [
   {
     title: "Analytics & Tracking",
     technologies: [
-      { name: "Google Analytics 4", logo: "/services/digital-marketing/technology/ga4.png" },
-      { name: "Google Tag Manager", logo: "/services/digital-marketing/technology/gtm.png" },
+      { name: "Google Analytics 4", logo: "/services/digital-marketing/technology/google-analytics.png" },
+      { name: "Google Tag Manager", logo: "/services/digital-marketing/technology/google-tag-manager.png" },
       { name: "Looker Studio", logo: "/services/digital-marketing/technology/looker-studio.png" },
       { name: "Hotjar", logo: "/services/digital-marketing/technology/hotjar.png" }
     ]
@@ -40,8 +40,8 @@ const digitalMarketingTechCategories = [
   {
     title: "Website Development",
     technologies: [
-      { name: "WordPress", logo: "/services/digital-marketing/technology/wordpress.png" },
-      { name: "Shopify", logo: "/services/digital-marketing/technology/shopify.png" },
+      { name: "WordPress", logo: "/services/web-mobile/technology/wordpress.png" },
+      { name: "Shopify", logo: "/services/web-mobile/technology/shopify.png" },
       { name: "Webflow", logo: "/services/digital-marketing/technology/webflow.png" },
       { name: "WooCommerce", logo: "/services/digital-marketing/technology/woocommerce.png" }
     ]

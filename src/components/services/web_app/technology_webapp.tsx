@@ -12,7 +12,7 @@ const webMobileTechCategories = [
   {
     title: "Backend",
     technologies: [
-      { name: "Node.js", logo: "/services/web-mobile/technology/node.png" },
+      { name: "Node.js", logo: "/services/web-mobile/technology/node.jpg" },
       { name: "Django", logo: "/services/web-mobile/technology/django.png" },
       { name: "Laravel", logo: "/services/web-mobile/technology/laravel.png" },
       { name: "PHP", logo: "/services/web-mobile/technology/php.png" },

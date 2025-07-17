@@ -22,7 +22,7 @@ export const TrustedWebAppSection = () => (
         <span className="font-semibold">Our commitment?</span> To transform your ideas into digital experiences that users love and businesses rely on.
       </>
     }
-    imagePath="/services/web_app/trusted.jpg"
+    imagePath="/services/web-mobile/trusted.jpg"
     imageAlt="Trusted Web & Mobile App Development"
     floatingElements={[
       {
