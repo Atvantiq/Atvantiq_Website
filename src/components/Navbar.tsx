@@ -69,7 +69,19 @@ const Navbar = () => {
         }
       ]
     },
-    { title: "People", path: "/people" },
+    { title: "People", 
+      path: "/people", 
+      hasDropdown: true,
+      dropdownItems: [
+        {
+          title: "Life @ Atvantiq",
+          path: "/people/life-atvantiq",
+        },
+        {
+          title: "Careers",
+          path: "/people/careers",
+        },]
+    },
     { title: "Case Study", path: "/casestudy" },
     { title: "Blog", path: "/blog" }
   ];
