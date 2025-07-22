@@ -8,14 +8,14 @@ const CareersHeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/people/careerhero.jpg"
+          src="/people/hiring.jpg"
           alt="Shape Your Future with Atvantiq - Career Opportunities"
           fill
           className="object-cover"
           priority
           sizes="180vw"
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
       {/* Background Decorative Elements */}

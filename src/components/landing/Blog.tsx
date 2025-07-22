@@ -16,10 +16,6 @@ const BlogSection = () => {
       description:
         "AI is enhancing retail customer experience by leveraging data analytics and machine learning to offer personalized recommendations and seamless shopping journeys.",
       image: "/blog/retail.png",
-      author: {
-        name: "Smith",
-        avatar: "/avatars/smith.jpg",
-      },
       date: "16th Apr '25",
       category: "AI AGENCY",
       categoryColor: "bg-[#2674D3]",
@@ -30,10 +26,6 @@ const BlogSection = () => {
       description:
         "Paraphrasing features are prevalent in AI tools, allowing users to alter text effectively. Merlin and Quillbot are key platforms offering advanced paraphrasing options.",
       image: "/blog/business.jpg",
-      author: {
-        name: "Smith",
-        avatar: "/avatars/smith.jpg",
-      },
       date: "29th Aug '24",
       category: "AI AGENCY",
       categoryColor: "bg-[#2674D3]",
@@ -44,10 +36,6 @@ const BlogSection = () => {
       description:
         "Exploring how machine learning algorithms are revolutionizing medical diagnosis, treatment planning, and patient care in modern healthcare systems.",
       image: "/blog/healthcare.jpg",
-      author: {
-        name: "Williams",
-        avatar: "/avatars/williams.jpg",
-      },
       date: "3rd Jun '24",
       category: "HEALTHCARE",
       categoryColor: "bg-[#2861B3]",
@@ -58,10 +46,6 @@ const BlogSection = () => {
       description:
         "Understanding the dual role of AI in cybersecurity - both as a powerful defense mechanism and a potential vector for sophisticated cyber attacks.",
       image: "/blog/cyber.jpg",
-      author: {
-        name: "Davis",
-        avatar: "/avatars/davis.jpg",
-      },
       date: "22nd May '24",
       category: "SECURITY",
       categoryColor: "bg-[#2674D3]",
@@ -72,10 +56,6 @@ const BlogSection = () => {
       description:
         "Analyzing the latest trends in cloud computing, including serverless architecture, edge computing, and multi-cloud strategies for modern enterprises.",
       image: "/blog/cloud.jpg",
-      author: {
-        name: "Brown",
-        avatar: "/avatars/brown.jpg",
-      },
       date: "10th Apr '24",
       category: "CLOUD",
       categoryColor: "bg-[#1A82E8]",
@@ -229,34 +209,7 @@ const BlogSection = () => {
                             </p>
                           </div>
 
-                          <div className="flex items-center gap-3 mt-4">
-                            <div className="relative w-8 h-8">
-                              <Image
-                                src={post.author.avatar}
-                                alt={post.author.name}
-                                className="w-full h-full object-cover rounded-full"
-                                width={32}
-                                height={32}
-                                onError={(e) => {
-                                  const target = e.target as HTMLImageElement;
-                                  target.style.display = "none";
-                                  if (
-                                    target.nextSibling &&
-                                    target.nextSibling instanceof HTMLElement
-                                  ) {
-                                    (
-                                      target.nextSibling as HTMLElement
-                                    ).style.display = "flex";
-                                  }
-                                }}
-                              />
-                              <div className="hidden absolute inset-0 w-full h-full bg-gradient-to-br from-[#2674D3] to-[#2861B3] items-center justify-center text-white text-xs font-semibold rounded-full">
-                                {post.author.name.charAt(0)}
-                              </div>
-                            </div>
-                            <span className="text-sm text-gray-700 font-medium">
-                              by {post.author.name}
-                            </span>
+                          <div className="flex items-center gap-3 mt-4">  
                             <span className="text-sm text-gray-500 ml-2">
                               {post.date}
                             </span>

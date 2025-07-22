@@ -41,7 +41,7 @@ const LifeAtAtvantiqHero = () => {
         {/* Stats Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 max-w-4xl">
           <div>
-            <div className="text-3xl md:text-4xl font-bold text-[#1A82E8] mb-2">500+</div>
+            <div className="text-3xl md:text-4xl font-bold text-[#1A82E8] mb-2">100+</div>
             <div className="text-gray-300 text-sm md:text-base">Team Members</div>
           </div>
           <div>

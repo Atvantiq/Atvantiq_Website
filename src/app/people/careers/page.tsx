@@ -10,8 +10,8 @@ export default function ai_ml() {
       <main>
         <Navbar />
         <CareersHeroSection />
-        <PerksSection />
         <CareersJobsSection />
+        <PerksSection />
         <FooterSection />
       </main>
       </div>

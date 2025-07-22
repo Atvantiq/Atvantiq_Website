@@ -6,9 +6,10 @@ const PerksSection = () => {
     "Free Snacks & Drinks",
     "Open Work Culture",
     "5 Days Working Per Week",
-    "Family Health Insurance",
+    "Health Insurance",
     "Competitive Salary And Benefits",
-    "Festival, Birthday & Work Anniversary Celebration"
+    "Festival, Birthdays Celebrations",
+    "Work Anniversary Celebrations"
   ];
 
   return (
@@ -17,19 +18,28 @@ const PerksSection = () => {
         
         {/* Text Content */}
         <div className="lg:w-1/2">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Why Work with Atvantiq?
-          </h2>
+          <div className="flex items-start gap-4 pt-2 mb-10">
+              <div className="w-16 h-[2px] bg-gradient-to-r from-[#2674D3] to-[#2861B3] mt-6"></div>
+              <h3 className="uppercase tracking-wider text-black font-bold text-[30px]">
+                Why Work with <span className="text-[#2674D3]">Atvantiq</span> 
+              </h3>
+            </div>
           <p className="text-gray-700 text-lg mb-6">
             At Atvantiq, we believe that great work begins with a great workplace. 
             We offer an inclusive, transparent, and growth-driven environment where your voice is heard and your potential is realized.
           </p>
 
-          <ul className="list-disc list-inside space-y-3 text-gray-800 font-medium grid grid-cols-2">
+          <div className="space-y-3 text-gray-800 font-medium grid grid-cols-2">
             {perks.map((perk, index) => (
-              <li key={index}>{perk}</li>
+              <div
+                    key={index}
+                    className="flex items-center rounded-lg transition-all duration-300 group"
+                  >
+              <div className="w-2 h-2 bg-gradient-to-r from-[#2674D3] to-[#2861B3] rounded-full flex-shrink-0 pr-2"></div>
+              <div className="text-base pl-5"> {perk}</div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
 
         {/* Image */}
