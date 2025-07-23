@@ -1,55 +1,39 @@
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getBlogPostBySlug,getAllBlogSlugs,getRelatedPosts } from '@/components/blogs/blogs-data';
+import { getBlogPostBySlug, getAllBlogSlugs, getRelatedPosts } from '@/components/blogs/blogs-data';
 import Navbar from '@/components/Navbar';
 import FooterSection from '@/components/landing/Footer';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface BlogPostPageProps {
-  params: {
-    slug: string;
-  };
+  params: { slug: string };
 }
 
-// Generate static paths for all blog posts
 export async function generateStaticParams() {
-  const slugs = getAllBlogSlugs();
-  return slugs.map((slug) => ({
-    slug: slug,
-  }));
+  const slugs = getAllBlogSlugs(); 
+  return slugs.map((slug) => ({ slug }));
 }
 
-// Generate metadata for SEO
-export async function generateMetadata({ params }: BlogPostPageProps) {
-  const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
-  
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { slug } = await params; 
+  const post = getBlogPostBySlug(slug); 
+
   if (!post) {
-    return {
-      title: 'Blog Post Not Found',
-    };
+    return { title: 'Post Not Found' };
   }
 
   return {
-    title: `${post.title} | Atvantiq Blog`,
+    title: post.title,
     description: post.description,
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      images: [post.image],
-    },
   };
 }
 
-const BlogPostPage: React.FC<BlogPostPageProps> = ({ params }) => {
-  const post = getBlogPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+ const post = getBlogPostBySlug(slug); 
+  if (!post) notFound();
 
-  if (!post) {
-    notFound();
-  }
-
-  // Get related posts (same category, excluding current post)
   const relatedPosts = getRelatedPosts(post.id, post.category, 3);
 
   return (
@@ -278,5 +262,3 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ params }) => {
     </div>
   );
 };
-
-export default BlogPostPage;
