@@ -1,85 +1,16 @@
+// /components/BlogSection.tsx
+
 "use client";
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-interface BlogPost {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
-  category: string;
-  image: string;
-  slug: string;
-}
+import {blogPosts } from './blogs-data';
 
 const BlogSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchTerm, setSearchTerm] = useState<string>('');
 
-  const blogPosts: BlogPost[] = [
-    {
-      id: 1,
-      title: "How AI is enhancing customer experience in retail",
-      description:
-        "AI is enhancing retail customer experience by leveraging data analytics and machine learning to offer personalized recommendations and seamless shopping journeys.",
-      image: "/blog/retail.png",
-      date: "16th Apr '25",
-      category: "AI & ML",
-      slug: "how-ai-is-enhancing-customer-experience-in-retail",
-    },
-    {
-      id: 2,
-      title: "How our AI services can transform your business",
-      description:
-        "Paraphrasing features are prevalent in AI tools, allowing users to alter text effectively. Merlin and Quillbot are key platforms offering advanced paraphrasing options.",
-      image: "/blog/business.jpg",
-      date: "29th Aug '24",
-      category: "AI & ML",
-      slug: "how-our-ai-services-can-transform-your-business",
-    },
-    {
-      id: 3,
-      title: "The Future of Machine Learning in Healthcare",
-      description:
-        "Exploring how machine learning algorithms are revolutionizing medical diagnosis, treatment planning, and patient care in modern healthcare systems.",
-      image: "/blog/healthcare.jpg",
-      date: "3rd Jun '24",
-      category: "AI & ML",
-      slug: "the-future-of-machine-learning-in-healthcare",
-    },
-    {
-      id: 4,
-      title: "Cybersecurity in the Age of AI",
-      description:
-        "Understanding the dual role of AI in cybersecurity - both as a powerful defense mechanism and a potential vector for sophisticated cyber attacks.",
-      image: "/blog/cyber.jpg",
-      date: "22nd May '24",
-      category: "Cybersecurity",
-      slug: "cybersecurity-in-the-age-of-ai",
-    },
-    {
-      id: 5,
-      title: "Cloud Computing Trends for 2025",
-      description:
-        "Analyzing the latest trends in cloud computing, including serverless architecture, edge computing, and multi-cloud strategies for modern enterprises.",
-      image: "/blog/cloud.jpg",
-      date: "10th Apr '24",
-      category: "Cloud Computing",
-      slug: "cloud-computing-trends-for-2025",
-    },
-    {
-      id: 6,
-      title: "The Rise of Low-Code Development Platforms",
-      description: "How low-code platforms are democratizing app development and accelerating digital transformation across industries.",
-      date: "28 February 2025",
-      category: "Development",
-      image: "/blog/low-code-platforms.jpg",
-      slug: "the-rise-of-low-code-development-platforms",
-    }
-  ];
-
-  const categories = ['All', 'Cybersecurity', 'AI & ML', 'Cloud Computing', 'Solar',  'Digital Marketing', 'Development'];
+  const categories = ['All', 'Cybersecurity', 'AI & ML', 'Cloud Computing', 'Solar', 'Digital Marketing', 'Development'];
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
@@ -154,41 +85,39 @@ const BlogSection: React.FC = () => {
         {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map((post) => (
-            <Link href={`/blogs/${post.slug}`} key={post.id}>
-  <article
-    className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-[#2674D3]/50 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
-  >
-    {/* Featured Image */}
-    <div className="relative h-48 md:h-56 overflow-hidden">
-      <Image
-        src={post.image}
-        alt={post.title}
-        fill
-        className="object-cover transition-transform duration-300 group-hover:scale-105"
-        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-    </div>
+            <Link href={`/blog/${post.slug}`} key={post.id}>
+              <article className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-[#2674D3]/50 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group">
+                {/* Featured Image */}
+                <div className="relative h-48 md:h-56 overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                </div>
 
-    {/* Content */}
-    <div className="p-6">
-      <h3 className="text-xl font-bold text-white mb-3 leading-tight group-hover:text-[#1A82E8] transition-colors duration-300">
-        {post.title}
-      </h3>
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-3 leading-tight group-hover:text-[#1A82E8] transition-colors duration-300">
+                    {post.title}
+                  </h3>
 
-      <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
-        {post.description}
-      </p>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
+                    {post.description}
+                  </p>
 
-      <div className="flex justify-between items-center">
-        <span className="text-gray-500 text-xs">{post.date}</span>
-        <span className="bg-gradient-to-r from-[#2674D3] to-[#1A82E8] text-white text-xs font-medium px-3 py-1 rounded-full">
-          {post.category}
-        </span>
-      </div>
-    </div>
-  </article>
-</Link>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-500 text-xs">{post.date}</span>
+                    <span className="bg-gradient-to-r from-[#2674D3] to-[#1A82E8] text-white text-xs font-medium px-3 py-1 rounded-full">
+                      {post.category}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
 
