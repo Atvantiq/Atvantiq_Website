@@ -81,3 +81,103 @@ body {
           animation: slideInRight 0.8s ease-out 0.5s forwards;
           opacity: 0;
         }
+.blog-content h1 {
+    color: #ffffff;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem 0;
+    line-height: 1.3;
+    border-bottom: 2px solid #2674D3;
+    padding-bottom: 0.5rem;
+  }
+.blog-content h2 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    line-height: 1.3;
+    border-bottom: 1px solid #2674D3;
+    padding-bottom: 0.5rem;
+  }
+  
+  .blog-content p {
+    color: #d1d5db;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+  }
+  
+  .blog-content ul{
+    color: #d1d5db;
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    background: rgba(38, 116, 211, 0.05);
+    border-radius: 0.5rem;
+    padding: 1rem 1rem 1rem 2rem;
+    border-left: 2px solid #2674D3;
+  }
+  
+  .blog-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    position: relative;
+  }
+  
+  .blog-content li strong {
+    color: #60a5fa;
+    font-weight: 600;
+  }
+  
+  .blog-content strong {
+    color: #ffffff;
+    font-weight: 600;
+    background: linear-gradient(135deg, #2674D3, #1A82E8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .blog-content ul li::marker {
+    color: #2674D3;
+    font-size: 1.2em;
+  }
+  
+  .blog-content ul li::before {
+    content: '▶';
+    color: #1A82E8;
+    position: absolute;
+    left: -1.5rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .blog-content h2 {
+      font-size: 1.5rem;
+    }
+    
+    .blog-content h3 {
+      font-size: 1.25rem;
+    }
+    
+    .blog-content p {
+      font-size: 1rem;
+      text-align: left;
+    }
+    
+    .blog-content ul {
+      padding: 0.75rem 0.75rem 0.75rem 1.5rem;
+    }
+  }
+  
+  /* Dark mode enhancements */
+  .blog-content *::selection {
+    background: rgba(38, 116, 211, 0.3);
+    color: #ffffff;
+  }
+  
+  .blog-content *::-moz-selection {
+    background: rgba(38, 116, 211, 0.3);
+    color: #ffffff;
+  }

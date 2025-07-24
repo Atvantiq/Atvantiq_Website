@@ -10,7 +10,7 @@ const BlogSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchTerm, setSearchTerm] = useState<string>('');
 
-  const categories = ['All', 'Cybersecurity', 'AI & ML', 'Cloud Computing', 'Solar', 'Digital Marketing', 'Development'];
+  const categories = ['All', 'Cybersecurity', 'AI & ML', 'Cloud Computing', 'Solar Energy', 'Digital Marketing', 'Telecom'];
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
@@ -86,7 +86,7 @@ const BlogSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map((post) => (
             <Link href={`/blog/${post.slug}`} key={post.id}>
-              <article className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-[#2674D3]/50 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group">
+              <article className="bg-gray-900 border border-gray-800 rounded-2xl max-h-[430px] overflow-hidden hover:border-[#2674D3]/50 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group">
                 {/* Featured Image */}
                 <div className="relative h-48 md:h-56 overflow-hidden">
                   <Image

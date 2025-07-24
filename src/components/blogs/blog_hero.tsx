@@ -8,14 +8,14 @@ const BlogsHeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/blogs/hero.jpg"
+          src="/blog/hero.jpg"
           alt="Shape Your Future with Atvantiq - Career Opportunities"
           fill
           className="object-cover"
           priority
           sizes="180vw"
         />
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
       {/* Background Decorative Elements */}

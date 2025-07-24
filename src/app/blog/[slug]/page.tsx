@@ -6,7 +6,6 @@ import FooterSection from '@/components/landing/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// ✅ Fixed: Updated type to use Promise for Next.js 15 compatibility
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
 }
@@ -16,7 +15,6 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-// ✅ Fixed: Updated generateMetadata parameter type
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params; 
   const post = getBlogPostBySlug(slug); 
@@ -53,7 +51,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
-      {/* Add the blog content styles */}
       
       <div className="bg-black min-h-screen text-white">
         <Navbar />
@@ -102,34 +99,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               
               {/* Main Content - Left Side */}
               <div className="lg:col-span-2">
-                
-                {/* Author Info */}
-                <div className="flex items-center gap-4 mb-8 p-6 bg-gray-900 border border-gray-800 rounded-2xl">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gradient-to-r from-[#2674D3] to-[#1A82E8] flex items-center justify-center">
-                    {post.author.avatar ? (
-                      <Image
-                        src={post.author.avatar}
-                        alt={post.author.name}
-                        width={64}
-                        height={64}
-                        className="rounded-full object-cover"
-                      />
-                    ) : (
-                      <span className="text-white text-xl font-bold">
-                        {post.author.name.charAt(0)}
-                      </span>
-                    )}
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white">{post.author.name}</h3>
-                    <p className="text-gray-400">{post.author.role}</p>
-                  </div>
-                </div>
 
                 {/* Blog Content with Enhanced Styling */}
-                <div className="blog-content mb-8">
+                <div className=" mb-8">
                   <div 
-                    className="text-gray-300 leading-relaxed"
+                    className="blog-content"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
                 </div>
@@ -152,7 +126,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {/* Share & Navigation */}
                 <div className="flex flex-col sm:flex-row justify-between items-center py-8 border-t border-gray-800 gap-4">
                   <Link 
-                    href="/blogs"
+                    href="/blog"
                     className="flex items-center gap-2 text-[#1A82E8] hover:text-[#2674D3] transition-colors font-medium"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,12 +168,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       <svg className="w-5 h-5 text-[#1A82E8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                       </svg>
-                      Recent Posts
+                      Related Posts
                     </h3>
                     
                     <div className="space-y-4">
                       {relatedPosts.map((relatedPost) => (
-                        <Link href={`/blogs/${relatedPost.slug}`} key={relatedPost.id}>
+                        <Link href={`/blog/${relatedPost.slug}`} key={relatedPost.id}>
                           <div className="group flex gap-4 p-3 hover:bg-gray-800 rounded-xl transition-all duration-300 cursor-pointer">
                             <div className="relative w-20 h-16 rounded-lg overflow-hidden flex-shrink-0">
                               <Image
@@ -226,7 +200,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </div>
                     
                     <Link 
-                      href="/blogs"
+                      href="/blog"
                       className="inline-flex items-center gap-2 text-[#1A82E8] hover:text-[#2674D3] font-medium text-sm mt-4 transition-colors"
                     >
                       View All Posts
@@ -246,7 +220,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </h3>
                     
                     <div className="space-y-2">
-                      {['AI & ML', 'Cybersecurity', 'Cloud Computing', 'Digital Marketing', 'Development'].map((category) => (
+                      {['AI & ML', 'Cybersecurity', 'Cloud Computing', 'Digital Marketing', 'Telecom', 'Solar Energy'].map((category) => (
                         <div key={category} className="flex items-center justify-between py-2 px-3 hover:bg-gray-800 rounded-lg transition-colors cursor-pointer group">
                           <span className="text-gray-300 group-hover:text-white transition-colors">{category}</span>
                           <span className="text-xs text-gray-500 bg-gray-800 group-hover:bg-gray-700 px-2 py-1 rounded-full">
