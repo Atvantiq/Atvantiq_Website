@@ -254,7 +254,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </section>
 
-        <section className="py-16 px-4 bg-gradient-to-r from-[#2674D3] to-[#1A82E8]">
+        <section className="py-16 px-4 bg-radial from-[#2674D3] to-[#1A82E8]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Ready to Transform Your Business?

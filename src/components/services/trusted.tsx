@@ -28,7 +28,7 @@ const TrustedServiceSection: React.FC<TrustedServiceSectionProps> = ({
   floatingElements = []
 }) => {
   return (
-    <section className="relative bg-gradient-to-br from-[#0B1426] via-[#1a2744] to-[#2a3b5c] text-white pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-8 min-h-screen overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[#0B1426] via-[#1a2744] to-[#2a3b5c] text-white pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-8 overflow-hidden">
       
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

@@ -6,25 +6,35 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
+interface SubMenuItem {
+  title: string;
+  path: string;
+}
+
+interface DropdownItem {
+  title: string;
+  path: string;
+  subItems?: SubMenuItem[];
+}
+
 interface MenuItem {
   title: string;
   path: string;
   hasDropdown?: boolean;
-  dropdownItems?: Array<{
-    title: string;
-    path: string;
-  }>;
+  dropdownItems?: DropdownItem[];
 }
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
   const [hoveredLink, setHoveredLink] = useState<number | null>(null);
   const linkRefs = useRef<(HTMLDivElement | null)[]>([]);
   const navRef = useRef<HTMLDivElement | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const subDropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const pathname = usePathname();
 
@@ -38,14 +48,36 @@ const Navbar = () => {
         {
           title: "AI & ML Development",
           path: "/services/ai-ml-development",
+          subItems: [
+            { title: "Custom Machine Learning Model Development", path: "/services/ai-ml-development/custom-ml-model" },
+            { title: "Generative AI applications Services", path: "/services/ai-ml-development/generative-ai" },
+            { title: "Predictive analytics & forecasting Services", path: "/services/ai-ml-development/predictive-analytics" },
+            { title: "Natural Language Processing (NLP) services", path: "/services/ai-ml-development/nlp" },
+            { title: "ChatGPT integration for business automation services", path: "/services/ai-ml-development/chatgpt-integration" },
+            { title: "AI-powered business intelligence dashboards services", path: "/services/ai-ml-development/bi-dashboards" },
+          ],
         },
         {
           title: "Cybersecurity Solutions",
           path: "/services/cybersecurity",
+          subItems: [
+            { title: "Threat detection & prevention", path: "/services/cybersecurity/threat-detection" },
+            { title: "Network & endpoint security", path: "/services/cybersecurity/network-security" },
+            { title: "Security audits & compliance", path: "/services/cybersecurity/audits-compliance" },
+            { title: "Identity & access management", path: "/services/cybersecurity/identity-management" },
+            { title: "Cloud security solutions", path: "/services/cybersecurity/cloud-security" },
+          ],
         },
         {
           title: "Web & Mobile App Development",
           path: "/services/web-mobile-development",
+          subItems: [
+            { title: "Custom web development (React, Next.js, Laravel, etc.)", path: "/services/web-mobile-development/custom-web" },
+            { title: "Android & iOS mobile apps development", path: "/services/web-mobile-development/mobile-apps" },
+            { title: "Cross-platform solutions using Flutter & React Native", path: "/services/web-mobile-development/cross-platform" },
+            { title: "E-commerce platforms development", path: "/services/web-mobile-development/ecommerce" },
+            { title: "Enterprise app development", path: "/services/web-mobile-development/enterprise" },
+          ],
         },
         {
           title: "Digital Marketing Services",
@@ -54,40 +86,63 @@ const Navbar = () => {
         {
           title: "Telecom Services",
           path: "/services/telecom",
+          subItems: [
+            { title: "Planning & design", path: "/services/telecom/planning-design" },
+            { title: "Deployment", path: "/services/telecom/deployment" },
+            { title: "Service migration & Validation", path: "/services/telecom/migration-validation" },
+            { title: "Operations & Optimization", path: "/services/telecom/operations-optimization" },
+          ],
         },
         {
           title: "Cloud Services",
           path: "/services/cloud-services",
+          subItems: [
+            { title: "Cloud architecture & consulting", path: "/services/cloud-services/architecture-consulting" },
+            { title: "Cloud migration & deployment", path: "/services/cloud-services/migration-deployment" },
+            { title: "AWS, Azure, and Google Cloud solutions", path: "/services/cloud-services/cloud-solutions" },
+            { title: "DevOps & CI/CD pipelines", path: "/services/cloud-services/devops-cicd" },
+            { title: "Managed cloud operations & support", path: "/services/cloud-services/managed-operations" },
+          ],
         },
         {
           title: "Solar Energy Solutions",
           path: "/services/solar-energy",
+          subItems: [
+            { title: "Residential & commercial solar panel installations", path: "/services/solar-energy/installations" },
+            { title: "Battery storage solutions", path: "/services/solar-energy/battery-storage" },
+            { title: "System maintenance & repair", path: "/services/solar-energy/maintenance-repair" },
+            { title: "Solar energy consultation", path: "/services/solar-energy/consultation" },
+            { title: "Green energy audits", path: "/services/solar-energy/green-audits" },
+          ],
         },
         {
           title: "Talent Outsourcing Services",
           path: "/services/talent-outsourcing",
-        }
-      ]
+          subItems: [
+            { title: "Contract & full-time placements", path: "/services/talent-outsourcing/contract-placements" },
+            { title: "Project-based outsourcing", path: "/services/talent-outsourcing/project-outsourcing" },
+            { title: "Technical recruiters & HR consulting", path: "/services/talent-outsourcing/hr-consulting" },
+            { title: "Software base onboarding process", path: "/services/talent-outsourcing/onboarding" },
+            { title: "Payroll Management", path: "/services/talent-outsourcing/payroll" },
+          ],
+        },
+      ],
     },
-    { title: "People", 
+    { 
+      title: "People", 
       path: "/people", 
       hasDropdown: true,
       dropdownItems: [
-        {
-          title: "Life @ Atvantiq",
-          path: "/people/life-atvantiq",
-        },
-        {
-          title: "Careers",
-          path: "/people/careers",
-        },]
+        { title: "Life @ Atvantiq", path: "/people/life-atvantiq" },
+        { title: "Careers", path: "/people/careers" },
+      ],
     },
     { title: "Case Study", path: "/casestudy" },
-    { title: "Blog", path: "/blog" }
+    { title: "Blog", path: "/blog" },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  
+
   const handleDropdownEnter = (title: string) => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
@@ -101,26 +156,41 @@ const Navbar = () => {
     }
     dropdownTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
+      setActiveSubDropdown(null);
+    }, 200);
+  };
+
+  const handleSubDropdownEnter = (title: string) => {
+    if (subDropdownTimeoutRef.current) {
+      clearTimeout(subDropdownTimeoutRef.current);
+    }
+    setActiveSubDropdown(title);
+  };
+
+  const handleSubDropdownLeave = () => {
+    if (subDropdownTimeoutRef.current) {
+      clearTimeout(subDropdownTimeoutRef.current);
+    }
+    subDropdownTimeoutRef.current = setTimeout(() => {
+      setActiveSubDropdown(null);
     }, 200);
   };
 
   const toggleMobileDropdown = (title: string) => {
-    console.log('Toggling mobile dropdown for:', title);
-    console.log('Current activeMobileDropdown:', activeMobileDropdown);
-    const newValue = activeMobileDropdown === title ? null : title;
-    console.log('Setting activeMobileDropdown to:', newValue);
-    setActiveMobileDropdown(newValue);
+    setActiveMobileDropdown(activeMobileDropdown === title ? null : title);
   };
 
   useEffect(() => {
     setIsOpen(false);
     setActiveDropdown(null);
-    setActiveMobileDropdown(null);
+    setActiveSubDropdown(null);
     setHoveredLink(null);
     
-    // Clear timeouts on route change
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
+    }
+    if (subDropdownTimeoutRef.current) {
+      clearTimeout(subDropdownTimeoutRef.current);
     }
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -138,11 +208,13 @@ const Navbar = () => {
       });
       if (clickedOutside) {
         setActiveDropdown(null);
-        setActiveMobileDropdown(null);
+        setActiveSubDropdown(null);
         
-        // Clear dropdown timeout
         if (dropdownTimeoutRef.current) {
           clearTimeout(dropdownTimeoutRef.current);
+        }
+        if (subDropdownTimeoutRef.current) {
+          clearTimeout(subDropdownTimeoutRef.current);
         }
       }
     };
@@ -152,14 +224,13 @@ const Navbar = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      // You can add scroll-related logic here if needed in the future
+      // Add scroll-related logic here if needed
     };
     window.addEventListener("scroll", onScroll);
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Cleanup timeouts on unmount
   useEffect(() => {
     return () => {
       if (timeoutRef.current) {
@@ -167,6 +238,9 @@ const Navbar = () => {
       }
       if (dropdownTimeoutRef.current) {
         clearTimeout(dropdownTimeoutRef.current);
+      }
+      if (subDropdownTimeoutRef.current) {
+        clearTimeout(subDropdownTimeoutRef.current);
       }
     };
   }, []);
@@ -270,30 +344,55 @@ const Navbar = () => {
                     </button>
                     {activeDropdown === item.title && (
                       <div 
-                        className="absolute left-0 z-10 mt-1 w-52 rounded-2xl shadow-2xl bg-gradient-to-l from-[#1a1a1a9e] to-[#1a1a1a]"
+                        className="absolute -left-18 z-10 mt-1 w-60 rounded-2xl shadow-2xl bg-gradient-to-l from-[#1a1a1a9e] to-[#1a1a1a]"
                         onMouseEnter={() => handleDropdownEnter(item.title)}
                         onMouseLeave={handleDropdownLeave}
                       >
                         <div className="py-3">
                           <div className="grid gap-1 p-2">
                             {item.dropdownItems?.map((dropdownItem) => (
-                              <Link
+                              <div
                                 key={dropdownItem.title}
-                                href={dropdownItem.path}
-                                className="flex items-center px-3 py-3 text-sm text-white hover:bg-gradient-to-r hover:from-[#2674D3]/10 hover:to-[#2861B3]/10 hover:text-[#2674D3] transition-all duration-200 group rounded-xl"
+                                className="relative"
+                                onMouseEnter={() => handleSubDropdownEnter(dropdownItem.title)}
+                                onMouseLeave={handleSubDropdownLeave}
                               >
-                                <div className="flex-1">
-                                  <div className="font-medium text-xs leading-tight">{dropdownItem.title}</div>
-                                </div>
-                                <svg
-                                  className="ml-1 h-3 w-3 text-white group-hover:text-[#2674D3] group-hover:translate-x-1 transition-all duration-200"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
+                                <Link
+                                  href={dropdownItem.path}
+                                  className="flex items-center px-3 py-3 text-sm text-white hover:bg-gradient-to-r hover:from-[#2674D3]/10 hover:to-[#2861B3]/10 hover:text-[#2674D3] transition-all duration-200 group rounded-xl"
                                 >
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                              </Link>
+                                  <div className="flex-1">
+                                    <div className="font-medium text-xs leading-tight">{dropdownItem.title}</div>
+                                  </div>
+                                  {dropdownItem.subItems && (
+                                    <svg
+                                      className="ml-1 h-3 w-3 text-white group-hover:text-[#2674D3] transition-all duration-200"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                  )}
+                                </Link>
+                                {activeSubDropdown === dropdownItem.title && dropdownItem.subItems && (
+                                  <div className="absolute left-full -top-2 ml-2 z-20 w-64 rounded-2xl shadow-2xl bg-gradient-to-l from-[#1a1a1a9e] to-[#1a1a1a]">
+                                    <div className="py-3">
+                                      <div className="grid gap-1 p-2">
+                                        {dropdownItem.subItems.map((subItem) => (
+                                          <Link
+                                            key={subItem.title}
+                                            href={subItem.path}
+                                            className="flex items-center px-3 py-2 text-xs text-white hover:bg-gradient-to-r hover:from-[#2674D3]/10 hover:to-[#2861B3]/10 hover:text-[#2674D3] transition-all duration-200 rounded-xl"
+                                          >
+                                            {subItem.title}
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
                             ))}
                           </div>
                         </div>
@@ -340,14 +439,14 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+        <div className="md:hidden bg-gradient-to-l from-[#1a1a1a9e] to-[#1a1a1a] shadow-lg">
           <div className="pt-2 pb-3 space-y-1">
             {menuItems.map((item) =>
               !item.hasDropdown ? (
                 <Link
                   key={item.title}
                   href={item.path}
-                  className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-[#2674D3] hover:text-[#2674D3]"
+                  className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white hover:bg-gray-100 hover:border-[#2674D3] hover:text-[#2674D3]"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}
@@ -356,11 +455,11 @@ const Navbar = () => {
                 <div key={item.title} className="space-y-1">
                   <button
                     onClick={() => toggleMobileDropdown(item.title)}
-                    className="w-full flex items-center justify-between pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-[#2674D3] hover:text-[#2674D3]"
+                    className="w-full flex items-center justify-between pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white hover:bg-gray-100 hover:border-[#2674D3] hover:text-[#2674D3]"
                   >
                     {item.title}
                     <svg
-                      className={`ml-2 h-5 w-5 transform transition-transform duration-200 text-gray-700 ${
+                      className={`ml-2 h-5 w-5 transform transition-transform duration-200 text-white ${
                         activeMobileDropdown === item.title ? 'rotate-180' : ''
                       }`}
                       xmlns="http://www.w3.org/2000/svg"
@@ -375,21 +474,35 @@ const Navbar = () => {
                       />
                     </svg>
                   </button>
-                  {/* Simplified conditional rendering */}
-                  {activeMobileDropdown === item.title ? (
-                    <div className="space-y-1 bg-gray-50 border-l-2 border-blue-300">
+                  {activeMobileDropdown === item.title && (
+                    <div className="space-y-1 bg-gradient-to-l from-[#1a1a1a9e] to-[#1a1a1a] border-l-2 border-[#2674D3]">
                       {item.dropdownItems?.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.title}
-                          href={dropdownItem.path}
-                          className="block pl-8 pr-4 py-3 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-[#2674D3] transition-colors duration-200"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {dropdownItem.title}
-                        </Link>
+                        <div key={dropdownItem.title} className="space-y-1">
+                          <Link
+                            href={dropdownItem.path}
+                            className="block pl-8 pr-4 py-3 text-sm font-medium text-white hover:bg-gray-200 hover:text-[#2674D3] transition-colors duration-200"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {dropdownItem.title}
+                          </Link>
+                          {dropdownItem.subItems && (
+                            <div className="space-y-1 pl-4">
+                              {dropdownItem.subItems.map((subItem) => (
+                                <Link
+                                  key={subItem.title}
+                                  href={subItem.path}
+                                  className="block pl-8 pr-4 py-2 text-xs font-medium text-white hover:bg-gray-200 hover:text-[#2674D3] transition-colors duration-200"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {subItem.title}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
-                  ) : null}
+                  )}
                 </div>
               )
             )}

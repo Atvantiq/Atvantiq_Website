@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const CareersHeroSection = () => {
   return (
-    <section className="relative h-[80vh] flex text-white overflow-hidden py-25 px-16 md:px-24 md:py-50">
+    <section className="relative h-[80vh] flex text-white overflow-hidden py-45 px-16 md:px-24 md:py-50">
       
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -15,7 +15,7 @@ const CareersHeroSection = () => {
           priority
           sizes="180vw"
         />
-        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
       {/* Background Decorative Elements */}

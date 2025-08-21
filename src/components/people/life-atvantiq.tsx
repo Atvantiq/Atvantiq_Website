@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const LifeAtAtvantiqHero = () => {
   return (
-    <section className="relative min-h-screen px-14 py-10 md:px-20 md:py-16 flex items-center text-white overflow-hidden">
+    <section className="relative min-h-screen px-8 py-20 md:px-20 md:py-20 flex items-center text-white overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -34,7 +34,7 @@ const LifeAtAtvantiqHero = () => {
         </h1>
 
         {/* Subheading */}
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-200 font-medium leading-relaxed mb-12 max-w-3xl">
+        <p className="text-base md:text-xl lg:text-2xl text-gray-200 font-medium leading-relaxed mb-12 max-w-3xl">
           Join a global team of passionate technologists, creators, and problem-solvers who are shaping tomorrow&apos;s digital landscape.
         </p>
 

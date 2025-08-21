@@ -37,7 +37,7 @@ const LeadersSection: React.FC<LeadersSectionProps> = ({
             {sectionTitle}
           </h3>
         </div>
-        <p className="text-gray-300 text-lg mx-auto pt-4 pb-6 md:pt-6 md:pb-12">
+        <p className="text-gray-300 text-base mx-auto pt-4 pb-6 md:pt-6 md:pb-12">
           {description}
         </p>
 
