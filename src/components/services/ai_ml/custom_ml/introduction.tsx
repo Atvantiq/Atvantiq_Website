@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const CustomMLSection = () => {
   const containerVariants = {
@@ -22,34 +23,66 @@ const CustomMLSection = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
 
+  const circleVariants = {
+    animate: {
+      scale: [1, 1.1, 1],
+      opacity: [0.3, 0.5, 0.3],
+      transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+    },
+  };
+
   return (
     <section className="relative bg-gradient-to-br from-[#252525f0] to-[#2861B3]/20 text-white py-20 px-4 sm:px-8 lg:px-10 overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-[#2674D3]/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2861B3]/40 rounded-full blur-3xl" />
-      </div>
+      {/* Background decorative elements with animation */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <motion.div
+          className="absolute top-0 left-0 w-64 h-64 bg-[#2674D3]/40 rounded-full blur-3xl"
+          variants={circleVariants}
+          animate="animate"
+        />
+        <motion.div
+          className="absolute bottom-0 right-0 w-96 h-96 bg-[#2861B3]/40 rounded-full blur-3xl"
+          variants={circleVariants}
+          animate="animate"
+        />
+      </motion.div>
 
+      {/* Hero Image */}
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
+          className="relative mb-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="text-center"
         >
+          
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
+            className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-center mt-6"
           >
             Custom Machine Learning Model Development
           </motion.h1>
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto text-center"
           >
             At Atvantiq, we specialize in developing custom machine learning models that solve complex business challenges and unlock valuable insights from your data.
           </motion.p>
         </motion.div>
+        <div className="relative h-48 md:h-64 w-full rounded-2xl overflow-hidden">
+            <Image
+              src="/services/ai/trusted.jpg"
+              alt="AI neural network visualization"
+              fill
+              className="object-cover opacity-80"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#252525f0] to-transparent" />
+          </div>
 
         <motion.div
           variants={containerVariants}
@@ -58,7 +91,10 @@ const CustomMLSection = () => {
           className="grid md:grid-cols-2 gap-8 mt-12"
         >
           {/* Left Column: Main Content */}
-          <motion.div variants={itemVariants} className="space-y-6">
+          <motion.div
+            variants={itemVariants}
+            className="space-y-6 bg-[#1a1a1a]/50 backdrop-blur-md p-8 rounded-2xl shadow-xl"
+          >
             <p className="text-base md:text-lg text-gray-200 leading-relaxed">
               As a trusted <span className="text-[#2674D3] font-medium">AI & ML development company</span> serving clients in <span className="font-medium">India, the USA, Canada, Australia, the UAE, and Europe</span>, we focus on creating tailored, scalable, and high-performance ML solutions designed specifically for your unique needs.
             </p>
@@ -71,7 +107,7 @@ const CustomMLSection = () => {
             <motion.div variants={itemVariants}>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-[#2674D3] to-[#2861B3] rounded-xl hover:from-[#2861B3] hover:to-[#2674D3] transition-all duration-300 group"
+                className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-[#2674D3] to-[#2861B3] rounded-xl hover:from-[#2861B3] hover:to-[#2674D3] transition-all duration-300 group shadow-lg hover:shadow-[#2674D3]/50"
               >
                 Get Started
                 <svg
