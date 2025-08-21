@@ -41,7 +41,7 @@ const AICTASection = () => {
           </motion.div>
         }
         ctaText="Contact us today to discuss your custom ML project!"
-        imagePath="/services/ai/cta"
+        imagePath="/services/ai/callaction.jpg"
         imageAlt="Machine Learning Development Workspace"
       />
       {/* Particle Background */}

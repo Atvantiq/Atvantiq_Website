@@ -21,7 +21,7 @@ const WhyChooseAtvantiq = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50/40 via-blue-50/60 to-white py-20 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50/40 via-blue-50/60 bg-white py-20 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
