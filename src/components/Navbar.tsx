@@ -51,7 +51,7 @@ const Navbar = () => {
           subItems: [
             { title: "Custom Machine Learning Model Development", path: "/services/ai-ml-development/custom-ml-model" },
             { title: "Generative AI applications Services", path: "/services/ai-ml-development/generative-ai" },
-            { title: "Predictive analytics & forecasting Services", path: "/services/ai-ml-development/predictive-analytics" },
+            { title: "AI Consulting & Strategy", path: "/services/ai-ml-development/ai-consulting" },
             { title: "Natural Language Processing (NLP) services", path: "/services/ai-ml-development/nlp" },
             { title: "ChatGPT integration for business automation services", path: "/services/ai-ml-development/chatgpt-integration" },
             { title: "AI-powered business intelligence dashboards services", path: "/services/ai-ml-development/bi-dashboards" },

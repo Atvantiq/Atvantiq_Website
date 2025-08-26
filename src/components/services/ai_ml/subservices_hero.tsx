@@ -86,13 +86,11 @@ const ServiceSection = ({
     <div className="absolute inset-0 bg-gradient-to-t from-[#031122]/50 to-transparent" />
   </div>
 </motion.div>
-
-
         {/* Second Paragraph */}
         <motion.div
           variants={itemVariants}
         >
-          <div className="text-base md:text-lg text-blue-100 leading-relaxed">
+          <div className="text-base md:text-lg text-blue-100 leading-relaxed mb-2">
             {description2}
           </div>
         </motion.div>
