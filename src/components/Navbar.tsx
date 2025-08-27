@@ -53,7 +53,7 @@ const Navbar = () => {
             { title: "Generative AI applications Services", path: "/services/ai-ml-development/generative-ai" },
             { title: "AI Consulting & Strategy", path: "/services/ai-ml-development/ai-consulting" },
             { title: "Natural Language Processing (NLP) services", path: "/services/ai-ml-development/nlp" },
-            { title: "ChatGPT integration for business automation services", path: "/services/ai-ml-development/chatgpt-integration" },
+            { title: "AI-Powered Process Automation Services", path: "/services/ai-ml-development/ai-automation" },
             { title: "AI-powered business intelligence dashboards services", path: "/services/ai-ml-development/bi-dashboards" },
           ],
         },
