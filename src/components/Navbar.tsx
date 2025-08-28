@@ -54,7 +54,7 @@ const Navbar = () => {
             { title: "AI Consulting & Strategy", path: "/services/ai-ml-development/ai-consulting" },
             { title: "Natural Language Processing (NLP) services", path: "/services/ai-ml-development/nlp" },
             { title: "AI-Powered Process Automation Services", path: "/services/ai-ml-development/ai-automation" },
-            { title: "AI-powered business intelligence dashboards services", path: "/services/ai-ml-development/bi-dashboards" },
+            { title: "Computer Vision Solutions", path: "/services/ai-ml-development/computer-vision" },
           ],
         },
         {
