@@ -61,7 +61,7 @@ const Navbar = () => {
           title: "Cybersecurity Solutions",
           path: "/services/cybersecurity",
           subItems: [
-            { title: "Threat detection & prevention", path: "/services/cybersecurity/threat-detection" },
+            { title: "Endpoint Security Solutions", path: "/services/cybersecurity/endpoint-security" },
             { title: "Network & endpoint security", path: "/services/cybersecurity/network-security" },
             { title: "Security audits & compliance", path: "/services/cybersecurity/audits-compliance" },
             { title: "Identity & access management", path: "/services/cybersecurity/identity-management" },
