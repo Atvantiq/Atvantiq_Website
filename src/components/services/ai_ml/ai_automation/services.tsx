@@ -155,7 +155,7 @@ const AIAutomationServices = () => {
         {/* Two-Column Layout */}
         <div className="flex flex-col lg:flex-row gap-8 items-center">
           {/* Static Image (Right) */}
-          <div className="lg:w-1/2 relative h-64 md:h-96 rounded-xl overflow-hidden">
+          <div className="w-58 lg:w-1/2 relative h-64 md:h-96 rounded-xl overflow-hidden">
             <Image
               src="/services/ai/why.png"
               alt="AI automation visualization"

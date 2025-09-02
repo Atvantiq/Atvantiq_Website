@@ -2,7 +2,6 @@ import React from 'react';
 
 const WhyChooseNLP = () => {
   const features = [
-    
     {
       title: "Cross-Industry Expertise",
       description: "With clients in the USA, Canada, UAE, India, Australia, and Europe, we have a global understanding of different markets and use cases."
@@ -22,11 +21,11 @@ const WhyChooseNLP = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50/40 via-blue-50/60 bg-white py-20 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
             <span className="text-slate-800">Why Choose </span>
             <span className="text-[#2674D3]">Atvantiq?</span>
           </h2>
@@ -35,21 +34,22 @@ const WhyChooseNLP = () => {
         {/* Features Layout */}
         <div className="relative">
           {/* Central Circle */}
-          <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-[#2674D3] to-blue-500 rounded-full flex items-center justify-center shadow-2xl z-10">
+          <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#2674D3] to-blue-500 rounded-full items-center justify-center shadow-2xl z-10 hidden md:flex">
+            {/* Optional text inside circle, commented out as in original */}
             {/* <div className="text-center">
-              <div className="text-white font-bold text-xl mb-2">Atvantiq</div>
-              <div className="text-blue-100 text-sm">ML Excellence</div>
+              <div className="text-white font-bold text-lg sm:text-xl mb-2">Atvantiq</div>
+              <div className="text-blue-100 text-xs sm:text-sm">ML Excellence</div>
             </div> */}
           </div>
 
           {/* Feature Items */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
             {features.map((feature, index) => {
               const positions = [
                 'md:-mt-4', // Top Left
                 'md:-mt-4', // Top Right
-                'md:mt-12',  // Bottom Left
-                'md:mt-12'   // Bottom Right
+                'md:mt-12', // Bottom Left
+                'md:mt-12'  // Bottom Right
               ];
               
               const alignments = [
@@ -64,25 +64,24 @@ const WhyChooseNLP = () => {
                   key={index}
                   className={`flex flex-col ${alignments[index]} ${positions[index]} group`}
                 >
-                  
                   {/* Content */}
-                  <div className={`max-w-sm ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-[#2674D3] transition-colors duration-300">
+                  <div className={`max-w-xs sm:max-w-sm ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'} w-full`}>
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3 sm:mb-4 group-hover:text-[#2674D3] transition-colors duration-300">
                       {feature.title}
                     </h3>
-                    <p className="text-slate-600 leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
 
                   {/* Connection Line */}
-                  <div className={`hidden lg:block absolute top-[45%] w-24 h-0.5 bg-gradient-to-r ${
-                    index === 0 ? 'right-1/2 mr-24 from-transparent to-[#2674D3]/30' :
-                    index === 1 ? 'left-1/2 ml-24 from-[#2674D3]/30 to-transparent' :
-                    index === 2 ? 'right-1/2 mr-24 from-transparent to-[#2674D3]/30' :
-                    'left-1/2 ml-24 from-[#2674D3]/30 to-transparent'
+                  <div className={`hidden lg:block absolute top-[45%] w-16 sm:w-20 lg:w-24 h-0.5 bg-gradient-to-r ${
+                    index === 0 ? 'right-1/2 mr-16 sm:mr-20 lg:mr-24 from-transparent to-[#2674D3]/30' :
+                    index === 1 ? 'left-1/2 ml-16 sm:ml-20 lg:ml-24 from-[#2674D3]/30 to-transparent' :
+                    index === 2 ? 'right-1/2 mr-16 sm:mr-20 lg:mr-24 from-transparent to-[#2674D3]/30' :
+                    'left-1/2 ml-16 sm:ml-20 lg:ml-24 from-[#2674D3]/30 to-transparent'
                   } transform ${
-                    index >= 2 ? 'translate-y-6' : '-translate-y-6'
+                    index >= 2 ? 'translate-y-4 sm:translate-y-6' : '-translate-y-4 sm:-translate-y-6'
                   }`}></div>
                 </div>
               );

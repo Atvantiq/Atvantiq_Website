@@ -60,10 +60,10 @@ const WhyAIAutomation = () => {
                 }`}>
                   {/* Icon and Circle */}
                   <div className="relative flex items-center">
-                    <div className={`w-12 h-12 rounded-full bg-[#2674D3] flex items-center justify-center z-10 transition-transform duration-300 ${
+                    <div className={`w-8 h-8 md:w-12 md:h-12 rounded-full bg-[#2674D3] flex items-center justify-center z-10 transition-transform duration-300 ${
                       hoveredIndex === index ? 'scale-110' : ''
                     }`}>
-                      {React.createElement(reason.icon, { className: "w-6 h-6 text-white" })}
+                      {React.createElement(reason.icon, { className: "w-4 h-4 md:w-6 md:h-6 text-white" })}
                     </div>
                     {/* Connecting Dot */}
                     <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-[#2674D3] z-0"></div>
@@ -71,12 +71,12 @@ const WhyAIAutomation = () => {
                   
                   {/* Content */}
                   <div className={`${
-                    index % 2 === 0 ? 'ml-6 text-left' : 'mr-6 text-right'
+                    index % 2 === 0 ? 'ml-2 md:ml-6 text-left' : 'mr-2 md:mr-6 text-right'
                   } transition-all duration-300 ${
                     hoveredIndex === index ? (index % 2 === 0 ? 'translate-x-2' : '-translate-x-2') : ''
                   }`}>
-                    <h3 className="text-xl font-semibold text-[#2674D3]">{reason.title}</h3>
-                    <p className="text-base text-slate-600 max-w-md">{reason.description}</p>
+                    <h3 className="text-base md:text-xl font-semibold text-[#2674D3]">{reason.title}</h3>
+                    <p className="text-xs md:text-base text-slate-600 max-w-md">{reason.description}</p>
                   </div>
                 </div>
               </div>
