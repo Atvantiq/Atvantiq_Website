@@ -80,7 +80,7 @@ const CloudSecurityDevSecOpsServices = () => {
               <div
                 key={index}
                 className={`relative p-6 bg-white rounded-xl shadow-lg transition-all duration-300 ${
-                  currentIndex === index ? 'scale-105 border-2 border-[#2674D3]' : 'opacity-90'
+                  currentIndex === index ? 'md:scale-105 md:border-2 md:border-[#2674D3]' : 'opacity-90'
                 }`}
                 onMouseEnter={() => setCurrentIndex(index)}
               >

@@ -29,14 +29,35 @@ const CloudSecurityWhat = () => {
   return (
     <div className="bg-gradient-to-br from-gray-100 to-gray-200 py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-slate-800 mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12 text-center">
           What is{" "}
           <span className="text-[#2674D3]">Cloud Security & DevSecOps?</span>
         </h2>
-        <div className="relative h-[300px]">
-          
 
-          {/* Content Panels */}
+        {/* Mobile & Tablet: Simple stacked layout */}
+        <div className="flex flex-col gap-6 md:hidden">
+          {content.map((item, index) => (
+            <div
+              key={index}
+              className="p-6 bg-white/90 rounded-xl shadow-lg"
+            >
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#2674D3] flex items-center justify-center mr-3">
+                  {React.createElement(item.icon, {
+                    className: "w-5 h-5 text-white",
+                  })}
+                </div>
+                <h3 className="text-lg font-semibold text-[#2674D3]">
+                  {item.title}
+                </h3>
+              </div>
+              <p className="text-sm text-slate-700">{item.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: Fancy absolute positioned scaling layout */}
+        <div className="relative h-[350px] hidden md:block">
           {content.map((item, index) => (
             <div
               key={index}

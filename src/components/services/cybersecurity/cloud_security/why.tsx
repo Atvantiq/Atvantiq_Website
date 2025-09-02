@@ -106,12 +106,14 @@ const CloudSecurityDevSecOps = () => {
                 >
                   
                   {/* Timeline node */}
+                  <div className="opacity-0 md:opacity-100">
                   <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
                     <div className={`w-6 h-6 rounded-full bg-[#2674D3] border-4 border-slate-900 transition-all duration-500 ${
                       isVisible ? "scale-100 opacity-100" : "scale-0 opacity-0"
                     } ${isActive ? "scale-150 shadow-lg shadow-[#2674D3]/50" : ""}`}>
                       <div className="absolute inset-0 rounded-full bg-[#2674D3] animate-ping opacity-30"></div>
                     </div>
+                  </div>
                   </div>
 
                   {/* Step card */}
@@ -120,8 +122,7 @@ const CloudSecurityDevSecOps = () => {
                       isVisible 
                         ? `translate-x-0 opacity-100` 
                         : `${isLeft ? '-translate-x-16' : 'translate-x-16'} opacity-0`
-                    }`}
-                    style={{ transitionDelay: `${index * 200}ms` }}>
+                    }`}>
                       
                       <div className={`relative bg-white rounded-2xl p-6 transition-all duration-500 ${
                         isActive 
