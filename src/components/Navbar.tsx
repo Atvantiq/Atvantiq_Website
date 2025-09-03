@@ -64,8 +64,8 @@ const Navbar = () => {
             { title: "Endpoint Security Solutions", path: "/services/cybersecurity/endpoint-security" },
             { title: "Cloud Security & DevSecOps", path: "/services/cybersecurity/cloud-security" },
             { title: "Vulnerability Management & Penetration Testing", path: "/services/cybersecurity/vulnerability-management" },
-            { title: "Identity & access management", path: "/services/cybersecurity/identity-management" },
-            { title: "Cloud security solutions", path: "/services/cybersecurity/cloud-securit" },
+            { title: "Cybersecurity Awareness & Training", path: "/services/cybersecurity/awareness-training" },
+            { title: "Managed Security Services", path: "/services/cybersecurity/managed-security" },
           ],
         },
         {

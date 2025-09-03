@@ -34,7 +34,7 @@ const WhyChooseAtvantiq = () => {
         {/* Features Layout */}
         <div className="relative">
           {/* Central Circle */}
-          <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-[#2674D3] to-blue-500 rounded-full flex items-center justify-center shadow-2xl z-10">
+          <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-[#2674D3] to-blue-500 rounded-full hidden md:flex items-center justify-center shadow-2xl z-10">
             {/* <div className="text-center">
               <div className="text-white font-bold text-xl mb-2">Atvantiq</div>
               <div className="text-blue-100 text-sm">ML Excellence</div>
@@ -75,7 +75,7 @@ const WhyChooseAtvantiq = () => {
                   </div>
 
                   {/* Connection Line */}
-                  <div className={`hidden lg:block absolute top-[45%] w-24 h-0.5 bg-gradient-to-r ${
+                  <div className={`hidden md:block absolute top-[45%] w-24 h-0.5 bg-gradient-to-r ${
                     index === 0 ? 'right-1/2 mr-24 from-transparent to-[#2674D3]/30' :
                     index === 1 ? 'left-1/2 ml-24 from-[#2674D3]/30 to-transparent' :
                     index === 2 ? 'right-1/2 mr-24 from-transparent to-[#2674D3]/30' :
