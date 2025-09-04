@@ -66,6 +66,9 @@ const Navbar = () => {
             { title: "Vulnerability Management & Penetration Testing", path: "/services/cybersecurity/vulnerability-management" },
             { title: "Cybersecurity Awareness & Training", path: "/services/cybersecurity/awareness-training" },
             { title: "Managed Security Services", path: "/services/cybersecurity/managed-security" },
+            { title: "Security Risk Assessment & Audit", path: "/services/cybersecurity/risk-assessment" },
+            { title: "Network Security & Firewall Management", path: "/services/cybersecurity/network-security" },
+
           ],
         },
         {
