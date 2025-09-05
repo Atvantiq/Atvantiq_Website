@@ -75,7 +75,7 @@ const Navbar = () => {
           title: "Web & Mobile App Development",
           path: "/services/web-mobile-development",
           subItems: [
-            { title: "Custom web development (React, Next.js, Laravel, etc.)", path: "/services/web-mobile-development/custom-web" },
+            { title: "Custom Web Application Development", path: "/services/web-mobile-development/custom-web" },
             { title: "Android & iOS mobile apps development", path: "/services/web-mobile-development/mobile-apps" },
             { title: "Cross-platform solutions using Flutter & React Native", path: "/services/web-mobile-development/cross-platform" },
             { title: "E-commerce platforms development", path: "/services/web-mobile-development/ecommerce" },
