@@ -9,7 +9,7 @@ const AppDevWhyAtq = () => {
     {
       icon: Users,
       title: "Dedicated App Team",
-      description: "Dedicated app development team with iOS and Android expertise."
+      description: "Dedicated development team with iOS and Android expertise."
     },
     {
       icon: Rocket,
@@ -42,9 +42,9 @@ const AppDevWhyAtq = () => {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="relative group flex flex-col items-center text-center p-6 bg-white/90 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="relative group flex flex-col items-center text-center p-6 bg-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
                 style={{
-                  transform: 'perspective(500px) rotateX(10deg)',
+                  transform: 'perspective(400px) rotateX(10deg)',
                   transformStyle: 'preserve-3d'
                 }}
                 onMouseEnter={() => setHoveredBenefit(index)}

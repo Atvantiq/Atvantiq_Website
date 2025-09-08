@@ -42,7 +42,7 @@ const AppDevelopment = () => {
     <div className="relative bg-gradient-to-b from-white to-gray-300 py-20 px-6 overflow-hidden">
       {/* Decorative blobs */}
 
-      <div className="max-w-6xl mx-auto relative z-10 text-center">
+      <div className="max-w-7xl mx-auto relative z-10 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
           Why Choose{" "}
           <span className="text-[#2674D3]">Native iOS & Android App Development</span>?
@@ -54,7 +54,7 @@ const AppDevelopment = () => {
         </p>
 
         {/* Benefits in arc layout */}
-        <div className="relative flex flex-wrap justify-center gap-10">
+        <div className="relative flex flex-wrap justify-center gap-6">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
@@ -62,21 +62,21 @@ const AppDevelopment = () => {
                 key={index}
                 onMouseEnter={() => setHovered(index)}
                 onMouseLeave={() => setHovered(null)}
-                className={`group relative w-64 p-6 rounded-2xl shadow-md bg-white/70 backdrop-blur-md border transition-all duration-300
+                className={`group relative w-56 p-3 rounded-2xl shadow-md bg-white/70 backdrop-blur-md border transition-all duration-300
                 ${hovered === index ? "border-[#2674D3] shadow-xl scale-105" : "border-gray-200"}`}
               >
                 <div
-                  className={`flex items-center justify-center w-16 h-16 rounded-full mx-auto transition-all duration-300
+                  className={`flex items-center justify-center w-12 h-12 rounded-full mx-auto transition-all duration-300
                   ${
                     hovered === index
                       ? "bg-[#2674D3]/20 text-[#2674D3] scale-110"
                       : "bg-gray-100 text-slate-600"
                   }`}
                 >
-                  <Icon size={28} />
+                  <Icon size={24} />
                 </div>
                 <h3
-                  className={`mt-6 text-xl font-semibold transition-colors duration-300
+                  className={`mt-6 text-lg font-semibold transition-colors duration-300
                   ${hovered === index ? "text-[#2674D3]" : "text-slate-800"}`}
                 >
                   {benefit.title}

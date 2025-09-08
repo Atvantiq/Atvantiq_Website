@@ -76,9 +76,9 @@ const Navbar = () => {
           path: "/services/web-mobile-development",
           subItems: [
             { title: "Custom Web Application Development", path: "/services/web-mobile-development/custom-web" },
-            { title: "Android & iOS mobile apps development", path: "/services/web-mobile-development/mobile-apps" },
-            { title: "Cross-platform solutions using Flutter & React Native", path: "/services/web-mobile-development/cross-platform" },
-            { title: "E-commerce platforms development", path: "/services/web-mobile-development/ecommerce" },
+            { title: "iOS & Android mobile apps development", path: "/services/web-mobile-development/mobile-apps" },
+            { title: "UI/UX Design & Prototyping", path: "/services/web-mobile-development/ui-ux" },
+            { title: "E-Commerce Website & App Development", path: "/services/web-mobile-development/ecommerce" },
             { title: "Enterprise app development", path: "/services/web-mobile-development/enterprise" },
           ],
         },
