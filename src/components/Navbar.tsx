@@ -79,7 +79,8 @@ const Navbar = () => {
             { title: "iOS & Android mobile apps development", path: "/services/web-mobile-development/mobile-apps" },
             { title: "UI/UX Design & Prototyping", path: "/services/web-mobile-development/ui-ux" },
             { title: "E-Commerce Website & App Development", path: "/services/web-mobile-development/ecommerce" },
-            { title: "Enterprise app development", path: "/services/web-mobile-development/enterprise" },
+            { title: "Progressive Web Apps", path: "/services/web-mobile-development/progressive-web-apps" },
+            { title: "API Development & Integration", path: "/services/web-mobile-development/api-development" },
           ],
         },
         {

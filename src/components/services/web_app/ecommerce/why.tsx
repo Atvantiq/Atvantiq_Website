@@ -39,7 +39,7 @@ const ECommerceWhy = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-white to-gray-50 py-20 px-4 relative overflow-hidden">
+    <div className="bg-gradient-to-br from-gray-100 to-gray-200 py-20 px-4 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-16 text-center">
           Why Invest in{" "}
