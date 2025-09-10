@@ -81,11 +81,21 @@ const Navbar = () => {
             { title: "E-Commerce Website & App Development", path: "/services/web-mobile-development/ecommerce" },
             { title: "Progressive Web Apps", path: "/services/web-mobile-development/progressive-web-apps" },
             { title: "API Development & Integration", path: "/services/web-mobile-development/api-development" },
+            { title: "MVP Development for Startups", path: "/services/web-mobile-development/mvp-development" },
           ],
         },
         {
           title: "Digital Marketing Services",
           path: "/services/digital-marketing",
+          subItems: [
+            { title: "Search Engine Optimization (SEO)", path: "/services/digital-marketing/seo" },
+            { title: "Pay-Per-Click Advertising (PPC)", path: "/services/digital-marketing/ppc" },
+            { title: "Social Media Marketing", path: "/services/digital-marketing/social-media-marketing" },
+            { title: "Content Marketing", path: "/services/digital-marketing/content-marketing" },
+            { title: "Email Marketing & Automation", path: "/services/digital-marketing/email-marketing" },
+            { title: "Online Reputation Management (ORM)", path: "/services/digital-marketing/orm" },
+            { title: "Analytics & Conversion Optimization", path: "/services/digital-marketing/analytics" },
+          ],
         },
         {
           title: "Telecom Services",
