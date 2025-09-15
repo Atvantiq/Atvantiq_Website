@@ -40,7 +40,7 @@ const EmailMarketingPlatforms = () => {
     <div className="bg-gradient-to-br from-white to-gray-50 py-20 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-slate-800 mb-12 text-center">
-          PPC Platforms We Work With
+          Platforms We Work With
         </h2>
         <div className="relative flex flex-wrap justify-center gap-8">
           {platforms.map((platform, index) => (

@@ -29,6 +29,7 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
+  const [activeMobileSubDropdown, setActiveMobileSubDropdown] = useState<string | null>(null);
   const [hoveredLink, setHoveredLink] = useState<number | null>(null);
   const linkRefs = useRef<(HTMLDivElement | null)[]>([]);
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -68,7 +69,6 @@ const Navbar = () => {
             { title: "Managed Security Services", path: "/services/cybersecurity/managed-security" },
             { title: "Security Risk Assessment & Audit", path: "/services/cybersecurity/risk-assessment" },
             { title: "Network Security & Firewall Management", path: "/services/cybersecurity/network-security" },
-
           ],
         },
         {
@@ -192,12 +192,22 @@ const Navbar = () => {
 
   const toggleMobileDropdown = (title: string) => {
     setActiveMobileDropdown(activeMobileDropdown === title ? null : title);
+    // Reset sub-dropdown when main dropdown changes
+    if (activeMobileDropdown !== title) {
+      setActiveMobileSubDropdown(null);
+    }
+  };
+
+  const toggleMobileSubDropdown = (title: string) => {
+    setActiveMobileSubDropdown(activeMobileSubDropdown === title ? null : title);
   };
 
   useEffect(() => {
     setIsOpen(false);
     setActiveDropdown(null);
     setActiveSubDropdown(null);
+    setActiveMobileDropdown(null);
+    setActiveMobileSubDropdown(null);
     setHoveredLink(null);
     
     if (dropdownTimeoutRef.current) {
@@ -492,15 +502,38 @@ const Navbar = () => {
                     <div className="space-y-1 bg-gradient-to-l from-[#1a1a1a9e] to-[#1a1a1a] border-l-2 border-[#2674D3]">
                       {item.dropdownItems?.map((dropdownItem) => (
                         <div key={dropdownItem.title} className="space-y-1">
-                          <Link
-                            href={dropdownItem.path}
-                            className="block pl-8 pr-4 py-3 text-sm font-medium text-white hover:bg-gray-200 hover:text-[#2674D3] transition-colors duration-200"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {dropdownItem.title}
-                          </Link>
-                          {dropdownItem.subItems && (
-                            <div className="space-y-1 pl-4">
+                          <div className="flex items-center">
+                            <Link
+                              href={dropdownItem.path}
+                              className="flex-1 block pl-8 pr-2 py-3 text-sm font-medium text-white hover:bg-gray-200 hover:text-[#2674D3] transition-colors duration-200"
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {dropdownItem.title}
+                            </Link>
+                            {dropdownItem.subItems && (
+                              <button
+                                onClick={() => toggleMobileSubDropdown(dropdownItem.title)}
+                                className="p-2 text-white hover:text-[#2674D3]"
+                              >
+                                <svg
+                                  className={`h-4 w-4 transform transition-transform duration-200 ${
+                                    activeMobileSubDropdown === dropdownItem.title ? 'rotate-180' : ''
+                                  }`}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  fill="currentColor"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                              </button>
+                            )}
+                          </div>
+                          {dropdownItem.subItems && activeMobileSubDropdown === dropdownItem.title && (
+                            <div className="space-y-1 pl-4 bg-gradient-to-l from-[#2a2a2a9e] to-[#2a2a2a] border-l-2 border-[#2674D3]/50">
                               {dropdownItem.subItems.map((subItem) => (
                                 <Link
                                   key={subItem.title}
