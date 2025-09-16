@@ -54,12 +54,12 @@ const AppDevelopmentServices = () => {
         <h2 className="text-4xl font-bold text-slate-800 mb-16 text-center">
           Our <span className="text-[#2674D3]">iOS & Android App Development Services</span>
         </h2>
-        <div className="relative flex flex-row items-center">
-          <div className="relative flex flex-row flex-wrap justify-center gap-4">
+        <div className="relative flex flex-col lg:flex-row items-center">
+          <div className="relative flex flex-wrap justify-center gap-6">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="relative w-sm group flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+                className="relative w-full sm:w-[90%] md:w-[45%] lg:w-[30%] group flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
                 style={{
                   clipPath: 'polygon(0 10%, 100% 0, 100% 90%, 0% 100%)'
                 }}

@@ -58,7 +58,7 @@ const PWAServices = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-slate-300 to-slate-500 py-20 px-4 h-[110vh] relative overflow-hidden">
+    <div className="bg-gradient-to-br from-slate-300 to-slate-500 py-20 px-4 h-fit md:h-[110vh] relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-slate-800 mb-16 text-center">
           Our <span className="text-[#2674D3]">PWA Development Services</span>

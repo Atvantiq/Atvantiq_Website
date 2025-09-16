@@ -42,7 +42,7 @@ const PWADevelopmentSection = () => {
           {/* Header with Floating Badge */}
           <div className="text-center mb-20">
             <div className="relative inline-block">
-              <h2 className="text-xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Why <span className="relative">
                   <span className="text-[#2674D3]">Atvantiq</span>
                 </span>

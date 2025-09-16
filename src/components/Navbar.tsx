@@ -101,7 +101,7 @@ const Navbar = () => {
           title: "Telecom Services",
           path: "/services/telecom",
           subItems: [
-            { title: "Planning & design", path: "/services/telecom/planning-design" },
+            { title: "Transport Network Services", path: "/services/telecom/transport-network" },
             { title: "Deployment", path: "/services/telecom/deployment" },
             { title: "Service migration & Validation", path: "/services/telecom/migration-validation" },
             { title: "Operations & Optimization", path: "/services/telecom/operations-optimization" },

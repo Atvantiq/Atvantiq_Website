@@ -36,17 +36,17 @@ const SMMIndustries = () => {
   return (
     <div className="bg-gradient-to-br from-[#2674D3]/10 to-[#2674D3]/40 py-20 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-white mb-16 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">
           Industries We <span className="text-[#2674D3]">Serve</span>
         </h2>
         <div className="relative flex flex-col items-center">
-          <div className="w-full flex flex-col md:flex-col justify-center gap-12">
+          <div className="w-full flex flex-col gap-12">
             {/* First row with 3 industries */}
-            <div className="flex justify-center gap-12 mb-8 md:mb-0">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-6 md:gap-12 mb-8 md:mb-0">
               {industries.slice(0, 3).map((industry, index) => (
                 <div
                   key={index}
-                  className="group flex flex-col items-center text-center transition-all duration-300"
+                  className="group flex flex-col items-center text-center transition-all duration-300 w-full sm:w-[250px]"
                   onMouseEnter={() => setHoveredIndustry(index)}
                   onMouseLeave={() => setHoveredIndustry(null)}
                 >
@@ -69,7 +69,7 @@ const SMMIndustries = () => {
                     </div>
                   </div>
                   <h3
-                    className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
+                    className={`text-lg md:text-xl font-semibold mb-2 transition-colors duration-300 ${
                       hoveredIndustry === index ? 'text-[#2674D3]' : 'text-white'
                     }`}
                   >
@@ -81,12 +81,13 @@ const SMMIndustries = () => {
                 </div>
               ))}
             </div>
+
             {/* Second row with 2 industries */}
-            <div className="flex justify-center gap-12">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-6 md:gap-12">
               {industries.slice(3, 5).map((industry, index) => (
                 <div
                   key={index + 3}
-                  className="group flex flex-col items-center text-center transition-all duration-300"
+                  className="group flex flex-col items-center text-center transition-all duration-300 w-full sm:w-[250px] "
                   onMouseEnter={() => setHoveredIndustry(index + 3)}
                   onMouseLeave={() => setHoveredIndustry(null)}
                 >
@@ -109,7 +110,7 @@ const SMMIndustries = () => {
                     </div>
                   </div>
                   <h3
-                    className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
+                    className={`text-lg md:text-xl font-semibold mb-2 transition-colors duration-300 ${
                       hoveredIndustry === index + 3 ? 'text-[#2674D3]' : 'text-white'
                     }`}
                   >

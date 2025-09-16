@@ -39,20 +39,22 @@ const EmailMarketingWhy = () => {
         <h2 className="text-4xl font-bold text-slate-800 mb-16 text-center">
           Why <span className="text-[#2674D3]">Email Marketing Matters</span>
         </h2>
-        <div className="relative w-full min-h-[450px] flex items-center justify-center">
+
+        <div className="relative w-full min-h-[450px] flex flex-col items-center justify-center gap-6 sm:gap-8">
           {/* Subtle Ripple Overlay */}
           <div className="absolute w-full h-full bg-[radial-gradient(circle_at_center,rgba(38,116,211,0.04)_0%,transparent_70%)]"></div>
-          <div className="relative flex flex-col items-center gap-6">
+
+          <div className="relative flex flex-col sm:flex-col gap-6 w-full items-center">
             {points.map((point, index) => (
               <div
                 key={index}
-                className="group relative w-3xl p-6 bg-white/90 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-2 hover:bg-[#2674D3]/5"
+                className="group relative w-full sm:w-[600px] md:w-[700px] lg:w-[750px] p-6 bg-white/90 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-2 hover:bg-[#2674D3]/5"
                 style={{ animation: `fadeIn ${index * 0.2 + 0.5}s ease-out forwards` }}
                 onMouseEnter={() => setHoveredPoint(index)}
                 onMouseLeave={() => setHoveredPoint(null)}
               >
-                <div className="flex items-center">
-                  <div className="relative w-16 h-16 mr-6">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start">
+                  <div className="relative w-16 h-16 mr-0 sm:mr-6 mb-4 sm:mb-0">
                     <div
                       className={`absolute inset-0 rounded-full bg-[#2674D3]/20 transition-all duration-300 ${
                         hoveredPoint === index ? 'scale-110 opacity-80 animate-pulse' : 'opacity-50'
@@ -70,7 +72,8 @@ const EmailMarketingWhy = () => {
                       })}
                     </div>
                   </div>
-                  <div className="flex-1 text-left">
+
+                  <div className="flex-1 text-center sm:text-left">
                     <h3
                       className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
                         hoveredPoint === index ? 'text-[#2674D3]' : 'text-slate-800'
@@ -78,7 +81,7 @@ const EmailMarketingWhy = () => {
                     >
                       {point.title}
                     </h3>
-                    <p className="text-sm leading-tight flex items-center text-slate-700">
+                    <p className="text-sm leading-tight flex items-center justify-center sm:justify-start text-slate-700">
                       <span className="text-[#2674D3] mr-2">✔</span>
                       {point.description}
                     </p>
@@ -88,6 +91,7 @@ const EmailMarketingWhy = () => {
             ))}
           </div>
         </div>
+
         <style>{`
           @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }

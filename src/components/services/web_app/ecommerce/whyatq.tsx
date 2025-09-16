@@ -68,16 +68,15 @@ const ECommerceWhyAtq = () => {
           </p>
         </div>
 
-        {/* Radial Feature Orbit */}
-        <div className="relative h-[550px] flex items-center justify-center mb-20">
-          
-
+        {/* Desktop Orbit Layout */}
+        <div className="hidden md:flex relative h-[550px] items-center justify-center mb-20">
           {/* Orbit Circle */}
           <div className="absolute w-[420px] h-[420px] rounded-full border border-[#2674D3]/20"></div>
 
           {/* Feature Nodes */}
           {features.map((feature, index) => {
-            const angle = (index / features.length) * 2 * Math.PI - Math.PI / 2; // start from top
+            const angle =
+              (index / features.length) * 2 * Math.PI - Math.PI / 2; // start from top
             const radius = 200;
             const x = Math.cos(angle) * radius;
             const y = Math.sin(angle) * radius;
@@ -88,7 +87,7 @@ const ECommerceWhyAtq = () => {
                 onClick={() => setActiveFeature(index)}
                 className="absolute flex flex-col items-center transition-transform duration-500 cursor-pointer"
                 style={{
-                  transform: `translate(${x}px, ${y+40}px)`,
+                  transform: `translate(${x}px, ${y + 40}px)`,
                 }}
               >
                 {/* Node */}
@@ -123,6 +122,23 @@ const ECommerceWhyAtq = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Mobile/Tablet Vertical List */}
+        <div className="grid gap-6 md:hidden">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="flex items-start gap-4 bg-white/90 backdrop-blur-sm rounded-xl px-5 py-4 shadow-md border border-[#2674D3]/20"
+            >
+              <div className="w-12 h-12 bg-[#2674D3]/10 flex items-center justify-center rounded-full">
+                <div className="w-8 h-8 flex items-center justify-center rounded-full  text-[#2674D3]">
+                  {feature.icon}
+                </div>
+              </div>
+              <p className="text-slate-700 font-medium">{feature.text}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

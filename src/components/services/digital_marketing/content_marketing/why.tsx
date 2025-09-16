@@ -33,7 +33,8 @@ const ContentWhy = () => {
 
   return (
     <section className="relative w-full py-20 bg-gradient-to-b from-gray-50 to-gray-200">
-      <div className="text-center mb-20">
+      {/* Heading */}
+      <div className="text-center mb-20 px-4">
         <h2 className="text-4xl font-bold text-gray-800">
           Why Content Marketing Matters
         </h2>
@@ -42,12 +43,17 @@ const ContentWhy = () => {
         </p>
       </div>
 
-      {/* Upside Semi-circle Layout */}
-      <div className="relative mx-auto w-[1000px] h-[350px] justify-center">
+      {/* Arc Layout for Desktop */}
+      <div className="hidden md:block relative mx-auto w-[90%] max-w-[1000px] h-[350px]">
         {points.map((point, i) => {
           const angle = (i / (points.length - 1)) * Math.PI; // semicircle
-          const x = 320 * Math.cos(angle) + 500;
-          const y = 300 * -Math.sin(angle) + 300; // upside arc
+          const radiusX = 320;
+          const radiusY = 300;
+          const centerX = 500;
+          const centerY = 300;
+
+          const x = radiusX * Math.cos(angle) + centerX;
+          const y = radiusY * -Math.sin(angle) + centerY; // upside arc
 
           return (
             <div
@@ -59,14 +65,30 @@ const ContentWhy = () => {
                 transform: "translate(-50%, -50%)",
               }}
             >
-              <point.icon className="w-12 h-12 text-[#2674D3] mb-3" /> {/* Unique Blue */}
+              <point.icon className="w-12 h-12 text-[#2674D3] mb-3" />
               <h3 className="font-semibold text-lg text-gray-800">{point.title}</h3>
-              <p className="text-sm text-gray-600 max-w-[350px] mt-1">
+              <p className="text-sm text-gray-600 max-w-[250px] mt-1">
                 {point.description}
               </p>
             </div>
           );
         })}
+      </div>
+
+      {/* Stacked Layout for Mobile */}
+      <div className="md:hidden flex flex-col items-center gap-10 px-6">
+        {points.map((point, i) => (
+          <div
+            key={i}
+            className="flex flex-col items-center text-center transition-transform duration-300 hover:scale-105"
+          >
+            <point.icon className="w-10 h-10 text-[#2674D3] mb-3" />
+            <h3 className="font-semibold text-lg text-gray-800">{point.title}</h3>
+            <p className="text-sm text-gray-600 max-w-[300px] mt-1">
+              {point.description}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

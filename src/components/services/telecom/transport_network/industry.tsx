@@ -1,68 +1,64 @@
 "use client";
 import React, { useState } from 'react';
-import { ShoppingCart, Briefcase, HeartPulse, Home, BookOpen } from 'lucide-react';
+import { Signal, Building, Factory, HeartPulse, Truck } from 'lucide-react';
 
-const PPCIndustries = () => {
+const TransportNetworkIndustries = () => {
   const [hoveredIndustry, setHoveredIndustry] = useState<number | null>(null);
 
   const industries = [
     {
-      icon: ShoppingCart,
-      title: "E-commerce",
-      description: "Increase product sales."
+      icon: Signal,
+      title: "Telecom Operators & ISPs",
+      description: "Core and backhaul transport for high-speed connectivity."
     },
     {
-      icon: Briefcase,
-      title: "B2B & SaaS",
-      description: "Generate quality leads."
+      icon: Building,
+      title: "Smart Cities & IoT Deployments",
+      description: "Support millions of connected devices."
+    },
+    {
+      icon: Factory,
+      title: "Enterprises & Manufacturing",
+      description: "Secure and reliable private network transport."
     },
     {
       icon: HeartPulse,
       title: "Healthcare",
-      description: "Attract patients and bookings."
+      description: "Low-latency connectivity for telemedicine and digital health."
     },
     {
-      icon: Home,
-      title: "Real Estate",
-      description: "Get more property inquiries."
-    },
-    {
-      icon: BookOpen,
-      title: "Education & Training",
-      description: "Drive course enrollments."
+      icon: Truck,
+      title: "Transportation & Logistics",
+      description: "Smart mobility powered by robust transport networks."
     }
   ];
 
   return (
-    <div className="bg-gradient-to-br from-[#2674D3]/10 to-[#2674D3]/40 py-20 px-4 relative overflow-hidden">
+    <div className="bg-gradient-to-br from-white to-gray-50 py-20 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">
-          Industries We Serve with <span className="text-[#2674D3]">PPC</span>
+        <h2 className="text-4xl font-bold text-slate-800 mb-16 text-center">
+          Industries We <span className="text-[#2674D3]">Serve</span>
         </h2>
         <div className="relative flex flex-col items-center">
-          <div className="w-full flex flex-col gap-12">
+          <div className="w-full flex flex-col md:flex-col justify-center gap-12">
             {/* First row with 3 industries */}
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 md:gap-12 mb-8 md:mb-0">
+            <div className="flex justify-center gap-12 mb-8 md:mb-0">
               {industries.slice(0, 3).map((industry, index) => (
                 <div
                   key={index}
-                  className="group flex flex-col items-center text-center transition-all duration-300 w-full sm:w-[250px]"
+                  className="group flex flex-col items-center text-center transition-all duration-300"
                   onMouseEnter={() => setHoveredIndustry(index)}
                   onMouseLeave={() => setHoveredIndustry(null)}
                 >
                   <div className="relative w-16 h-16 mb-4">
                     <div
                       className={`absolute inset-0 rounded-full bg-[#2674D3]/20 transition-all duration-300 ${
-                        hoveredIndustry === index
-                          ? 'scale-125 opacity-80 animate-pulse'
-                          : 'opacity-50'
+                        hoveredIndustry === index ? 'scale-125 opacity-80 animate-pulse' : 'opacity-50'
                       }`}
                     ></div>
                     <div
                       className={`relative w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${
-                        hoveredIndustry === index
-                          ? 'bg-[#2674D3] scale-110'
-                          : 'bg-white border-2 border-[#2674D3]'
+                        hoveredIndustry === index ? 'bg-[#2674D3] scale-110' : 'bg-white border-2 border-[#2674D3]'
                       }`}
                     >
                       {React.createElement(industry.icon, {
@@ -73,40 +69,36 @@ const PPCIndustries = () => {
                     </div>
                   </div>
                   <h3
-                    className={`text-lg md:text-xl font-semibold mb-2 transition-colors duration-300 ${
-                      hoveredIndustry === index ? 'text-[#2674D3]' : 'text-white'
+                    className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
+                      hoveredIndustry === index ? 'text-[#2674D3]' : 'text-slate-800'
                     }`}
                   >
                     {industry.title}
                   </h3>
-                  <p className="text-sm text-slate-200 leading-tight max-w-xs">
+                  <p className="text-sm text-slate-600 leading-tight max-w-xs">
                     {industry.description}
                   </p>
                 </div>
               ))}
             </div>
             {/* Second row with 2 industries */}
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 md:gap-12">
+            <div className="flex justify-center gap-12">
               {industries.slice(3, 5).map((industry, index) => (
                 <div
                   key={index + 3}
-                  className="group flex flex-col items-center text-center transition-all duration-300 w-full sm:w-[250px] "
+                  className="group flex flex-col items-center text-center transition-all duration-300"
                   onMouseEnter={() => setHoveredIndustry(index + 3)}
                   onMouseLeave={() => setHoveredIndustry(null)}
                 >
                   <div className="relative w-16 h-16 mb-4">
                     <div
                       className={`absolute inset-0 rounded-full bg-[#2674D3]/20 transition-all duration-300 ${
-                        hoveredIndustry === index + 3
-                          ? 'scale-125 opacity-80 animate-pulse'
-                          : 'opacity-50'
+                        hoveredIndustry === index + 3 ? 'scale-125 opacity-80 animate-pulse' : 'opacity-50'
                       }`}
                     ></div>
                     <div
                       className={`relative w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${
-                        hoveredIndustry === index + 3
-                          ? 'bg-[#2674D3] scale-110'
-                          : 'bg-white border-2 border-[#2674D3]'
+                        hoveredIndustry === index + 3 ? 'bg-[#2674D3] scale-110' : 'bg-white border-2 border-[#2674D3]'
                       }`}
                     >
                       {React.createElement(industry.icon, {
@@ -117,13 +109,13 @@ const PPCIndustries = () => {
                     </div>
                   </div>
                   <h3
-                    className={`text-lg md:text-xl font-semibold mb-2 transition-colors duration-300 ${
-                      hoveredIndustry === index + 3 ? 'text-[#2674D3]' : 'text-white'
+                    className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
+                      hoveredIndustry === index + 3 ? 'text-[#2674D3]' : 'text-slate-800'
                     }`}
                   >
                     {industry.title}
                   </h3>
-                  <p className="text-sm text-slate-200 leading-tight max-w-xs">
+                  <p className="text-sm text-slate-600 leading-tight max-w-xs">
                     {industry.description}
                   </p>
                 </div>
@@ -136,4 +128,4 @@ const PPCIndustries = () => {
   );
 };
 
-export default PPCIndustries;
+export default TransportNetworkIndustries;

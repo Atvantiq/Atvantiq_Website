@@ -39,14 +39,15 @@ const ContentIndustries = () => {
         <h2 className="text-4xl font-bold text-white mb-16 text-center">
           Industries We Create <span className="text-[#2674D3]">Content For</span>
         </h2>
+
         <div className="relative flex flex-col items-center">
-          <div className="w-full flex flex-col md:flex-col justify-center gap-12">
+          <div className="w-full flex flex-col gap-6 md:gap-12">
             {/* First row with 3 industries */}
-            <div className="flex justify-center gap-12 mb-8 md:mb-0">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-8 md:mb-0">
               {industries.slice(0, 3).map((industry, index) => (
                 <div
                   key={index}
-                  className="group flex flex-col items-center text-center transition-all duration-300"
+                  className="group flex flex-col items-center text-center transition-all duration-300 max-w-[250px] sm:w-auto"
                   onMouseEnter={() => setHoveredIndustry(index)}
                   onMouseLeave={() => setHoveredIndustry(null)}
                 >
@@ -81,12 +82,13 @@ const ContentIndustries = () => {
                 </div>
               ))}
             </div>
+
             {/* Second row with 2 industries */}
-            <div className="flex justify-center gap-12">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-12">
               {industries.slice(3, 5).map((industry, index) => (
                 <div
                   key={index + 3}
-                  className="group flex flex-col items-center text-center transition-all duration-300"
+                  className="group flex flex-col items-center text-center transition-all duration-300 max-w-[250px] sm:w-auto"
                   onMouseEnter={() => setHoveredIndustry(index + 3)}
                   onMouseLeave={() => setHoveredIndustry(null)}
                 >
@@ -122,6 +124,8 @@ const ContentIndustries = () => {
               ))}
             </div>
           </div>
+
+          {/* Decorative Circles */}
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
             <div className="absolute top-1/6 left-1/6 w-36 h-36 bg-[#2674D3]/10 rounded-full blur-xl animate-pulse-slow"></div>
             <div className="absolute bottom-1/6 right-1/6 w-44 h-44 bg-[#2674D3]/10 rounded-full blur-xl animate-pulse-slow delay-300"></div>

@@ -43,7 +43,7 @@ const SEOWhyAtq = () => {
               <div
                 key={index}
                 className="group relative w-full max-w-2xl p-6 bg-white/90 rounded-2xl shadow-md border border-gray-100 transition-all duration-500 hover:shadow-xl hover:-translate-y-4 hover:bg-[#2674D3]/5 backdrop-blur-md"
-                style={{ transform: `translateX(${index % 2 === 0 ? -120 : 120}px)` }}
+                style={{ transform: `md:translateX(${index % 2 === 0 ? -120 : 120}px)` }}
                 onMouseEnter={() => setHoveredBenefit(index)}
                 onMouseLeave={() => setHoveredBenefit(null)}
               >

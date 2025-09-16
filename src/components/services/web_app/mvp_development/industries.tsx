@@ -42,11 +42,11 @@ const MVPIndustries = () => {
         <div className="relative flex flex-col items-center">
           <div className="w-full flex flex-col md:flex-col justify-center gap-12">
             {/* First row with 3 industries */}
-            <div className="flex justify-center gap-12 mb-8 md:mb-0">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap justify-center gap-6 md:gap-12 mb-8 md:mb-0">
               {industries.slice(0, 3).map((industry, index) => (
                 <div
                   key={index}
-                  className="group flex flex-col items-center text-center transition-all duration-300"
+                  className="group flex flex-col items-center text-center transition-all duration-300 w-full sm:w-[80%] md:w-auto"
                   onMouseEnter={() => setHoveredIndustry(index)}
                   onMouseLeave={() => setHoveredIndustry(null)}
                 >
@@ -82,11 +82,11 @@ const MVPIndustries = () => {
               ))}
             </div>
             {/* Second row with 2 industries */}
-            <div className="flex justify-center gap-12">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap justify-center gap-6 md:gap-12">
               {industries.slice(3, 5).map((industry, index) => (
                 <div
                   key={index + 3}
-                  className="group flex flex-col items-center text-center transition-all duration-300"
+                  className="group flex flex-col items-center text-center transition-all duration-300 w-full sm:w-[80%] md:w-auto"
                   onMouseEnter={() => setHoveredIndustry(index + 3)}
                   onMouseLeave={() => setHoveredIndustry(null)}
                 >

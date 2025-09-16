@@ -44,13 +44,15 @@ const MVPWhyAtq = () => {
         </p>
         <div className="relative w-full min-h-[500px] flex items-center justify-center">
           <div className="absolute w-full h-full bg-[radial-gradient(circle_at_center,rgba(38,116,211,0.03)_0%,transparent_70%)] opacity-50"></div>
-          <div className="relative flex flex-row flex-wrap gap-8 justify-center">
+          
+          {/* Responsive grid instead of only flex-row */}
+          <div className="relative flex flex-wrap gap-8 justify-center">
             {benefits.map((benefit, index) => {
-              const elevation = index * 10; 
+              const elevation = index * 10;
               return (
                 <div
                   key={index}
-                  className="group relative w-[30%] p-6 bg-white/95 rounded-xl shadow-lg border border-gray-100 transition-all duration-500 hover:shadow-2xl hover:-translate-y-6"
+                  className="group relative w-full sm:w-[80%] md:w-[45%] lg:w-[30%] p-6 bg-white/95 rounded-xl shadow-lg border border-gray-100 transition-all duration-500 hover:shadow-2xl hover:-translate-y-6"
                   style={{
                     transform: `translateZ(${elevation}px)`,
                     background: `linear-gradient(135deg, #ffffff ${hoveredBenefit === index ? '80%' : '100%'}, #f3f4f6 ${hoveredBenefit === index ? '100%' : '0%'})`
@@ -85,7 +87,7 @@ const MVPWhyAtq = () => {
                       >
                         {benefit.title}
                       </h3>
-                      <p className="text-sm leading-tight flex items-centern text-gray-700">
+                      <p className="text-sm leading-tight flex items-center text-gray-700">
                         <span className="text-[#2674D3] mr-2">✔</span>
                         {benefit.description}
                       </p>
