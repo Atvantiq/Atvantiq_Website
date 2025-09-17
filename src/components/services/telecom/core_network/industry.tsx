@@ -40,7 +40,7 @@ const CoreNetworkIndustries = () => {
           Industries We <span className="text-[#2674D3]">Serve</span>
         </h2>
         <div className="relative flex flex-col items-center">
-          <div className="w-full flex flex-col md:flex-row justify-center gap-12">
+          <div className="w-full flex flex-col md:flex-col justify-center gap-12">
             {/* First row with 3 industries */}
             <div className="flex justify-center gap-12 mb-8 md:mb-0">
               {industries.slice(0, 3).map((industry, index) => (
