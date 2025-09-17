@@ -102,8 +102,8 @@ const Navbar = () => {
           path: "/services/telecom",
           subItems: [
             { title: "Transport Network Services", path: "/services/telecom/transport-network" },
-            { title: "Deployment", path: "/services/telecom/deployment" },
-            { title: "Service migration & Validation", path: "/services/telecom/migration-validation" },
+            { title: "Radio Access Network", path: "/services/telecom/radio-access-network" },
+            { title: "Core Network Services", path: "/services/telecom/core-network" },
             { title: "Operations & Optimization", path: "/services/telecom/operations-optimization" },
           ],
         },
