@@ -1,35 +1,35 @@
 "use client";
 import React, { useState } from 'react';
-import { Signal, Building, Factory, HeartPulse, Truck } from 'lucide-react';
+import { Signal, Building, Factory, Truck, Globe } from 'lucide-react';
 
-const CoreNetworkIndustries = () => {
+const BackhaulIndustries = () => {
   const [hoveredIndustry, setHoveredIndustry] = useState<number | null>(null);
 
   const industries = [
     {
       icon: Signal,
       title: "Telecom Operators & ISPs",
-      description: "Core networks for large-scale subscriber management."
+      description: "Strengthen mobile and broadband connectivity."
     },
     {
       icon: Building,
-      title: "Smart Cities & IoT",
-      description: "Support millions of connected devices in real-time."
+      title: "Smart Cities",
+      description: "Support IoT devices, surveillance, and connected infrastructure."
     },
     {
       icon: Factory,
       title: "Enterprises & Manufacturing",
-      description: "Private 5G and LTE core networks for industrial automation."
-    },
-    {
-      icon: HeartPulse,
-      title: "Healthcare",
-      description: "Secure and low-latency core services for telemedicine."
+      description: "Reliable backhaul for private LTE & 5G networks."
     },
     {
       icon: Truck,
       title: "Transportation & Logistics",
-      description: "Reliable core connectivity for smart mobility."
+      description: "Seamless connectivity for railways, airports, and highways."
+    },
+    {
+      icon: Globe,
+      title: "Remote & Rural Areas",
+      description: "Expand digital connectivity through satellite and hybrid backhaul."
     }
   ];
 
@@ -128,4 +128,4 @@ const CoreNetworkIndustries = () => {
   );
 };
 
-export default CoreNetworkIndustries;
+export default BackhaulIndustries;

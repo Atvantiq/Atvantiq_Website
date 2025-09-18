@@ -50,7 +50,7 @@ const CoreNetworkBenefits = () => {
   }, [benefits.length]);
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-[#2674D3] mb-10">
           Benefits of Atvantiq’s Core Network Services
@@ -65,7 +65,7 @@ const CoreNetworkBenefits = () => {
                 key={index}
                 onClick={() => setVisibleIndex(index)}
                 className={`flex flex-col items-center transition-opacity duration-500 ${
-                  index === visibleIndex ? "opacity-100" : "opacity-80"
+                  index === visibleIndex ? "opacity-100 scale-120" : "opacity-80"
                 }`}
               >
                 <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2674D3] text-white mb-3 shadow-md">

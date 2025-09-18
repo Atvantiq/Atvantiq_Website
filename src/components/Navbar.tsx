@@ -104,7 +104,7 @@ const Navbar = () => {
             { title: "Transport Network Services", path: "/services/telecom/transport-network" },
             { title: "Radio Access Network", path: "/services/telecom/radio-access-network" },
             { title: "Core Network Services", path: "/services/telecom/core-network" },
-            { title: "Operations & Optimization", path: "/services/telecom/operations-optimization" },
+            { title: "Backhaul Services", path: "/services/telecom/backhaul-services" },
           ],
         },
         {
