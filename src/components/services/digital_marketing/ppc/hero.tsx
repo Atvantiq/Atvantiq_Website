@@ -13,7 +13,7 @@ export const PPC = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we specialize in creating and managing <span className="text-[#2674D3] font-medium">data-driven PPC campaigns</span> that deliver measurable results. Whether your goal is <span className="text-[#2674D3] font-medium">brand awareness</span>, <span className="text-[#2674D3] font-medium">lead generation</span>, or <span className="text-[#2674D3] font-medium">direct sales</span>, our PPC experts ensure every dollar spent works harder for your business.
       </>
     }
-    imagePath="/service_cards/digital-marketing.jpg"
+    imagePath="/services/digital-marketing/ppc/hero.png"
     imageAlt="Pay-Per-Click Advertising"
     ctaText="Contact Us Today"
   />
