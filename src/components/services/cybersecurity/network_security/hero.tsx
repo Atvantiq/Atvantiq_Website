@@ -12,7 +12,7 @@ In today’s hyper-connected world, your business network is constantly exposed 
         <span className="font-medium text-[#2674D3]">At Atvantiq </span>, we provide robust <span className="font-medium text-[#2674D3]">Network Security & Firewall Management</span> services to safeguard your digital assets, ensure uninterrupted operations, and give you peace of mind.
       </>
     }
-    imagePath="/services/cybersecurity/cta.jpg"
+    imagePath="/services/cybersecurity/network_security/hero.jpg"
     imageAlt="Network Security & Firewall Management"
     ctaText="Contact Us Today"
   />

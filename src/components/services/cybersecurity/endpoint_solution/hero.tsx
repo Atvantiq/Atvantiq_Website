@@ -12,7 +12,7 @@ In the modern workplace, employees connect to business systems from desktops, la
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we deliver advanced <span className="text-[#2674D3] font-medium">Endpoint Security Solutions</span> designed to safeguard every device across your network, ensuring your workforce can operate securely from anywhere, at any time.
       </>
     }
-    imagePath="/services/cybersecurity/cta.jpg"
+    imagePath="/services/cybersecurity/endpoint/hero.jpg"
     imageAlt="Endpoint Security Services"
     ctaText="Contact Us Today"
   />

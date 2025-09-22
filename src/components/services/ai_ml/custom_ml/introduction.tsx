@@ -76,7 +76,7 @@ const CustomMLSection = () => {
         </motion.div>
         <div className="relative h-48 md:h-64 w-full rounded-2xl overflow-hidden">
             <Image
-              src="/services/ai/trusted.jpg"
+              src="/services/ai/ml/hero.jpg"
               alt="AI neural network visualization"
               fill
               className="object-cover opacity-80"

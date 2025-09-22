@@ -15,7 +15,7 @@ Cyber threats don’t follow business hours—and neither should your security. 
   <span className="text-[#2674D3] font-medium"> stay ahead of cyber threats</span> with confidence.
       </>
     }
-    imagePath="/services/cybersecurity/cta.jpg"
+    imagePath="/services/cybersecurity/managed_security/hero.jpg"
     imageAlt="Cybersecurity Awareness & Training"
     ctaText="Contact Us Today"
   />

@@ -13,7 +13,7 @@ export const AIAutomation = () => (
         Whether you’re a <span className="font-medium">growing startup or a global enterprise</span> based in the USA, Canada, India, UAE, Australia, or Europe, <span className="text-[#2674D3] font-medium">our solutions</span> are tailored to meet your specific challenges—bringing <span className="text-[#2674D3] font-medium">innovation, precision, and agility</span> to every department.
       </>
     }
-    imagePath="/services/ai/gen_ai/hero.jpg"
+    imagePath="/services/ai/automation/hero.jpg"
     imageAlt="AI Automation Services"
     ctaText="Contact Us Today"
   />

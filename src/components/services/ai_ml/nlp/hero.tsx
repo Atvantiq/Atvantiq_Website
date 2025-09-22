@@ -19,7 +19,7 @@ export const NLPServices = () => (
         <span className="text-[#2674D3] font-medium">NLP solutions</span> that deliver measurable results.
       </>
     }
-    imagePath="/service_cards/ai.jpg"
+    imagePath="/services/ai/nlp/hero.jpg"
     imageAlt="NLP text analysis visualization"
     ctaText="Contact Us Today"
   />

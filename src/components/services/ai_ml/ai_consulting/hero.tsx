@@ -17,7 +17,7 @@ export const AIConsulting = () => (
         <span className="text-[#2674D3] font-medium">digital transformation</span> from the ground up.
       </>
     }
-    imagePath="/services/ai/gen_ai/hero.jpg"
+    imagePath="/services/ai/consulting/hero.jpg"
     imageAlt="AI strategy and consulting visualization"
     ctaText="Contact Us Today"
   />

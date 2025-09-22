@@ -136,7 +136,7 @@ const Navbar = () => {
             { title: "Contract & full-time placements", path: "/services/talent-outsourcing/contract-placements" },
             { title: "Project-based outsourcing", path: "/services/talent-outsourcing/project-outsourcing" },
             { title: "Technical recruiters & HR consulting", path: "/services/talent-outsourcing/hr-consulting" },
-            { title: "Software base onboarding process", path: "/services/talent-outsourcing/onboarding" },
+            { title: "Software based onboarding process", path: "/services/talent-outsourcing/onboarding" },
             { title: "Payroll Management", path: "/services/talent-outsourcing/payroll" },
           ],
         },

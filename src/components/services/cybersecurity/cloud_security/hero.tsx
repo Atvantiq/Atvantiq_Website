@@ -13,7 +13,7 @@ As businesses shift their operations to the cloud, ensuring security across clou
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we provide robust <span className="text-[#2674D3] font-medium">Cloud Security & DevSecOps</span> solutions to safeguard your cloud infrastructure, applications, and data, while enabling your teams to innovate without compromise.
       </>
     }
-    imagePath="/services/cybersecurity/cta.jpg"
+    imagePath="/services/cybersecurity/cloud/hero.jpg"
     imageAlt="Cloud Security & DevSecOps"
     ctaText="Contact Us Today"
   />

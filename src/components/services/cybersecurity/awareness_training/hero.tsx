@@ -12,7 +12,7 @@ Technology alone cannot fully protect your business from cyber threats—your pe
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we believe that <span className="text-[#2674D3] font-medium">cybersecurity is everyone’s responsibility.</span> That’s why we offer comprehensive <span className="text-[#2674D3] font-medium">Cybersecurity Awareness & Training</span> programs designed to educate, empower, and equip your employees with the knowledge and skills they need to recognize and respond to cyber risks effectively.
       </>
     }
-    imagePath="/services/cybersecurity/cta.jpg"
+    imagePath="/services/cybersecurity/awareness_training/hero.jpg"
     imageAlt="Cybersecurity Awareness & Training"
     ctaText="Contact Us Today"
   />

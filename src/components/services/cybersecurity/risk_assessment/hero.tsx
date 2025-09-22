@@ -12,7 +12,7 @@ In today’s fast-changing digital world, cyber threats are becoming more advanc
         <span className="font-medium text-[#2674D3]">At Atvantiq,</span> our Security <span className="font-medium text-[#2674D3]"> Risk Assessment & Audit service </span> helps you stay ahead by uncovering risks before attackers do.
       </>
     }
-    imagePath="/services/cybersecurity/cta.jpg"
+    imagePath="/services/cybersecurity/risk_assessment/hero.jpg"
     imageAlt="Cybersecurity Awareness & Training"
     ctaText="Contact Us Today"
   />

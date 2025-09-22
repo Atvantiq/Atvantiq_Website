@@ -13,7 +13,7 @@ export const ComputerVision = () => (
         As a leading provider of AI and machine learning development services in India, USA, Canada, UAE, Australia, and Europe,<span className="text-[#2674D3] font-medium"> Atvantiq </span> delivers cutting-edge, personalized <span className="text-[#2674D3] font-medium">computer vision applications</span> tailored to your business goals.
       </>
     }
-    imagePath="/services/ai/trusted.jpg"
+    imagePath="/services/ai/cv/hero.jpg"
     imageAlt="Computer Vision Solutions"
     ctaText="Contact Us Today"
   />
