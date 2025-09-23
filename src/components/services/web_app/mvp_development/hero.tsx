@@ -13,7 +13,7 @@ export const MVP_Development = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we help startups transform ideas into reality with end-to-end <span className="text-[#2674D3] font-medium">MVP development services. </span> Our approach is simple: <span className="text-[#2674D3] font-medium">build fast, launch quickly, and validate effectively.</span> With a carefully crafted MVP, you can reduce risks, attract funding, and refine your product based on real customer insights.
     </>
     }
-    imagePath="/services/web-mobile/trusted.jpg"
+    imagePath="/services/web-mobile/mvp_development/hero.jpg"
     imageAlt="Custom Web Application Development"
     ctaText="Contact Us Today"
   />

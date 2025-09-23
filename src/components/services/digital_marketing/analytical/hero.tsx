@@ -13,7 +13,7 @@ export const AnalyticsOptimizationServices = () => (
         We combine advanced <span className="text-[#2674D3] font-medium">analytics tools</span>, <span className="text-[#2674D3] font-medium">A/B testing</span>, <span className="text-[#2674D3] font-medium">heatmaps</span>, and <span className="text-[#2674D3] font-medium">user behavior analysis</span> to optimize your digital campaigns and website performance for higher conversions.
       </>
     }
-    imagePath="/service_cards/digital-marketing.jpg"
+    imagePath="/services/digital-marketing/analytics/hero.jpg"
     imageAlt="Analytics Marketing"
     ctaText="Contact Us Today"
   />

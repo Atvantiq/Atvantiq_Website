@@ -13,7 +13,7 @@ export const PayrollManagement = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we deliver end-to-end <span className="text-[#2674D3] font-medium">Payroll Management & Contractor Compliance Services</span> that help companies streamline payments, ensure legal compliance, and provide a smooth experience for employees and contractors worldwide.
       </>
     }
-    imagePath="/service_cards/hr.png"
+    imagePath="/services/talent/payroll_management/hero.jpeg"
     imageAlt="Payroll Management"
     ctaText="Contact Us Today"
   />

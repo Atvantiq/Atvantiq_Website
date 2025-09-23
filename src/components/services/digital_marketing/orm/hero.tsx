@@ -13,7 +13,7 @@ export const OnlineReputationManagement = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we help businesses <span className="font-medium text-[#2674D3]">monitor, manage, and improve their online reputation</span> with proactive strategies. From handling negative feedback to promoting positive content, our ORM services protect your brand credibility and boost customer confidence.
       </>
     }
-    imagePath="/service_cards/digital-marketing.jpg"
+    imagePath="/services/digital-marketing/orm/hero.jpg"
     imageAlt="Online Reputation Management"
     ctaText="Contact Us Today"
   />

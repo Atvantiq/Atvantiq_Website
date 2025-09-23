@@ -13,7 +13,7 @@ export const ContractPlacements = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we specialize in <span className="text-[#2674D3] font-medium">Contract & Full-Time Placements</span> that help organizations scale efficiently while reducing hiring risks. Our <span className="text-[#2674D3] font-medium">talent outsourcing solutions</span> are designed to match <span className="text-[#2674D3] font-medium">top professionals with industry-specific expertise</span> to your immediate and future workforce needs.
       </>
     }
-    imagePath="/service_cards/hr.jpg"
+    imagePath="/services/talent/contract_fulltime/hero.jpg"
     imageAlt="Telecom network visualization"
     ctaText="Contact Us Today"
   />

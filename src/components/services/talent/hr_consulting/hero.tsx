@@ -13,7 +13,7 @@ export const TechnicalRecruitersHRConsulting = () => (
         We bring together <span className="text-[#2674D3] font-medium">industry-specific recruitment expertise</span> and <span className="text-[#2674D3] font-medium">strategic HR consulting</span> to ensure you have the right people, in the right roles, at the right time.
       </>
     }
-    imagePath="/service_cards/hr.png"
+    imagePath="/services/talent/hr_consulting/hero.jpg"
     imageAlt="Telecom network visualization"
     ctaText="Contact Us Today"
   />

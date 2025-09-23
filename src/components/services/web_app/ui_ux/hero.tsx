@@ -13,7 +13,7 @@ export const UI_UX = () => (
         At <span className="text-[#2674D3] font-medium"> Atvantiq,</span> we combine creativity, usability, and technology to deliver <span className="text-[#2674D3] font-medium"> UI/UX design and prototyping services </span> that enhance customer engagement and drive business results. Our designs are built around one core principle: <span className="text-[#2674D3] font-medium"> putting the user at the center of the experience. </span>
       </>
     }
-    imagePath="/services/web-mobile/trusted.jpg"
+    imagePath="/services/web-mobile/ui_ux/hero.jpg"
     imageAlt="Custom Web Application Development"
     ctaText="Contact Us Today"
   />

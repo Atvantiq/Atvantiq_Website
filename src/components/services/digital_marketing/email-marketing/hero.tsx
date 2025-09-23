@@ -13,7 +13,7 @@ export const EmailMarketing = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we help businesses design and implement <span className="font-medium text-[#2674D3]">high-performing email marketing and automation strategies</span>. From personalized newsletters to automated drip campaigns, we ensure your brand stays connected with customers at every stage of their journey.
       </>
     }
-    imagePath="/service_cards/digital-marketing.jpg"
+    imagePath="/services/digital-marketing/email_marketing/hero.jpg"
     imageAlt="Email Marketing"
     ctaText="Contact Us Today"
   />

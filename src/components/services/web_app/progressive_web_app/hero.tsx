@@ -15,7 +15,7 @@ A <span className="text-[#2674D3] font-medium">Progressive Web App (PWA)</span> 
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we specialize in designing and developing custom <span className="text-[#2674D3] font-medium">Progressive Web Apps</span> that help businesses improve user engagement, increase conversions, and reduce development costs.
       </>
     }
-    imagePath="/services/web-mobile/trusted.jpg"
+    imagePath="/services/web-mobile/progressive_web/hero.jpg"
     imageAlt="Custom Web Application Development"
     ctaText="Contact Us Today"
   />

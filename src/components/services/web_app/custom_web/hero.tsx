@@ -13,7 +13,7 @@ export const Custom_Web_Application_Development = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we specialize in building <span className="text-[#2674D3] font-medium">secure, scalable, and high-performing custom web applications</span> tailored to your business goals. Whether you need an internal business tool, a customer-facing portal, or a data-driven application, our team ensures a seamless user experience with enterprise-grade functionality.
       </>
     }
-    imagePath="/services/web-mobile/trusted.jpg"
+    imagePath="/services/web-mobile/custom_web/hero.jpeg"
     imageAlt="Custom Web Application Development"
     ctaText="Contact Us Today"
   />

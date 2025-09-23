@@ -13,7 +13,7 @@ export const SEO = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we specialize in delivering <span className="text-[#2674D3] font-medium">result-driven SEO services</span> that help businesses of all sizes generate quality leads, increase conversions, and outperform competitors.
       </>
     }
-    imagePath="/service_cards/digital-marketing.jpg"
+    imagePath="/services/digital-marketing/seo/hero.jpg"
     imageAlt="Search Engine Optimization"
     ctaText="Contact Us Today"
   />

@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import CountUp from 'react-countup';
-
+import Link from 'next/link';
 
 const stats = [
   {
@@ -159,9 +159,9 @@ const AboutUs = () => {
     </div>
 
 {showMoreButton && (
-    <button className="text-white mt-18 px-4 py-2 rounded-xl font-medium text-md bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:border-2 border-white hover:opacity-90 transition">
+    <Link href="/about" className="text-white mt-18 px-4 py-2 rounded-xl font-medium text-md bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:border-2 border-white hover:opacity-90 transition">
             More About Us
-          </button>)}
+          </Link>)}
   </div>
 </div>
 

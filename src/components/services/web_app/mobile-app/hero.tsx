@@ -20,7 +20,7 @@ export const App_Development = () => (
         business growth. </span>
       </>
     }
-    imagePath="/services/web-mobile/trusted.jpg"
+    imagePath="/services/web-mobile/ios_android/hero.jpg"
     imageAlt="Custom Web Application Development"
     ctaText="Contact Us Today"
   />

@@ -13,7 +13,7 @@ export const API_Development_Integration = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we specialize in building <span className="text-[#2674D3] font-medium">secure, scalable, and high-performing APIs</span> that enable your applications to communicate with each other seamlessly. From custom API development to third-party API integration, we help businesses unlock automation, improve workflows, and accelerate digital transformation.
       </>
     }
-    imagePath="/services/web-mobile/trusted.jpg"
+    imagePath="/services/web-mobile/api_development/hero.jpg"
     imageAlt="API Development & Integration"
     ctaText="Contact Us Today"
   />

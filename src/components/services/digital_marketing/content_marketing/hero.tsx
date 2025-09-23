@@ -13,7 +13,7 @@ export const ContentMarketing = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we craft <span className="text-[#2674D3] font-medium">strategic content marketing campaigns</span> designed to boost visibility, generate leads, and establish your brand as an industry leader. Our team of expert writers, designers, and strategists ensures your content speaks directly to your audience while aligning with search engine best practices.
       </>
     }
-    imagePath="/service_cards/digital-marketing.jpg"
+    imagePath="/services/digital-marketing/content_marketing/hero.jpg"
     imageAlt="Content Marketing"
     ctaText="Contact Us Today"
   />

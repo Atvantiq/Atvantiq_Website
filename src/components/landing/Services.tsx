@@ -1,6 +1,7 @@
 'use client';
 import { useState, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link"; // Import the Link component
 
 const services = [
   {
@@ -9,6 +10,7 @@ const services = [
     description: "At Atvantiq, we don't just implement AI — we engineer intelligent solutions that drive real business impact. Our AI & Machine Learning services are designed to help you automate repetitive tasks, make smarter decisions, and unlock powerful insights from your data.",
     image: "/illustrations/frontend.png",
     subServices: ["• Generative AI applications", "• Predictive analytics & forecasting", "• Natural Language Processing", "• ChatGPT integration for business automation", "• AI-powered business intelligence dashboards"],
+    path: "/services/ai-ml-development", 
   },
   {
     title: "Cyber Security",
@@ -22,6 +24,7 @@ const services = [
       "• Laravel Development Company",
       "• Cloud security solutions"
     ],
+    path: "/services/cybersecurity",
   },
   {
     title: "Telecom Services",
@@ -34,6 +37,7 @@ const services = [
       "• Service migration & Validation",
       "• Operations & Optimization",
     ],
+    path: "/services/telecom",
   },
   {
     title: "Web & Mobile App Development",
@@ -47,6 +51,7 @@ const services = [
       "• E-commerce platforms development",
       "• Android & iOS mobile apps development",
     ],
+    path: "/services/web-mobile-development",
   },
   {
     title: "Cloud Services",
@@ -60,6 +65,7 @@ const services = [
       "• DevOps & CI/CD pipelines",
       "• Managed cloud operations & support"
     ],
+    path: "/services/cloud-services",
   },
   {
     title: "Solar Energy Solutions",
@@ -73,6 +79,7 @@ const services = [
       "• Solar energy consultation",
       "• Green energy audits"
     ],
+    path: "/services/solar-energy",
   },
   {
     title: "Talent Outsourcing Services",
@@ -86,6 +93,7 @@ const services = [
       "• Software base onboarding process",
       "• Payroll Management"
     ],
+    path: "/services/talent-outsourcing",
   },
   {
     title: "Digital Marketing Services",
@@ -99,6 +107,7 @@ const services = [
       "• Content Marketing",
       "• Email Marketing"
     ],
+    path: "/services/digital-marketing",
   },
 ];
 
@@ -199,14 +208,15 @@ export default function ServicesSection() {
 
                         {/* Action Buttons */}
                         <div className="flex gap-4 mt-auto">
-                          <div className="flex items-center text-white group-hover:gap-3 transition-all duration-300">
+                           {/* Use Link component here */}
+                          <Link href={service.path} className="flex items-center text-white group-hover:gap-3 transition-all duration-300">
                             <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
                               Explore More
                             </span>
                             <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
                               <span className="text-xs">→</span>
                             </div>
-                          </div>
+                          </Link>
                         </div>
                       </div>
                     )}
@@ -340,14 +350,15 @@ export default function ServicesSection() {
 
                         {/* Action Buttons */}
                         <div className="flex gap-4 mt-auto">
-                          <div className="flex items-center text-white group-hover:gap-3 transition-all duration-300">
+                            {/* Use Link component here */}
+                          <Link href={service.path} className="flex items-center text-white group-hover:gap-3 transition-all duration-300">
                             <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
                               Explore More
                             </span>
                             <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
                               <span className="text-xs">→</span>
                             </div>
-                          </div>
+                          </Link>
                         </div>
                       </div>
                     )}
@@ -436,7 +447,8 @@ export default function ServicesSection() {
                   </div>
 
                   <div className="mt-auto">
-                    <div className="flex items-center text-white text-xs font-normal">
+                    {/* Use Link component here */}
+                    <Link href={service.path} className="flex items-center text-white text-xs font-normal">
                       <div className="flex items-center gap-3 transition-all duration-300">
                         <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
                           <span className="text-xs">→</span>
@@ -445,7 +457,7 @@ export default function ServicesSection() {
                           Explore More
                         </span>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>

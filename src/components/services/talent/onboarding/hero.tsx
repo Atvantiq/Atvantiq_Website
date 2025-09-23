@@ -13,7 +13,7 @@ export const SoftwareBasedOnboarding = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we provide <span className="text-[#2674D3] font-medium">Software-Based Onboarding & Compliance Solutions</span> that streamline the employee integration process through <span className="text-[#2674D3] font-medium">automation</span>, <span className="text-[#2674D3] font-medium">digital tools</span>, and <span className="text-[#2674D3] font-medium">secure systems</span>. From digital document verification to compliance tracking, we ensure every new hire is onboarded quickly, efficiently, and in full alignment with legal and corporate standards.
       </>
     }
-    imagePath="/service_cards/hr.png"
+    imagePath="/services/talent/software_onboarding/hero.jpeg"
     imageAlt="Telecom network visualization"
     ctaText="Contact Us Today"
   />

@@ -21,7 +21,7 @@ export const Ecommerce = () => (
         today’s competitive digital marketplace.
       </>
     }
-    imagePath="/services/web-mobile/trusted.jpg"
+    imagePath="/services/web-mobile/ecomm/hero.jpg"
     imageAlt="Custom Web Application Development"
     ctaText="Contact Us Today"
   />

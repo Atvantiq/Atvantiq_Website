@@ -13,7 +13,7 @@ export const SMM = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we help businesses leverage the power of <span className="text-[#2674D3] font-medium">social media marketing (SMM)</span> to connect with audiences, tell their brand story, and achieve measurable results. Whether you’re aiming for <span className="text-[#2674D3] font-medium">brand awareness</span>, <span className="text-[#2674D3] font-medium">lead generation</span>, or <span className="text-[#2674D3] font-medium">direct sales</span>, our customized strategies ensure your business shines online.
       </>
     }
-    imagePath="/service_cards/digital-marketing.jpg"
+    imagePath="/services/digital-marketing/smm/hero.jpg"
     imageAlt="Social Media Marketing"
     ctaText="Contact Us Today"
   />

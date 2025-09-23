@@ -39,7 +39,7 @@ const ORMWhyAtq = () => {
         <h2 className="text-4xl font-bold text-gray-800 mb-6">
           Why Choose <span className="text-[#2674D3]">Atvantiq</span> for ORM Services?
         </h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-16 md:mb-60">
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-16 ">
           At Atvantiq, we don’t just monitor your reputation—we proactively manage and
           improve it with strategies that blend monitoring, storytelling, and engagement.
         </p>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import Link from 'next/link';
 
 const BlogSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -160,10 +161,10 @@ const BlogSection = () => {
 
                   {/* More Blogs Button */}
                   <div className="mb-12">
-                    <button className="bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:from-[#1e5aa8] hover:to-[#1f4d8c] text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all duration-300 hover:scale-105 shadow-lg">
+                    <Link href="/blog" className="bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:from-[#1e5aa8] hover:to-[#1f4d8c] text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all duration-300 hover:scale-105 shadow-lg">
                       <span>→</span>
                       More Blogs
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

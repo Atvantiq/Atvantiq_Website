@@ -13,7 +13,7 @@ export const TransportNetwork = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we provide <span className="text-[#2674D3] font-medium">end-to-end Transport Network Services</span> designed to support the ever-increasing demand for bandwidth, scalability, and reliability. Our solutions enable telecom operators, ISPs, and enterprises to deliver superior customer experiences while preparing for the <span className="text-[#2674D3] font-medium">next generation of digital transformation.</span>
       </>
     }
-    imagePath="/service_cards/telecom.jpeg"
+    imagePath="/services/telecom/transport_network/hero.jpg"
     imageAlt="Telecom network visualization"
     ctaText="Contact Us Today"
   />
