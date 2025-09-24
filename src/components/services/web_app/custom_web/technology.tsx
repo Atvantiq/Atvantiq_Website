@@ -40,8 +40,8 @@ const CustomWebTechnologies = [
     title: "Security Practices",
     technologies: [
       { name: "OWASP", logo: "/services/web-mobile/technology/owasp.png" },
-      { name: "role-based access control", logo: "/services/web-mobile/technology/rbac.png" },
-      { name: "SSL/TLS", logo: "/services/web-mobile/technology/ssl.png" },
+      { name: "role-based access control", logo: "/services/web-mobile/technology/role-based.jpg" },
+      { name: "SSL/TLS", logo: "/services/web-mobile/technology/SSL-TLS.png" },
       { name: "Data Encryption", logo: "/services/web-mobile/technology/data-encryption.png" }
     ]
   },

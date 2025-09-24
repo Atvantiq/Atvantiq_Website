@@ -13,7 +13,7 @@ export const RadioAccessNetwork = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we deliver end-to-end <span className="text-[#2674D3] font-medium">RAN services</span> that help telecom operators, ISPs, and enterprises <span className="text-[#2674D3] font-medium">design, deploy, optimize, and manage</span> their radio networks. Whether you’re expanding coverage, upgrading to 5G, or modernizing your existing infrastructure, our RAN solutions ensure <span className="text-[#2674D3] font-medium">scalable, secure, and future-ready networks</span>.
       </>
     }
-    imagePath="/service_cards/telecom.jpeg"
+    imagePath="/services/telecom/RAN/hero.jpg"
     imageAlt="RAN visualization"
     ctaText="Contact Us Today"
   />

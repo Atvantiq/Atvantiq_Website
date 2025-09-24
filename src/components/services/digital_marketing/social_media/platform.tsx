@@ -7,27 +7,27 @@ const SMMPlatforms = () => {
 
   const platforms = [
     {
-      imagePath: "/services/digital-marketing/technology/google-ads.png", 
+      imagePath: "/services/digital-marketing/technology/facebook.png", 
       name: "Facebook"
     },
     {
-      imagePath: "/services/digital-marketing/technology/bing-ads.png", 
+      imagePath: "/services/digital-marketing/technology/instagram.png", 
       name: "Instagram"
     },
     {
-      imagePath: "/services/digital-marketing/technology/twitter-ads.png", 
+      imagePath: "/services/digital-marketing/technology/twitter.jpg", 
       name: "Twitter (X)"
     },
     {
-      imagePath: "/services/digital-marketing/technology/tiktok-ads.png", 
-      name: "TikTok"
+      imagePath: "/services/digital-marketing/technology/linkedIn.png", 
+      name: "LinkedIn"
     },
     {
-      imagePath: "/services/digital-marketing/technology/pinterest-ads.png", 
+      imagePath: "/services/digital-marketing/technology/pinterest.png", 
       name: "Pinterest"
     },
     {
-      imagePath: "/services/digital-marketing/technology/youtube-ads.png", 
+      imagePath: "/services/digital-marketing/technology/youtube.png", 
       name: "YouTube"
     },
   ];
@@ -38,7 +38,7 @@ const SMMPlatforms = () => {
         <h2 className="text-4xl font-bold text-slate-800 mb-12 text-center">
           Social Media Platforms We Work With
         </h2>
-        <div className="relative flex flex-wrap justify-center gap-8">
+        <div className="relative flex flex-wrap justify-center items-center gap-8">
           {platforms.map((platform, index) => (
             <div
               key={index}
@@ -48,7 +48,7 @@ const SMMPlatforms = () => {
             >
               <div className="relative w-12 h-12 mb-2">
                 <div
-                  className={`absolute inset-0 rounded-full bg-[#2674D3]/20 transition-all duration-300 ${
+                  className={`absolute inset-0 rounded-full  transition-all duration-300 ${
                     hoveredPlatform === index ? 'scale-110 opacity-80 animate-pulse' : 'opacity-50'
                   }`}
                 ></div>

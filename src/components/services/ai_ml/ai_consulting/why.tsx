@@ -42,7 +42,7 @@ const AIConsultingWhy = () => {
             <Image
               width={600}
               height={400}
-              src="/services/ai/trusted.jpg"
+              src="/services/ai/consulting/why.jpg"
               alt="AI Consulting Illustration"
               className="w-full h-auto rounded-lg shadow-md"
             />

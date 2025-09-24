@@ -6,8 +6,7 @@ const EcomTechnologies = [
     technologies: [
       { name: "Magento", logo: "/services/web-mobile/technology/magento.png" },
       { name: "Shopify", logo: "/services/web-mobile/technology/shopify.png" },
-      { name: "WooCommerce", logo: "/services/web-mobile/technology/woocommerce.png" },
-      { name: "BigCommerce", logo: "/services/web-mobile/technology/bigcommerce.png" },
+      { name: "WooCommerce", logo: "/services/digital-marketing/technology/woocommerce.png" },
       { name: "Laravel", logo: "/services/web-mobile/technology/laravel.png" },
       { name: "Node.js", logo: "/services/web-mobile/technology/node.jpg" }
     ]
@@ -15,8 +14,8 @@ const EcomTechnologies = [
   {
     title: "Mobile",
     technologies: [
-      { name: "React Native", logo: "/services/web-mobile/technology/react.jpg" },
-      { name: "Flutter", logo: "/services/web-mobile/technology/flutter.jpg" },
+      { name: "React Native", logo: "/services/web-mobile/technology/react.png" },
+      { name: "Flutter", logo: "/services/web-mobile/technology/flutter.png" },
       { name: "Swift", logo: "/services/web-mobile/technology/swift.jpg" },
       { name: "Kotlin", logo: "/services/web-mobile/technology/kotlin.jpg" },
     ]
@@ -44,15 +43,14 @@ const EcomTechnologies = [
       { name: "Stripe", logo: "/services/web-mobile/technology/stripe.png" },
       { name: "PayPal", logo: "/services/web-mobile/technology/paypal.png" },
       { name: "Razorpay", logo: "/services/web-mobile/technology/razorpay.png" },
-      { name: "BrainTree", logo: "/services/web-mobile/technology/braintree.png" }
     ]
   },
   {
     title: "Security",
     technologies: [
-      { name: "Firewalls", logo: "/services/web-mobile/technology/firewall.png" },
-      { name: "2FA", logo: "/services/web-mobile/technology/2fa.png" },
-      { name: "SSL/TLS", logo: "/services/web-mobile/technology/ssl.png" },
+      { name: "Firewalls", logo: "/services/web-mobile/technology/firewalls.png" },
+      { name: "2FA", logo: "/services/web-mobile/technology/2FA.jpg" },
+      { name: "SSL/TLS", logo: "/services/web-mobile/technology/SSL-TLS.png" },
       { name: "Data Encryption", logo: "/services/web-mobile/technology/data-encryption.png" }
     ]
   },

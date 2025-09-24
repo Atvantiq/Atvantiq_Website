@@ -113,11 +113,11 @@ const PWAServices = () => {
             ))}
           </div>
           {/* Right Column - Image */}
-          <div className="w-full md:w-1/2 mt-12">
+          <div className="w-full md:w-1/2 mt-17">
             <Image
             width={600}
             height={600}
-              src="/services/web-mobile/why.jpg"
+              src="/services/web-mobile/progressive_web/services.jpeg"
               alt="PWA Development"
               className="w-full h-auto rounded-lg shadow-md"
             />

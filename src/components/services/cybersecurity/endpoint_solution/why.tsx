@@ -133,7 +133,7 @@ const EndpointSecurityWhy = () => {
           {/* Right Side - Image with decorative element */}
           <div className="relative">
             <Image
-              src="/service_cards/cyber.jpg"
+              src="/services/cybersecurity/endpoint/why_atq.jpg"
               alt="Endpoint Security Illustration"
               width={500}
               height={400}

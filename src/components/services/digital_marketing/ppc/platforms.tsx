@@ -23,11 +23,11 @@ const PPCPlatforms = () => {
       name: "LinkedIn Ads"
     },
     {
-      imagePath: "/services/digital-marketing/technology/twitter-ads.png", 
+      imagePath: "/services/digital-marketing/technology/twitter_ads.png", 
       name: "Twitter Ads"
     },
     {
-      imagePath: "/services/digital-marketing/technology/amazon-ads.png", 
+      imagePath: "/services/digital-marketing/technology/amazon_ads.png", 
       name: "Amazon Ads"
     }
   ];
@@ -48,7 +48,7 @@ const PPCPlatforms = () => {
             >
               <div className="relative w-12 h-12 mb-2">
                 <div
-                  className={`absolute inset-0 rounded-full bg-[#2674D3]/20 transition-all duration-300 ${
+                  className={`absolute inset-0 rounded-full items-center transition-all duration-300 ${
                     hoveredPlatform === index ? 'scale-110 opacity-80 animate-pulse' : 'opacity-50'
                   }`}
                 ></div>

@@ -7,7 +7,6 @@ const APITechCategories = [
       { name: "PostMan", logo: "/services/web-mobile/technology/postman.png" },
       { name: "Swagger", logo: "/services/web-mobile/technology/swagger.png" },
       { name: "Apigee", logo: "/services/web-mobile/technology/apigee.png" },
-      { name: "MuleSoft", logo: "/services/web-mobile/technology/mulesoft.png" }
     ]
   },
   {
@@ -25,7 +24,7 @@ const APITechCategories = [
     title: "API Protocols",
     technologies: [
       { name: "Workbox", logo: "/services/web-mobile/technology/workbox.png" },
-      { name: "REST APIs", logo: "/services/web-mobile/technology/rest.png" },
+      { name: "REST APIs", logo: "/services/web-mobile/technology/restapi.jpg" },
       { name: "GraphQL", logo: "/services/web-mobile/technology/graphql.png" }
     ]
   },

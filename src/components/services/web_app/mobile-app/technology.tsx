@@ -5,16 +5,16 @@ const AppTechnologies = [
     title: "iOS",
     technologies: [
       { name: "Swift", logo: "/services/web-mobile/technology/swift.jpg" },
-      { name: "Objective-C", logo: "/services/web-mobile/technology/objective-c.png" },
-      { name: "Xcode", logo: "/services/web-mobile/technology/xcode.png" }
+      { name: "Objective-C", logo: "/services/web-mobile/technology/objectivec.png" },
+      { name: "Xcode", logo: "/services/web-mobile/technology/XCode.jpg" }
     ]
   },
   {
     title: "Android",
     technologies: [
       { name: "Kotlin", logo: "/services/web-mobile/technology/kotlin.jpg" },
-      { name: "Java", logo: "/services/web-mobile/technology/java.png" },
-      { name: "Android Studio", logo: "/services/web-mobile/technology/android-studio.png" },
+      { name: "Java", logo: "/services/web-mobile/technology/Java.png" },
+      { name: "Android Studio", logo: "/services/web-mobile/technology/Android-Studio.png" },
     ]
   },
   {

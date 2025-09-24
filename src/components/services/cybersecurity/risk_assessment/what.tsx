@@ -50,7 +50,7 @@ const SecurityRiskAssessment = () => {
           {/* Image Section */}
           <div className="lg:w-1/2">
             <Image
-              src="/services/cybersecurity/trusted.jpg"
+              src="/services/cybersecurity/risk_assessment/why.jpeg"
               alt="Security Risk Assessment Illustration"
               width={600}
               height={400}

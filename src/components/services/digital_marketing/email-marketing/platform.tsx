@@ -7,31 +7,31 @@ const EmailMarketingPlatforms = () => {
 
   const platforms = [
     {
-      imagePath: "/services/digital-marketing/technology/google-ads.png", 
+      imagePath: "/services/digital-marketing/technology/mailchimp.png", 
       name: "Mailchimp"
     },
     {
-      imagePath: "/services/digital-marketing/technology/bing-ads.png", 
+      imagePath: "/services/digital-marketing/technology/hubspot.png", 
       name: "HubSpot"
     },
     {
-      imagePath: "/services/digital-marketing/technology/meta-ads.png", 
+      imagePath: "/services/digital-marketing/technology/activecampaign.png", 
       name: "ActiveCampaign"
     },
     {
-      imagePath: "/services/digital-marketing/technology/linkedin-ads.png", 
+      imagePath: "/services/digital-marketing/technology/klaviyo.png", 
       name: "Klaviyo"
     },
     {
-      imagePath: "/services/digital-marketing/technology/twitter-ads.png", 
+      imagePath: "/services/digital-marketing/technology/constant-contact.png", 
       name: "Constant Contact"
     },
     {
-      imagePath: "/services/digital-marketing/technology/amazon-ads.png", 
+      imagePath: "/services/digital-marketing/technology/zoho_campaigns.png", 
       name: "Zoho Campaigns"
     },
     {
-      imagePath: "/services/digital-marketing/technology/amazon-ads.png", 
+      imagePath: "/services/digital-marketing/technology/salesforce.png", 
       name: "Salesforce Marketing Cloud"
     }
   ];
@@ -52,7 +52,7 @@ const EmailMarketingPlatforms = () => {
             >
               <div className="relative w-12 h-12 mb-2">
                 <div
-                  className={`absolute inset-0 rounded-full bg-[#2674D3]/20 transition-all duration-300 ${
+                  className={`absolute inset-0 rounded-full  transition-all duration-300 ${
                     hoveredPlatform === index ? 'scale-110 opacity-80 animate-pulse' : 'opacity-50'
                   }`}
                 ></div>

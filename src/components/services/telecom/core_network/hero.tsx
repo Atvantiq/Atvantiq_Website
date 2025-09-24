@@ -13,7 +13,7 @@ export const CoreNetwork = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we specialize in designing, deploying, and managing <span className="text-[#2674D3] font-medium">Core Network Services</span> that are <span className="text-[#2674D3] font-medium">scalable, secure, and future-ready</span>. From legacy upgrades to full <span className="text-[#2674D3] font-medium">5G Standalone (SA) Core Network</span> deployments, we ensure your infrastructure can handle the growing demands of today’s digital-first economy.
       </>
     }
-    imagePath="/services/telecom/core_network/hero.jpg"
+    imagePath="/services/telecom/core_network/hero.jpeg"
     imageAlt="Telecom network visualization"
     ctaText="Contact Us Today"
   />

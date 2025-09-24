@@ -13,7 +13,7 @@ export const BackhaulServicesHero = () => (
         At <span className="text-[#2674D3] font-medium">Atvantiq</span>, we deliver comprehensive <span className="text-[#2674D3] font-medium">Backhaul Services</span> designed to meet the demands of <span className="text-[#2674D3] font-medium">4G LTE, 5G, IoT, and enterprise-grade networks</span>. From fiber optic to microwave and satellite backhaul, our solutions guarantee <span className="text-[#2674D3] font-medium">high capacity, low latency, and secure transmission</span> for uninterrupted communication.
       </>
     }
-    imagePath="/service_cards/telecom.jpeg"
+    imagePath="/services/telecom/backhaul/hero.jpg"
     imageAlt="Telecom network visualization"
     ctaText="Contact Us Today"
   />

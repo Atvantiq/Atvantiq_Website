@@ -157,12 +157,12 @@ const AIAutomationServices = () => {
           {/* Static Image (Right) */}
           <div className="w-58 lg:w-1/2 relative h-64 md:h-96 rounded-xl overflow-hidden">
             <Image
-              src="/services/ai/why.png"
+              src="/services/ai/automation/services.jpg"
               alt="AI automation visualization"
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#E6F0FA]/50 to-transparent" />
+            <div className="absolute inset-0 bg-black/20 " />
           </div>
 
           {/* Service List (Left) */}

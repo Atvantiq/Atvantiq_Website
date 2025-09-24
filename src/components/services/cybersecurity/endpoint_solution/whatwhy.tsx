@@ -37,7 +37,7 @@ const EndpointSecurityWhat = () => {
           </div>
           <div className="md:w-1/2">
             <Image
-  src="/services/cybersecurity/trusted.jpg"
+  src="/services/cybersecurity/endpoint/what.jpg"
   alt="Endpoint Security Illustration"
   width={500}
   height={300}
@@ -51,7 +51,7 @@ const EndpointSecurityWhat = () => {
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-1/2">
             <Image
-  src="/service_cards/cyber.jpg"
+  src="/services/cybersecurity/endpoint/why.jpeg"
   alt="Endpoint Security Illustration"
   width={500}
   height={300}

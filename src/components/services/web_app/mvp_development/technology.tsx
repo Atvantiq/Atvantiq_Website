@@ -23,7 +23,7 @@ const MVPCategories = [
     technologies: [
       { name: "React Native", logo: "/services/web-mobile/technology/react.png" },
       { name: "Flutter", logo: "/services/web-mobile/technology/flutter.png" },
-      { name: "Swift", logo: "/services/web-mobile/technology/swift.png" }
+      { name: "Swift", logo: "/services/web-mobile/technology/swift.jpg" }
     ]
   },
   {
@@ -42,15 +42,13 @@ const MVPCategories = [
       { name: "Azure", logo: "/services/web-mobile/technology/azure.png" },
       { name: "Google Cloud", logo: "/services/web-mobile/technology/google-cloud.png" },
       { name: "DigitalOcean", logo: "/services/web-mobile/technology/digitalocean.png" },
-      { name: "Docker", logo: "/services/web-mobile/technology/docker.png" },
-      { name: "Kubernetes", logo: "/services/web-mobile/technology/kubernetes.png" }
     ]
   },
   {
     title: "Design & Prototyping",
     technologies: [
       { name: "Figma", logo: "/services/web-mobile/technology/figma.png" },
-      { name: "Adobe XD", logo: "/services/web-mobile/technology/adobe-xd.png" },
+      { name: "Adobe XD", logo: "/services/web-mobile/technology/adobe_xd.png" },
       { name: "InVision", logo: "/services/web-mobile/technology/invision.png" },
     ]
   },

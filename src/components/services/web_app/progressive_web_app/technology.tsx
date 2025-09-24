@@ -24,7 +24,7 @@ const PWATechCategories = [
     title: "Service Workers & APIs",
     technologies: [
       { name: "Workbox", logo: "/services/web-mobile/technology/workbox.png" },
-      { name: "REST APIs", logo: "/services/web-mobile/technology/rest.png" },
+      { name: "REST APIs", logo: "/services/web-mobile/technology/restapi.jpg" },
       { name: "GraphQL", logo: "/services/web-mobile/technology/graphql.png" }
     ]
   },
