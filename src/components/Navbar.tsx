@@ -147,7 +147,7 @@ const Navbar = () => {
       path: "/people", 
       hasDropdown: true,
       dropdownItems: [
-        { title: "Life @ Atvantiq", path: "/people/life-atvantiq" },
+        // { title: "Life @ Atvantiq", path: "/people/life-atvantiq" },
         { title: "Careers", path: "/people/careers" },
       ],
     },
