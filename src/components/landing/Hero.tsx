@@ -1,8 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { TypeAnimation } from 'react-type-animation';
-import { FaFacebookF, FaInstagram, FaTwitter, FaPinterestP } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaPinterestP } from 'react-icons/fa';
 
 const slides = [
   {
@@ -72,18 +73,18 @@ const HeroSection = () => {
           <button className="transition-all duration-300 transform hover:-translate-y-1 hover:opacity-90 text-white px-4 py-2 rounded-xl font-medium text-xs md:text-sm border-2 border-white hover:bg-gradient-to-r from-[#2674D3] to-[#2861B3]">
             Explore Our Services
           </button>
-          <button className="text-white px-4 py-2 rounded-xl font-medium text-xs md:text-sm bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:border-2 border-white hover:bg-none transition">
+          <Link href="/contact-us" className="text-white px-4 py-2 rounded-xl font-medium text-xs md:text-sm bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:border-2 border-white hover:bg-none transition">
             Get a Free Consultation
-          </button>
+          </Link>
         </div>
 
         {/* Social Icons + Vertical Line */}
         <div className="absolute right-[30px] top-1/2 -translate-y-1/2 hidden md:flex flex-col items-center gap-8">
   {/* Icons */}
-  <FaFacebookF className="text-white hover:text-blue-400 cursor-pointer text-xl" />
-  <FaInstagram className="text-white hover:text-pink-400 cursor-pointer text-xl" />
-  <FaTwitter className="text-white hover:text-sky-400 cursor-pointer text-xl" />
-  <FaPinterestP className="text-white hover:text-red-400 cursor-pointer text-xl" />
+  <Link href="https://www.facebook.com/AtvantiqNetworksPvtLtd/"><FaFacebookF className="text-white hover:text-blue-400 cursor-pointer text-xl" /></Link>
+  <Link href="https://www.instagram.com/atvantiq.networks/"><FaInstagram className="text-white hover:text-pink-400 cursor-pointer text-xl" /></Link>
+  {/* <Link href="/"><FaTwitter className="text-white hover:text-sky-400 cursor-pointer text-xl" /></Link> */}
+  <Link href="/"><FaPinterestP className="text-white hover:text-red-400 cursor-pointer text-xl" /></Link>
 
   {/* Line */}
   <div className="w-[2px] h-[100px] bg-gradient-to-b from-blue-400 to-blue-700 rounded-sm"></div>

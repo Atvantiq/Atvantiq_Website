@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+//import Image from 'next/image';
 
 interface Leader {
   name: string;
@@ -49,7 +49,7 @@ const LeadersSection: React.FC<LeadersSectionProps> = ({
               className="group relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-[#1A82E8]/50 transition-all duration-500 hover:transform hover:scale-105"
             >
               {/* Leader Photo */}
-              <div className="relative mb-6 overflow-hidden rounded-2xl">
+              {/* <div className="relative mb-6 overflow-hidden rounded-2xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#2674D3]/80 via-[#1A82E8]/60 to-[#2861B3]/80"></div>
                 <div className="relative h-64 md:h-80">
                   <Image
@@ -60,7 +60,7 @@ const LeadersSection: React.FC<LeadersSectionProps> = ({
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
-              </div>
+              </div> */}
 
               {/* Leader Info */}
               <div className="space-y-2 mb-4">
