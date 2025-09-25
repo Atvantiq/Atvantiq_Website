@@ -60,7 +60,7 @@ const ContactSection = () => {
           {/* Right Image */}
           <div className="flex col-span-2 justify-center relative">
             <Image
-              src="/contact_us/contact_form.jpg" 
+              src="/contact_us/contact_form.JPG" 
               alt="Contact Atvantiq"
               width={370}
               height={500}
