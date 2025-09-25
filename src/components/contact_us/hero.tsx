@@ -8,7 +8,7 @@ const ContactHeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/people/contact_hero.jpg"
+          src="/contact_us/contact_hero.jpg"
           alt="Shape Your Future with Atvantiq - Career Opportunities"
           fill
           className="object-fill"
