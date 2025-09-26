@@ -77,7 +77,7 @@ export default function FooterSection() {
                 </div>
                 <div>
                   <h4 className="text-white font-bold text-lg">Contact</h4>
-                  <p className="text-gray-300">+91 70964 99910</p>
+                  <p className="text-gray-300">+91 774-300-8365</p>
                 </div>
               </div>
             </div>

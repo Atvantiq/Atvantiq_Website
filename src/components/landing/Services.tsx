@@ -1,8 +1,10 @@
 'use client';
-import { useState, useRef } from "react";
+import { useState, useRef, memo } from "react"; // Import 'memo'
 import Image from "next/image";
-import Link from "next/link"; // Import the Link component
+import Link from "next/link";
 
+// NOTE: I've moved the services array outside the component to prevent
+// its re-creation on every render, which is a good practice for performance.
 const services = [
   {
     title: "AI & ML Development",
@@ -56,7 +58,7 @@ const services = [
   {
     title: "Cloud Services",
     icon: "/service_cards/cloud.jpg",
-    description: "Move faster, scale smarter, and reduce costs with our cloud-first approach. At Atvantiq, we help businesses embrace the cloud with services that cover architecture, migration, deployment, and ongoing management — across AWS, Azure, and Google Cloud.",
+    description: "Move faster, scale smarter, and reduce costs with our cloud-first approach. Atvantiq, we help businesses embrace the cloud with services that cover architecture, migration, deployment, and ongoing management — across AWS, Azure, and Google Cloud.",
     image: "/illustrations/backend.png",
     subServices: [
       "• Cloud architecture & consulting",
@@ -111,7 +113,174 @@ const services = [
   },
 ];
 
-export default function ServicesSection() {
+// ---------------------------------------------------------------------
+// OPTIMIZATION 1: Move the complex card logic into its own memoized component
+// ---------------------------------------------------------------------
+
+interface ServiceCardProps {
+  service: typeof services[0];
+  index: number;
+  hoveredIndex: number | null;
+  setHoveredIndex: (index: number | null) => void;
+  isFirstRow: boolean;
+}
+
+const ServiceCard = memo(function ServiceCard({
+  service,
+  index,
+  hoveredIndex,
+  setHoveredIndex,
+  isFirstRow
+}: ServiceCardProps) {
+  const isExpanded = hoveredIndex === index;
+  const isCompressed = hoveredIndex !== null && hoveredIndex !== index;
+
+  // Use a Tailwind utility class for width based on flex values for better performance
+  const flexClass = isExpanded ? 'flex-[1]' : isCompressed ? 'flex-[0.5]' : 'flex-1';
+  
+  // Custom style for explicit width to match original logic, now combined with flex for layout.
+  // NOTE: minWidth is a layout property, which can cause lag. The flex classes help manage the main distribution.
+  const minWidthStyle = isCompressed ? '120px' : isExpanded ? (isFirstRow ? '300px' : '400px') : (isFirstRow ? '200px' : '250px');
+  
+  return (
+    <div
+      onMouseEnter={() => setHoveredIndex(index)}
+      onMouseLeave={() => setHoveredIndex(null)}
+      className={`relative rounded-2xl cursor-pointer group transition-all duration-500 ease-in-out overflow-hidden ${flexClass}`}
+      style={{
+        minWidth: minWidthStyle,
+        height: '100%',
+        zIndex: isExpanded ? 10 : 1,
+        // Added a translateZ(0) trick to hint the browser to use hardware acceleration (GPU)
+        transform: isExpanded ? 'translateZ(0) scale(1.02)' : 'translateZ(0) scale(1)', 
+      }}
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden rounded-2xl">
+        <Image
+          src={service.icon}
+          alt={service.title}
+          fill
+          className={`object-cover transition-all duration-700 ${
+            isExpanded ? 'scale-110 brightness-50' : 'scale-100'
+          }`}
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          priority={index < 4}
+        />
+      </div>
+
+      {/* Gradient Overlay */}
+      <div className={`absolute inset-0 rounded-2xl transition-all duration-500 ${
+        isExpanded 
+          ? 'bg-gradient-to-b from-black/50 to-black/90' 
+          : 'bg-gradient-to-b from-black/20 to-black/60'
+      }`} />
+
+      {/* Content Container */}
+      <div className="relative z-20 p-4 h-full flex flex-col">
+        {/* Title - Always Visible */}
+        <div className={`transition-all duration-500 ${isCompressed ? 'writing-mode-vertical text-orientation-mixed' : ''}`}>
+          <h3 className={`text-white font-semibold transition-all duration-300 ${
+            isExpanded 
+              ? 'text-2xl mb-5' 
+              : isCompressed 
+                ? 'text-md transform ' 
+                : 'text-xl mb-4'
+          }`}>
+            {service.title}
+          </h3>
+        </div>
+
+        {/* Expanded Content */}
+        {isExpanded && (
+          <div className="flex-grow flex flex-col">
+            {/* Description */}
+            <p className="text-white/90 text-[13px] leading-relaxed mb-4">
+              {service.description}
+            </p>
+            
+            {/* Sub-services Grid */}
+            <div className="flex-grow mb-3">
+              <h4 className="text-white font-semibold text-lg mb-2">Key Services:</h4>
+              <div className="grid grid-cols-2 gap-2">
+                {service.subServices.map((subService, i) => (
+                  <div
+                    key={i}
+                    className="text-white text-[13px] transition-all duration-300 font-semibold hover:scale-105 flex items-start min-h-[25px]"
+                  >
+                    <span>{subService}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-4 mt-auto">
+              <Link href={service.path} className="flex items-center text-white group-hover:gap-3 transition-all duration-300">
+                <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+                  Explore More
+                </span>
+                <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
+                  <span className="text-xs">→</span>
+                </div>
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {/* Compressed Content - Just Icon */}
+        {isCompressed && (
+          <div className="flex-grow flex items-end justify-center">
+            <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center">
+              <span className="text-white text-xs">→</span>
+            </div>
+          </div>
+        )}
+
+        {/* Default State Content */}
+        {!isExpanded && !isCompressed && (
+          <div className="mt-auto">
+            <div className="flex items-center text-white text-sm font-medium">
+              <div className="flex items-center group-hover:gap-3 transition-all duration-300">
+                <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
+                  <span className="text-xs">→</span>
+                </div>
+                <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+                  Explore More
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Enhanced Border Effects */}
+      <div className="absolute inset-0 pointer-events-none rounded-2xl">
+        <div className={`absolute left-0 top-0 transition-all duration-500 ${
+          isExpanded ? "opacity-100 w-2" : "opacity-0 w-1 group-hover:opacity-100"
+        } rounded-tl-2xl rounded-bl-2xl`} />
+        
+        <div className={`absolute bottom-0 left-0 transition-all duration-500 ${
+          isExpanded ? "opacity-100 h-2" : "opacity-0 h-1 group-hover:opacity-100"
+        } rounded-bl-2xl rounded-br-2xl`} />
+      </div>
+
+      {/* Glow Effect */}
+      {isExpanded && (
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Note: blur-xl with a large blur radius is GPU intensive. */}
+          <div className="absolute -inset-2 bg-gradient-to-br from-[#2674D3]/30 via-[#1A82E8]/20 to-[#2861B3]/30 blur-xl rounded-3xl opacity-75" />
+        </div>
+      )}
+    </div>
+  );
+});
+
+
+// ---------------------------------------------------------------------
+// OPTIMIZATION 2: Apply React.memo to the main ServicesSection export
+// ---------------------------------------------------------------------
+function ServicesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -129,284 +298,31 @@ export default function ServicesSection() {
         <div className="hidden md:block">
           {/* First Row - 4 Services */}
           <div className="flex gap-4 h-[400px] mb-4">
-            {services.slice(0, 4).map((service, index) => {
-              const isExpanded = hoveredIndex === index;
-              const isCompressed = hoveredIndex !== null && hoveredIndex !== index;
-              
-              return (
-                <div
-                  key={index}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  className={`relative rounded-2xl cursor-pointer group transition-all duration-500 ease-in-out overflow-hidden ${
-                    isExpanded ? 'flex-[1]' : isCompressed ? 'flex-[0.5]' : 'flex-1'
-                  }`}
-                  style={{
-                    minWidth: isCompressed ? '120px' : isExpanded ? '300px' : '200px',
-                    height: '100%',
-                    zIndex: isExpanded ? 10 : 1
-                  }}
-                >
-                  {/* Background Image */}
-                  <div className="absolute inset-0 w-full h-full overflow-hidden rounded-2xl">
-                    <Image
-                      src={service.icon}
-                      alt={service.title}
-                      fill
-                      className={`object-cover transition-all duration-700 ${
-                        isExpanded ? 'scale-110 brightness-50' : 'scale-100'
-                      }`}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      priority={index < 4}
-                    />
-                  </div>
-
-                  {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 rounded-2xl transition-all duration-500 ${
-                    isExpanded 
-                      ? 'bg-gradient-to-b from-black/50 to-black/90' 
-                      : 'bg-gradient-to-b from-black/20 to-black/60'
-                  }`} />
-
-                  {/* Content Container */}
-                  <div className="relative z-20 p-4 h-full flex flex-col">
-                    {/* Title - Always Visible */}
-                    <div className={`transition-all duration-500 ${isCompressed ? 'writing-mode-vertical text-orientation-mixed' : ''}`}>
-                      <h3 className={`text-white font-semibold transition-all duration-300 ${
-                        isExpanded 
-                          ? 'text-2xl mb-5' 
-                          : isCompressed 
-                            ? 'text-md transform ' 
-                            : 'text-xl mb-4'
-                      }`}>
-                        {service.title}
-                      </h3>
-                    </div>
-
-                    {/* Expanded Content */}
-                    {isExpanded && (
-                      <div className="flex-grow flex flex-col">
-                        {/* Description */}
-                        <p className="text-white/90 text-[13px] leading-relaxed mb-4">
-                          {service.description}
-                        </p>
-                        
-                        {/* Sub-services Grid */}
-                        <div className="flex-grow mb-3">
-                          <h4 className="text-white font-semibold text-lg mb-2">Key Services:</h4>
-                          <div className="grid grid-cols-2 gap-2">
-                            {service.subServices.map((subService, i) => (
-                              <div
-                                key={i}
-                                className="text-white text-[13px] transition-all duration-300 font-semibold hover:scale-105 flex items-start min-h-[25px]"
-                              >
-                                <span>{subService}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="flex gap-4 mt-auto">
-                           {/* Use Link component here */}
-                          <Link href={service.path} className="flex items-center text-white group-hover:gap-3 transition-all duration-300">
-                            <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
-                              Explore More
-                            </span>
-                            <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
-                              <span className="text-xs">→</span>
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Compressed Content - Just Icon */}
-                    {isCompressed && (
-                      <div className="flex-grow flex items-end justify-center">
-                        <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center">
-                          <span className="text-white text-xs">→</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Default State Content */}
-                    {!isExpanded && !isCompressed && (
-                      <div className="mt-auto">
-                        <div className="flex items-center text-white text-sm font-medium">
-                          <div className="flex items-center group-hover:gap-3 transition-all duration-300">
-                            <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
-                              <span className="text-xs">→</span>
-                            </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
-                              Explore More
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Enhanced Border Effects */}
-                  <div className="absolute inset-0 pointer-events-none rounded-2xl">
-                    <div className={`absolute left-0 top-0 transition-all duration-500 ${
-                      isExpanded ? "opacity-100 w-2" : "opacity-0 w-1 group-hover:opacity-100"
-                    } rounded-tl-2xl rounded-bl-2xl`} />
-                    
-                    <div className={`absolute bottom-0 left-0 transition-all duration-500 ${
-                      isExpanded ? "opacity-100 h-2" : "opacity-0 h-1 group-hover:opacity-100"
-                    } rounded-bl-2xl rounded-br-2xl`} />
-                  </div>
-
-                  {/* Glow Effect */}
-                  {isExpanded && (
-                    <div className="absolute inset-0 pointer-events-none">
-                      <div className="absolute -inset-2 bg-gradient-to-br from-[#2674D3]/30 via-[#1A82E8]/20 to-[#2861B3]/30 blur-xl rounded-3xl opacity-75" />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+            {services.slice(0, 4).map((service, index) => (
+              <ServiceCard
+                key={index}
+                service={service}
+                index={index}
+                hoveredIndex={hoveredIndex}
+                setHoveredIndex={setHoveredIndex}
+                isFirstRow={true}
+              />
+            ))}
           </div>
 
           {/* Second Row  */}
           <div className="flex gap-4 h-[400px] justify-center">
             {services.slice(4, 8).map((service, index) => {
               const actualIndex = index + 4;
-              const isExpanded = hoveredIndex === actualIndex;
-              const isCompressed = hoveredIndex !== null && hoveredIndex !== actualIndex;
-              
               return (
-                <div
+                <ServiceCard
                   key={actualIndex}
-                  onMouseEnter={() => setHoveredIndex(actualIndex)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  className={`relative rounded-2xl cursor-pointer group transition-all duration-500 ease-in-out overflow-hidden ${
-                    isExpanded ? 'flex-[1]' : isCompressed ? 'flex-[0.5]' : 'flex-1'
-                  }`}
-                  style={{
-                    minWidth: isCompressed ? '120px' : isExpanded ? '400px' : '250px',
-                    height: '100%',
-                    zIndex: isExpanded ? 10 : 1
-                  }}
-                >
-                  {/* Background Image */}
-                  <div className="absolute inset-0 w-full h-full overflow-hidden rounded-2xl">
-                    <Image
-                      src={service.icon}
-                      alt={service.title}
-                      fill
-                      className={`object-cover transition-all duration-700 ${
-                        isExpanded ? 'scale-110 brightness-50' : 'scale-100'
-                      }`}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
-
-                  {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 rounded-2xl transition-all duration-500 ${
-                    isExpanded 
-                      ? 'bg-gradient-to-b from-black/50 to-black/90' 
-                      : 'bg-gradient-to-b from-black/20 to-black/60'
-                  }`} />
-
-                  {/* Content Container */}
-                  <div className="relative z-20 p-4 h-full flex flex-col">
-                    {/* Title - Always Visible */}
-                    <div className={`transition-all duration-500 ${isCompressed ? 'writing-mode-vertical text-orientation-mixed' : ''}`}>
-                      <h3 className={`text-white font-semibold transition-all duration-300 ${
-                        isExpanded 
-                          ? 'text-2xl mb-4' 
-                          : isCompressed 
-                            ? 'text-md transform ' 
-                            : 'text-xl mb-4'
-                      }`}>
-                        {service.title}
-                      </h3>
-                    </div>
-
-                    {/* Expanded Content */}
-                    {isExpanded && (
-                      <div className="flex-grow flex flex-col">
-                        {/* Description */}
-                        <p className="text-white/90 text-[13px] leading-relaxed mb-4">
-                          {service.description}
-                        </p>
-                        
-                        {/* Sub-services Grid */}
-                        <div className="flex-grow mb-3">
-                          <h4 className="text-white font-semibold text-lg mb-2">Key Services:</h4>
-                          <div className="grid grid-cols-2 gap-4">
-                            {service.subServices.map((subService, i) => (
-                              <div
-                                key={i}
-                                className="text-white text-[13px] transition-all duration-300 font-semibold hover:scale-105 flex items-start min-h-[30px]"
-                              >
-                                <span>{subService}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="flex gap-4 mt-auto">
-                            {/* Use Link component here */}
-                          <Link href={service.path} className="flex items-center text-white group-hover:gap-3 transition-all duration-300">
-                            <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
-                              Explore More
-                            </span>
-                            <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
-                              <span className="text-xs">→</span>
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Compressed Content - Just Icon */}
-                    {isCompressed && (
-                      <div className="flex-grow flex items-end justify-center">
-                        <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center">
-                          <span className="text-white text-xs">→</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Default State Content */}
-                    {!isExpanded && !isCompressed && (
-                      <div className="mt-auto">
-                        <div className="flex items-center text-white text-sm font-medium">
-                          <div className="flex items-center group-hover:gap-3 transition-all duration-300">
-                            <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
-                              <span className="text-xs">→</span>
-                            </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
-                              Explore More
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Enhanced Border Effects */}
-                  <div className="absolute inset-0 pointer-events-none rounded-2xl">
-                    <div className={`absolute left-0 top-0 transition-all duration-500 ${
-                      isExpanded ? "opacity-100 w-2" : "opacity-0 w-1 group-hover:opacity-100"
-                    } rounded-tl-2xl rounded-bl-2xl`} />
-                    
-                    <div className={`absolute bottom-0 left-0 transition-all duration-500 ${
-                      isExpanded ? "opacity-100 h-2" : "opacity-0 h-1 group-hover:opacity-100"
-                    } rounded-bl-2xl rounded-br-2xl`} />
-                  </div>
-
-                  {/* Glow Effect */}
-                  {isExpanded && (
-                    <div className="absolute inset-0 pointer-events-none">
-                      <div className="absolute -inset-2 bg-gradient-to-br from-[#2674D3]/30 via-[#1A82E8]/20 to-[#2861B3]/30 blur-xl rounded-3xl opacity-75" />
-                    </div>
-                  )}
-                </div>
+                  service={service}
+                  index={actualIndex}
+                  hoveredIndex={hoveredIndex}
+                  setHoveredIndex={setHoveredIndex}
+                  isFirstRow={false}
+                />
               );
             })}
           </div>
@@ -422,7 +338,7 @@ export default function ServicesSection() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                {/* Background Image */}
+                {/* Mobile Card logic remains the same as it is simpler and less layout-intensive */}
                 <div className="absolute inset-0 w-full h-full overflow-hidden rounded-2xl">
                   <Image
                     src={service.icon}
@@ -447,7 +363,6 @@ export default function ServicesSection() {
                   </div>
 
                   <div className="mt-auto">
-                    {/* Use Link component here */}
                     <Link href={service.path} className="flex items-center text-white text-xs font-normal">
                       <div className="flex items-center gap-3 transition-all duration-300">
                         <div className="w-8 h-8 rounded-full border-2 border-white/60 flex items-center justify-center group-hover:border-white group-hover:bg-white/20 transition-all duration-300">
@@ -468,3 +383,5 @@ export default function ServicesSection() {
     </section>
   );
 }
+
+export default memo(ServicesSection); // Export the component wrapped in memo

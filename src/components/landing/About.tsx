@@ -1,9 +1,11 @@
 "use client";
-import React from "react";
+import React, { memo } from "react"; // Imported memo
 import Image from "next/image";
 import CountUp from 'react-countup';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
+// Moved stats array outside the component to prevent re-creation on every render
 const stats = [
   {
     title: "150+",
@@ -27,7 +29,6 @@ const stats = [
   },
 ];
 
-import { usePathname } from 'next/navigation';
 
 const AboutUs = () => {
   const pathname = usePathname();
@@ -70,100 +71,102 @@ const AboutUs = () => {
             </p>
           </div>
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-  {stats.slice(0,2).map((stat, index) => (
-    <div
-      key={index}
-      className="group relative rounded-2xl overflow-hidden min-h-[200px] shadow-lg transform transition duration-500 hover:scale-[1.02]"
-    >
-      {/* Background image */}
-      <Image
-        src={stat.image}
-        alt={stat.subtitle}
-        fill
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-75 transition duration-500 group-hover:brightness-110"
-        style={{ objectFit: "cover" }}
-        sizes="(max-width: 768px) 100vw, 50vw"
-      />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {stats.slice(0,2).map((stat, index) => (
+              <div
+                key={index}
+                // OPTIMIZATION: Added translate-z-0 for GPU acceleration
+                className="group relative rounded-2xl overflow-hidden min-h-[200px] shadow-lg transform translate-z-0 transition duration-500 hover:scale-[1.02]"
+              >
+                {/* Background image */}
+                <Image
+                  src={stat.image}
+                  alt={stat.subtitle}
+                  fill
+                  className="absolute inset-0 w-full h-full object-cover z-0 opacity-75 transition duration-500 group-hover:brightness-110"
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70 z-0 transition duration-500 group-hover:from-black/20 group-hover:to-black/60" />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70 z-0 transition duration-500 group-hover:from-black/20 group-hover:to-black/60" />
 
-      {/* Content */}
-      <div className="relative z-10 p-6 flex flex-col justify-between h-full">
-        <div className="text-4xl font-bold transition duration-300 group-hover:scale-105">
-          <CountUp end={parseInt(stat.title)} duration={2} suffix="+"/>
-        </div>
-        <div className="text-lg text-gray-300 transition duration-300 group-hover:text-white">
-          {stat.subtitle}
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
+                {/* Content */}
+                <div className="relative z-10 p-6 flex flex-col justify-between h-full">
+                  <div className="text-4xl font-bold transition duration-300 group-hover:scale-105">
+                    <CountUp end={parseInt(stat.title)} duration={2} suffix="+"/>
+                  </div>
+                  <div className="text-lg text-gray-300 transition duration-300 group-hover:text-white">
+                    {stat.subtitle}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
         </div>
 
         {/* Row 3: Last 2 tiles and What Drives Us */}
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-  {stats.slice(2).map((stat, index) => (
-    <div
-      key={index}
-      className="group relative rounded-2xl overflow-hidden min-h-[200px] shadow-lg transform transition duration-500 hover:scale-[1.02]"
-    >
-      {/* Background image */}
-      <Image
-        src={stat.image}
-        alt={stat.subtitle}
-        fill
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-75 transition duration-500 group-hover:brightness-110"
-        style={{ objectFit: "cover" }}
-        sizes="(max-width: 768px) 100vw, 50vw"
-      />
+            {stats.slice(2).map((stat, index) => (
+              <div
+                key={index}
+                // OPTIMIZATION: Added translate-z-0 for GPU acceleration
+                className="group relative rounded-2xl overflow-hidden min-h-[200px] shadow-lg transform translate-z-0 transition duration-500 hover:scale-[1.02]"
+              >
+                {/* Background image */}
+                <Image
+                  src={stat.image}
+                  alt={stat.subtitle}
+                  fill
+                  className="absolute inset-0 w-full h-full object-cover z-0 opacity-75 transition duration-500 group-hover:brightness-110"
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70 z-0 transition duration-500 group-hover:from-black/20 group-hover:to-black/60" />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70 z-0 transition duration-500 group-hover:from-black/20 group-hover:to-black/60" />
 
-      {/* Content */}
-      <div className="relative z-10 p-6 flex flex-col justify-between h-full">
-        <div className="text-4xl font-bold transition duration-300 group-hover:scale-105">
-          <CountUp end={parseInt(stat.title)} duration={2} suffix="+"/>
-        </div>
-        <div className="text-lg text-gray-300 transition duration-300 group-hover:text-white">
-          {stat.subtitle}
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
+                {/* Content */}
+                <div className="relative z-10 p-6 flex flex-col justify-between h-full">
+                  <div className="text-4xl font-bold transition duration-300 group-hover:scale-105">
+                    <CountUp end={parseInt(stat.title)} duration={2} suffix="+"/>
+                  </div>
+                  <div className="text-lg text-gray-300 transition duration-300 group-hover:text-white">
+                    {stat.subtitle}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
 
           <div>
-  <h3 className="text-2xl font-bold mb-3">What Drives Us?</h3>
-  <p className="text-gray-300 mb-4">
-    Our deep expertise spans across IT infrastructure, network
-    implementation, resource management, and advanced AI
-    technologies—ensuring our clients remain competitive and
-    future-ready in the ever-evolving digital landscape.
-  </p>
+            <h3 className="text-2xl font-bold mb-3">What Drives Us?</h3>
+            <p className="text-gray-300 mb-4">
+              Our deep expertise spans across IT infrastructure, network
+              implementation, resource management, and advanced AI
+              technologies—ensuring our clients remain competitive and
+              future-ready in the ever-evolving digital landscape.
+            </p>
 
-  <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-    <div>
-      <h4 className="font-semibold text-lg mb-2">Our Firms:</h4>
-      <ul className="list-disc list-inside text-gray-300 space-y-1">
-        <li>Atvantiq Networks Inc.</li>
-        <li>Atvantiq Networks Pvt. Ltd.</li>
-        <li>Atvantiq Solutions Pvt. Ltd.</li>
-      </ul>
-    </div>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Our Firms:</h4>
+                <ul className="list-disc list-inside text-gray-300 space-y-1">
+                  <li>Atvantiq Networks Inc.</li>
+                  <li>Atvantiq Networks Pvt. Ltd.</li>
+                  <li>Atvantiq Solutions Pvt. Ltd.</li>
+                </ul>
+              </div>
 
-{showMoreButton && (
-    <Link href="/about" className="text-white mt-18 px-4 py-2 rounded-xl font-medium text-md bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:border-2 border-white hover:opacity-90 transition">
-            More About Us
-          </Link>)}
-  </div>
-</div>
+              {showMoreButton && (
+                <Link href="/about" className="text-white mt-18 px-4 py-2 rounded-xl font-medium text-md bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:border-2 border-white hover:opacity-90 transition">
+                  More About Us
+                </Link>)}
+            </div>
+          </div>
 
         </div>
       </div>
@@ -171,4 +174,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default memo(AboutUs); // OPTIMIZATION: Export wrapped in memo

@@ -1,124 +1,69 @@
-"use client";
-import React, { useRef, useEffect, useState } from "react";
+'use client';
+import React, { useRef, memo } from "react"; // Import 'memo'
 import Image from "next/image";
 import Link from 'next/link';
 
+// Move blogPosts outside the component to prevent re-creation on every render
+const blogPosts = [
+  {
+    id: 1,
+    title: "How AI is enhancing customer experience in retail",
+    description:
+      "AI is enhancing retail customer experience by leveraging data analytics and machine learning to offer personalized recommendations and seamless shopping journeys.",
+    image: "/blog/retail.png",
+    date: "16th Apr '25",
+    category: "AI AGENCY",
+    categoryColor: "bg-[#2674D3]",
+  },
+  {
+    id: 2,
+    title: "How our AI services can transform your business",
+    description:
+      "Paraphrasing features are prevalent in AI tools, allowing users to alter text effectively. Merlin and Quillbot are key platforms offering advanced paraphrasing options.",
+    image: "/blog/business.jpg",
+    date: "29th Aug '24",
+    category: "AI AGENCY",
+    categoryColor: "bg-[#2674D3]",
+  },
+  {
+    id: 3,
+    title: "The Future of Machine Learning in Healthcare",
+    description:
+      "Exploring how machine learning algorithms are revolutionizing medical diagnosis, treatment planning, and patient care in modern healthcare systems.",
+    image: "/blog/healthcare.jpg",
+    date: "3rd Jun '24",
+    category: "HEALTHCARE",
+    categoryColor: "bg-[#2861B3]",
+  },
+  {
+    id: 4,
+    title: "Cybersecurity in the Age of AI",
+    description:
+      "Understanding the dual role of AI in cybersecurity - both as a powerful defense mechanism and a potential vector for sophisticated cyber attacks.",
+    image: "/blog/cyber.jpg",
+    date: "22nd May '24",
+    category: "SECURITY",
+    categoryColor: "bg-[#2674D3]",
+  },
+  {
+    id: 5,
+    title: "Cloud Computing Trends for 2025",
+    description:
+      "Analyzing the latest trends in cloud computing, including serverless architecture, edge computing, and multi-cloud strategies for modern enterprises.",
+    image: "/blog/cloud.jpg",
+    date: "10th Apr '24",
+    category: "CLOUD",
+    categoryColor: "bg-[#1A82E8]",
+  },
+];
+
+// The core component logic is simplified and wrapped in React.memo
 const BlogSection = () => {
+  // We only need the ref for the scrolling container
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isAtTop, setIsAtTop] = useState(true);
-  const [isAtBottom, setIsAtBottom] = useState(false);
-  const [isHoveringSection, setIsHoveringSection] = useState(false);
-
-  const blogPosts = [
-    {
-      id: 1,
-      title: "How AI is enhancing customer experience in retail",
-      description:
-        "AI is enhancing retail customer experience by leveraging data analytics and machine learning to offer personalized recommendations and seamless shopping journeys.",
-      image: "/blog/retail.png",
-      date: "16th Apr '25",
-      category: "AI AGENCY",
-      categoryColor: "bg-[#2674D3]",
-    },
-    {
-      id: 2,
-      title: "How our AI services can transform your business",
-      description:
-        "Paraphrasing features are prevalent in AI tools, allowing users to alter text effectively. Merlin and Quillbot are key platforms offering advanced paraphrasing options.",
-      image: "/blog/business.jpg",
-      date: "29th Aug '24",
-      category: "AI AGENCY",
-      categoryColor: "bg-[#2674D3]",
-    },
-    {
-      id: 3,
-      title: "The Future of Machine Learning in Healthcare",
-      description:
-        "Exploring how machine learning algorithms are revolutionizing medical diagnosis, treatment planning, and patient care in modern healthcare systems.",
-      image: "/blog/healthcare.jpg",
-      date: "3rd Jun '24",
-      category: "HEALTHCARE",
-      categoryColor: "bg-[#2861B3]",
-    },
-    {
-      id: 4,
-      title: "Cybersecurity in the Age of AI",
-      description:
-        "Understanding the dual role of AI in cybersecurity - both as a powerful defense mechanism and a potential vector for sophisticated cyber attacks.",
-      image: "/blog/cyber.jpg",
-      date: "22nd May '24",
-      category: "SECURITY",
-      categoryColor: "bg-[#2674D3]",
-    },
-    {
-      id: 5,
-      title: "Cloud Computing Trends for 2025",
-      description:
-        "Analyzing the latest trends in cloud computing, including serverless architecture, edge computing, and multi-cloud strategies for modern enterprises.",
-      image: "/blog/cloud.jpg",
-      date: "10th Apr '24",
-      category: "CLOUD",
-      categoryColor: "bg-[#1A82E8]",
-    },
-  ];
-
-  // Handle scroll behavior
-  useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    if (!scrollContainer) return;
-
-    const handleScroll = () => {
-      const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
-      const isTop = scrollTop <= 10;
-      const isBottom = scrollTop >= scrollHeight - clientHeight - 10;
-
-      setIsAtTop(isTop);
-      setIsAtBottom(isBottom);
-    };
-
-    scrollContainer.addEventListener("scroll", handleScroll);
-    return () => scrollContainer.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Handle mouse enter/leave for the section
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const handleMouseEnter = () => setIsHoveringSection(true);
-    const handleMouseLeave = () => setIsHoveringSection(false);
-
-    section.addEventListener("mouseenter", handleMouseEnter);
-    section.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      section.removeEventListener("mouseenter", handleMouseEnter);
-      section.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
-
-  // Prevent page scroll ONLY when hovering over the blog section
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      // Only prevent default if we're hovering over the blog section
-      if (!isHoveringSection) return;
-
-      const scrollContainer = scrollContainerRef.current;
-      if (!scrollContainer) return;
-
-      const deltaY = e.deltaY;
-
-      // Prevent page scroll if we're not at boundaries and we're in the blog section
-      if ((deltaY < 0 && !isAtTop) || (deltaY > 0 && !isAtBottom)) {
-        e.preventDefault();
-        scrollContainer.scrollTop += deltaY;
-      }
-    };
-
-    document.addEventListener("wheel", handleWheel, { passive: false });
-    return () => document.removeEventListener("wheel", handleWheel);
-  }, [isAtTop, isAtBottom, isHoveringSection]);
+  
+  // NOTE: isAtTop, isAtBottom, isHoveringSection, and all associated useEffects 
+  // have been removed as they caused performance issues.
 
   return (
     <>
@@ -130,15 +75,22 @@ const BlogSection = () => {
         .no-scrollbar::-webkit-scrollbar {
           display: none;
         }
+        /* Add CSS property for GPU acceleration on the scrolling container for better performance */
+        .gpu-scroll {
+          transform: translateZ(0); 
+        }
       `}</style>
 
-      <section ref={sectionRef} className="bg-white min-h-screen">
+      {/* Removed ref={sectionRef} as it's no longer needed */}
+      <section className="bg-white min-h-screen"> 
         <div
           ref={scrollContainerRef}
-          className="h-screen overflow-y-auto no-scrollbar"
+          // Added 'gpu-scroll' class for potential hardware acceleration
+          className="h-screen overflow-y-auto no-scrollbar gpu-scroll"
         >
           <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 min-h-screen">
+              
               {/* Fixed Left Sidebar - No Box */}
               <div className="lg:col-span-2 lg:sticky lg:top-16 lg:h-fit">
                 <div className="py-8">
@@ -177,12 +129,15 @@ const BlogSection = () => {
                       <div className="relative flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl border-gray-100">
                         {/* Blog Image and Category Badge */}
                         <div className="relative w-full md:w-64 h-48 md:h-auto flex-shrink-0">
+                          {/* Image optimization: The original had fixed width/height. Using fill=true is better for performance and responsiveness in this specific use case */}
                           <Image
                             src={post.image}
                             alt={post.title}
+                            // Using 'fill' is generally preferred for Next.js Image component when container size is managed by CSS (like h-48 or h-auto)
+                            fill 
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                            width={256}
-                            height={192}
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            // Removed fixed width/height attributes
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
                               target.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"><rect width="300" height="200" fill='%23e5e7eb'/><text x='150' y='100' text-anchor='middle' fill='%236b7280' font-size='14' font-family='Arial'>Blog Image</text></svg>`;
@@ -229,4 +184,4 @@ const BlogSection = () => {
   );
 };
 
-export default BlogSection;
+export default memo(BlogSection); // Export wrapped in memo

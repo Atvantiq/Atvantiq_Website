@@ -43,6 +43,22 @@ const ContactSection = () => {
                 placeholder="Your Number*"
                 className="w-full border  text-gray-600 border-gray-200 rounded-xl px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#2674D3]"
               />
+              <div>
+                <select
+                  name="lookingFor"
+                  className="w-full border  text-gray-400 border-gray-200 rounded-xl px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#2674D3]"
+                >
+                  <option value="" className="text-gray-400 rounded-xl">Looking For</option>
+                  <option value="web-development" className="text-gray-400 rounded-xl">Web Development</option>
+                  <option value="mobile-development" className="text-gray-400 rounded-xl">Mobile Development</option>
+                  <option value="ai-solutions" className="text-gray-400 rounded-xl">AI Solutions</option>
+                  <option value="cloud-services" className="text-gray-400 rounded-xl">Cloud Services</option>
+                  <option value="digital-marketing" className="text-gray-400 rounded-xl">Digital Marketing</option>
+                  <option value="cybersecurity" className="text-gray-400 rounded-xl">Cybersecurity</option>
+                  <option value="telecom-services" className="text-gray-400 rounded-xl">Telecom Services</option>
+                  <option value="solar-energy" className="text-gray-400 rounded-xl">Solar Energy</option>
+                </select>
+              </div>
               <textarea
                 rows={4}
                 placeholder="Enter message"

@@ -28,19 +28,20 @@ const ContactHeroSection = () => {
       {/* Content */}
       <div className="relative z-20 text-left max-w-4xl ml-0 items-center">
         {/* Main Heading */}
-        <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-8 leading-tight">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-10 leading-tight">
           <span className="block mb-2">
-            Start Your{" "}
+            Begin Your {" "}
             <span className="bg-gradient-to-r from-[#2674D3] via-[#1A82E8] to-[#2861B3] bg-clip-text text-transparent">
               Digital Transformation
             </span>{" "}
-            Journey
+            Today
           </span>
-          <span className="font-normal text-2xl max-w-xl text-left">
-            Our business development team is here to provide clear, tailored
-            guidance for your needs.
+          </h1>
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
+          <span className="font-medium text-2xl max-w-2xl text-left">
+            Our business development team is ready to provide personalized guidance and support tailored to your unique needs.
           </span>
-        </h1>
+        </div>
       </div>
     </section>
   );

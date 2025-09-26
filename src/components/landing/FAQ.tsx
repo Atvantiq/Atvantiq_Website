@@ -19,7 +19,7 @@ export default function FAQSection() {
     {
       id: 3,
       question: "How can I get a consultation?",
-      answer: "You can contact us or call us at +91 987-222-8953 for a free consultation"
+      answer: "You can contact us or call us at +91 774-300-8365 for a free consultation"
     }
   ];
 
