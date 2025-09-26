@@ -1,9 +1,9 @@
 import AboutUs from "@/components/landing/About";
 import Clients from "@/components/landing/Clients";
 import HeroSection from "@/components/landing/Hero";
-import ServicesSection from "@/components/landing/Services";
 import Navbar from "@/components/Navbar";
 import React, { lazy, Suspense } from 'react';
+const ServicesSection = lazy(() => import("@/components/landing/Services"));
 const IndustriesSection = lazy(() => import("@/components/landing/Industries"));
 const Partners = lazy(() => import("@/components/landing/Partners"));
 const WhyChooseUsSection = lazy(() => import("@/components/landing/Why"));
@@ -20,12 +20,13 @@ export default function Home() {
         <HeroSection />
         <Clients />
         <AboutUs />
-        <div id="services">
-          <ServicesSection />
-        </div>
         
 
         <Suspense fallback={<div>Loading more sections...</div>}>
+        
+        <div id="services">
+          <ServicesSection />
+        </div>
         
         <IndustriesSection/>
             <Partners />
