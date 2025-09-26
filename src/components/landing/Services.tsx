@@ -1,22 +1,20 @@
 'use client';
 import { useState, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link"; // Import the Link component
+import Link from "next/link";
 
 const services = [
   {
     title: "AI & ML Development",
-    icon: "/service_cards/ai.jpg",
+    icon: "/service_cards/ai.webp",
     description: "At Atvantiq, we don't just implement AI — we engineer intelligent solutions that drive real business impact. Our AI & Machine Learning services are designed to help you automate repetitive tasks, make smarter decisions, and unlock powerful insights from your data.",
-    image: "/illustrations/frontend.png",
     subServices: ["• Generative AI applications", "• Predictive analytics & forecasting", "• Natural Language Processing", "• ChatGPT integration for business automation", "• AI-powered business intelligence dashboards"],
     path: "/services/ai-ml-development", 
   },
   {
     title: "Cyber Security",
-    icon: "/service_cards/cyber.jpg",
+    icon: "/service_cards/cyber.webp",
     description: "Security isn't optional — it's essential. That's why we provide robust, end-to-end cybersecurity solutions designed to protect your digital ecosystem. From advanced threat monitoring to vulnerability assessments and compliance support, we ensure your data, infrastructure, and users are always safeguarded.",
-    image: "/illustrations/backend.png",
     subServices: [
       "• Threat detection & prevention",
       "• Network & endpoint security",
@@ -28,9 +26,8 @@ const services = [
   },
   {
     title: "Telecom Services",
-    icon: "/service_cards/telecom.jpeg",
+    icon: "/service_cards/telecom.webp",
     description: "Telecom is the backbone of digital infrastructure — and we help you strengthen it. Our telecom services include RF deployment, fiber network design, infrastructure implementation, and performance optimization. Whether it's building from the ground up or upgrading existing systems.",
-    image: "/illustrations/backend.png",
     subServices: [
       "• Planning & design",
       "• Deployment",
@@ -41,9 +38,8 @@ const services = [
   },
   {
     title: "Web & Mobile App Development",
-    icon: "/service_cards/webdev.jpeg",
+    icon: "/service_cards/webdev.webp",
     description: "We don't just build apps — we build experiences. Atvantiq designs and develops high-performing, scalable websites and mobile applications that connect you with your users seamlessly. Whether it's a complex enterprise solution or a sleek consumer app, we handle everything from strategy to launch.",
-    image: "/illustrations/backend.png",
     subServices: [
       "• Custom web development",
       "• Enterprise app development",
@@ -55,9 +51,8 @@ const services = [
   },
   {
     title: "Cloud Services",
-    icon: "/service_cards/cloud.jpg",
+    icon: "/service_cards/cloud.webp",
     description: "Move faster, scale smarter, and reduce costs with our cloud-first approach. At Atvantiq, we help businesses embrace the cloud with services that cover architecture, migration, deployment, and ongoing management — across AWS, Azure, and Google Cloud.",
-    image: "/illustrations/backend.png",
     subServices: [
       "• Cloud architecture & consulting",
       "• Cloud migration & deployment",
@@ -69,9 +64,8 @@ const services = [
   },
   {
     title: "Solar Energy Solutions",
-    icon: "/service_cards/solar.jpeg",
+    icon: "/service_cards/solar.webp",
     description: "We believe in powering a greener tomorrow. Atvantiq offers end-to-end solar energy solutions for residential, commercial, and industrial needs. From site assessment and installation to battery storage and ongoing maintenance, we make your switch to solar simple, reliable, and cost-effective.",
-    image: "/illustrations/backend.png",
     subServices: [
       "• Residential & commercial solar panel installations",
       "• Battery storage solutions",
@@ -83,9 +77,8 @@ const services = [
   },
   {
     title: "Talent Outsourcing Services",
-    icon: "/service_cards/hr.png",
+    icon: "/service_cards/hr.webp",
     description: "The right people make all the difference. With Atvantiq's Tech Talent Solutions, we help you find and deploy skilled developers, engineers, and IT professionals exactly when you need them. Whether you need short-term contract roles, dedicated development teams, or long-term hires.",
-    image: "/illustrations/backend.png",
     subServices: [
       "• Contract & full-time placements",
       "• Project-based outsourcing",
@@ -97,9 +90,8 @@ const services = [
   },
   {
     title: "Digital Marketing Services",
-    icon: "/service_cards/digital-marketing.jpg",
+    icon: "/service_cards/digital-marketing.webp",
     description: "Atvantiq helps businesses build strong digital visibility and generate measurable results with data-driven digital marketing strategies. From SEO, PPC, and social media to email marketing and content creation, we offer tailored campaigns that boost brand awareness, drive high-quality leads, and improve ROI across channels.",
-    image: "/illustrations/backend.jpg",
     subServices: [
       "• Search engine optimization ",
       "• Social media marketing",
@@ -157,7 +149,7 @@ export default function ServicesSection() {
                         isExpanded ? 'scale-110 brightness-50' : 'scale-100'
                       }`}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      priority={index < 4}
+                      loading="lazy"
                     />
                   </div>
 

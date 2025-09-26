@@ -5,7 +5,7 @@ export const TelecomHeroSection = () => (
     highlightedText="Telecom Infrastructure"
     title="Services"
     subtitle="Next-Gen Network Deployment, Optimization & Managed Services"
-    backgroundImage="/service_cards/telecom.jpeg"
+    backgroundImage="/service_cards/telecom.webp"
     accentColor="#10ab63"
   />
 );

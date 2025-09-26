@@ -125,7 +125,7 @@ const EmailMarketingServices = () => {
         {/* Right Side – Image */}
         <div className="lg:w-1/3 h-1/3 flex justify-center items-center">
           <Image
-            src="/service_cards/digital-marketing.jpg"
+            src="/service_cards/digital-marketing.webp"
             alt="Email Marketing Illustration"
             width={350}
             height={300}

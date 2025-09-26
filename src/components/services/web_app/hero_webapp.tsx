@@ -4,7 +4,7 @@ export const WebAppHeroSection = () => (
     highlightedText="Web & Mobile App"
     title="Development Services"
     subtitle="Custom Digital Experiences That Drive Business Growth Across Platforms"
-    backgroundImage="/service_cards/webdev.jpeg"
+    backgroundImage="/service_cards/webdev.webp"
     accentColor="#DC2626"
   />
 );

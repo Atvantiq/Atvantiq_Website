@@ -4,7 +4,7 @@ export const CybersecurityHeroSection = () => (
     highlightedText="Cybersecurity"
     title="Services"
     subtitle="Protect Your Digital Assets with Scalable, Enterprise-Grade Cybersecurity Solutions"
-    backgroundImage="/service_cards/cyber.jpg"
+    backgroundImage="/service_cards/cyber.webp"
     accentColor="#10ab63" 
   />
 );

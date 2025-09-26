@@ -7,15 +7,15 @@ import "swiper/css";
 import "swiper/css/autoplay";
 
 const clientLogos = [
-  "/clients/nokia.png",
-  "/clients/ceragon 1.png",
-  "/clients/erricson.png",
-  "/clients/jio.png",
-  "/clients/hfcl1.png",
-  "/clients/tata 1.png",
-  "/clients/aws.png",
-  "/clients/azure.png",
-  "/clients/paloalto.png",
+  "/clients/nokia.webp",
+  "/clients/ceragon 1.webp",
+  "/clients/erricson.webp",
+  "/clients/jio.webp",
+  "/clients/hfcl1.webp",
+  "/clients/tata 1.webp",
+  "/clients/aws.webp",
+  "/clients/azure.webp",
+  "/clients/paloalto.webp",
 ];
 
 function Clients(){
@@ -55,6 +55,7 @@ return (
           alt={`Client ${index + 1}`}
           width={100}
           height={24}
+          loading="lazy"
           className="max-h-[30px] w-auto object-contain grayscale brightness-200 contrast-200 hover:grayscale-0 transition duration-300 transform translate-z-0"
         />
       </SwiperSlide>

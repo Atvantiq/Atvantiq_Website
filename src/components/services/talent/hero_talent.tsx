@@ -4,7 +4,7 @@ export const TalentOutsourcingHeroSection = () => (
     highlightedText="Talent Outsourcing"
     title="Services"
     subtitle="Build Agile, High-Performing Teams with Scalable Talent Solutions"
-    backgroundImage="/service_cards/hr.png"
+    backgroundImage="/service_cards/hr.webp"
     accentColor="#7C3AED" 
   />
 );

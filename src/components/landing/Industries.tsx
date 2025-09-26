@@ -6,15 +6,15 @@ import Image from "next/image";
 type TechCategory = "Frontend" | "Backend" | "Microsoft" | "Mobile" | "AI & ML" | "DevOps";
 
 const industries = [
-  { name: "Telecom", icon: "/industry_icon/telecommunications.png" },
-  { name: "Healthcare", icon: "/industry_icon/healthcare.png" },
-  { name: "Finance", icon: "/industry_icon/finance.png" },
-  { name: "E-commerce", icon: "/industry_icon/retail.png" },
-  { name: "Logistics", icon: "/industry_icon/logistics.png" },
-  { name: "Education", icon: "/industry_icon/education.png" },
-  { name: "Information Technology", icon: "/industry_icon/it.png" },
-  { name: "Real Estate", icon: "/industry_icon/real_estate.png" },
-  { name: "Travel ", icon: "/industry_icon/travel.png" },
+  { name: "Telecom", icon: "/industry_icon/telecommunications.webp" },
+  { name: "Healthcare", icon: "/industry_icon/healthcare.webp" },
+  { name: "Finance", icon: "/industry_icon/finance.webp" },
+  { name: "E-commerce", icon: "/industry_icon/retail.webp" },
+  { name: "Logistics", icon: "/industry_icon/logistics.webp" },
+  { name: "Education", icon: "/industry_icon/education.webp" },
+  { name: "Information Technology", icon: "/industry_icon/it.webp" },
+  { name: "Real Estate", icon: "/industry_icon/real_estate.webp" },
+  { name: "Travel ", icon: "/industry_icon/travel.webp" },
 ];
 
 const techCategories = [
@@ -111,6 +111,7 @@ const IndustriesSection = () => {
                     width={64}
                     height={64}
                     className="w-18 h-18 object-contain mx-auto py-2"
+                    loading="lazy"
                   />
                   <h3 className="text-md font-medium text-black group-hover:text-[#2674D3] transition-colors duration-300 pb-4">
                     {industry.name}

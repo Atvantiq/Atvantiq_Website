@@ -4,7 +4,7 @@ export const SolarServiceHeroSection = () => (
     highlightedText="Solar Energy"
     title="Solutions"
     subtitle="Powering a Greener Future with Smart, Scalable, and Sustainable Solar Systems"
-    backgroundImage="/service_cards/solar.jpeg"
+    backgroundImage="/service_cards/solar.webp"
     accentColor="#10ab63" 
   />
 );

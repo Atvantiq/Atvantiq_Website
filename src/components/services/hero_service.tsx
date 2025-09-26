@@ -16,7 +16,7 @@ const ServiceHeroSection: React.FC<ServiceHeroSectionProps> = ({
   title, 
   highlightedText, 
   subtitle, 
-  backgroundImage = "/service_cards/default.jpg",
+  backgroundImage = "/service_cards/default.webp",
   ctaText = "Get Started",
   accentColor = "#2674D3"
 }) => {

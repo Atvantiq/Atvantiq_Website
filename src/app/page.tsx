@@ -1,120 +1,40 @@
 'use client';
-import dynamic from 'next/dynamic';
-import React from 'react';
+import dynamic from 'next/dynamic'; 
+import React, { Suspense } from 'react';
 
-// 1. Static Imports (Critical above-the-fold content)
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/landing/Hero";
 import Clients from "@/components/landing/Clients";
-import ServicesSection from "@/components/landing/Services";
-// 2. Dynamic Imports with SSR enabled for better performance
-// Using more appropriate placeholder heights and enabling SSR
-const AboutUs = dynamic(() => import("@/components/landing/About"), {
-  loading: () => (
-    <div className="flex items-center justify-center" style={{ height: '600px', backgroundColor: '#3b4246' }}>
-      <div className="animate-pulse">
-        <div className="h-8 bg-gray-200 rounded w-48 mb-4"></div>
-      </div>
-    </div>
-  )
-});
-const IndustriesSection = dynamic(() => import("@/components/landing/Industries"), {
-  loading: () => (
-    <div className="flex items-center justify-center" style={{ height: '800px', backgroundColor: '#f8f9fa' }}>
-      <div className="animate-pulse">
-        <div className="h-8 bg-gray-300 rounded w-48 mb-4"></div>
-      </div>
-    </div>
-  )
-});
-
-const Partners = dynamic(() => import("@/components/landing/Partners"), {
-  loading: () => (
-    <div className="flex items-center justify-center" style={{ height: '150px', backgroundColor: '#f8f9fa' }}>
-      <div className="animate-pulse">
-        <div className="h-6 bg-gray-300 rounded w-32"></div>
-      </div>
-    </div>
-  )
-});
-
-const WhyChooseUsSection = dynamic(() => import("@/components/landing/Why"), {
-  loading: () => (
-    <div className="flex items-center justify-center" style={{ height: '700px', backgroundColor: '#ffffff' }}>
-      <div className="animate-pulse">
-        <div className="h-8 bg-gray-300 rounded w-48 mb-4"></div>
-        <div className="h-4 bg-gray-300 rounded w-64"></div>
-      </div>
-    </div>
-  )
-});
-
-const TestimonialsSection = dynamic(() => import("@/components/landing/Testimonials"), {
-  loading: () => (
-    <div className="flex items-center justify-center" style={{ height: '800px', backgroundColor: '#fff9f0' }}>
-      <div className="animate-pulse">
-        <div className="h-8 bg-gray-300 rounded w-48 mb-4"></div>
-        <div className="h-4 bg-gray-300 rounded w-64"></div>
-      </div>
-    </div>
-  )
-});
-
-const BlogSection = dynamic(() => import("@/components/landing/Blog"), {
-  loading: () => (
-    <div className="flex items-center justify-center" style={{ height: '600px', backgroundColor: '#ffffff' }}>
-      <div className="animate-pulse">
-        <div className="h-8 bg-gray-300 rounded w-48 mb-4"></div>
-        <div className="h-4 bg-gray-300 rounded w-64"></div>
-      </div>
-    </div>
-  )
-});
-
-const FAQSection = dynamic(() => import("@/components/landing/FAQ"), {
-  loading: () => (
-    <div className="flex items-center justify-center" style={{ height: '500px', backgroundColor: '#3b4246' }}>
-      <div className="animate-pulse">
-        <div className="h-8 bg-gray-200 rounded w-48 mb-4"></div>
-        <div className="h-4 bg-gray-200 rounded w-64"></div>
-      </div>
-    </div>
-  )
-});
-
-const FooterSection = dynamic(() => import("@/components/landing/Footer"), {
-  loading: () => (
-    <div className="flex items-center justify-center" style={{ height: '400px', backgroundColor: '#000000' }}>
-      <div className="animate-pulse">
-        <div className="h-6 bg-gray-600 rounded w-32"></div>
-      </div>
-    </div>
-  )
-});
+import AboutUs from "@/components/landing/About";
+const ServicesSection = dynamic(() => import("@/components/landing/Services"), { ssr: false, loading: () => <div style={{ height: '800px', backgroundColor: '#e5e4e2' }}>Loading Services...</div> });
+const IndustriesSection = dynamic(() => import("@/components/landing/Industries"), { ssr: false, loading: () => <div style={{ height: '600px', backgroundColor: 'white' }}>Loading Industries...</div> });
+const Partners = dynamic(() => import("@/components/landing/Partners"), { ssr: false, loading: () => <div style={{ height: '150px', backgroundColor: '#1a1a1a' }}>Loading Partners...</div> });
+const WhyChooseUsSection = dynamic(() => import("@/components/landing/Why"), { ssr: false, loading: () => <div style={{ height: '700px', backgroundColor: 'white' }}>Loading Why Choose Us...</div> });
+const TestimonialsSection = dynamic(() => import("@/components/landing/Testimonials"), { ssr: false, loading: () => <div style={{ height: '800px', backgroundColor: '#fff9f0' }}>Loading Testimonials...</div> });
+const BlogSection = dynamic(() => import("@/components/landing/Blog"), { ssr: false, loading: () => <div style={{ height: '100vh', backgroundColor: 'white' }}>Loading Blog...</div> });
+const FAQSection = dynamic(() => import("@/components/landing/FAQ"), { ssr: false, loading: () => <div style={{ height: '500px', backgroundColor: '#3b4246' }}>Loading FAQ...</div> });
+const FooterSection = dynamic(() => import("@/components/landing/Footer"), { ssr: false, loading: () => <div style={{ height: '600px', backgroundColor: 'black' }}>Loading Footer...</div> });
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
+    <div className="min-h-screen max-w-screen ">
       <main>
-        {/* Static sections - loaded immediately */}
-        <Navbar />
+        <Navbar/>
         <HeroSection />
         <Clients />
         <AboutUs />
-        
-        {/* Dynamic sections with proper lazy loading */}
-        <div id="services">
-          <ServicesSection />
-        </div>
-        
-        <IndustriesSection />
-        
-        <Partners />
-        <WhyChooseUsSection />
-        <TestimonialsSection />
-        <BlogSection />
-        <FAQSection />
-        <FooterSection />
+        <Suspense fallback={<div style={{ height: '300px' }}>Loading page content...</div>}>
+          <div id="services">
+            <ServicesSection />
+          </div>
+          <IndustriesSection />
+          <Partners />
+          <WhyChooseUsSection />
+          <TestimonialsSection />
+          <BlogSection />
+          <FAQSection />
+          <FooterSection />
+        </Suspense>
       </main>
     </div>
   );

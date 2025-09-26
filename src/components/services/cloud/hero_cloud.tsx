@@ -4,7 +4,7 @@ export const CloudComputingHeroSection = () => (
     highlightedText="Cloud Computing"
     title="Services"
     subtitle="Scale Faster, Operate Smarter, and Innovate Freely with Our End-to-End Cloud Solutions"
-    backgroundImage="/service_cards/cloud.jpg"
+    backgroundImage="/service_cards/cloud.webp"
     accentColor="#2674D3" 
   />
 );

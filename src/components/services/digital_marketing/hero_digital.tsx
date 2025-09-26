@@ -4,7 +4,7 @@ export const DigitalMarketingHeroSection = () => (
     highlightedText="Digital Marketing"
     title="Services"
     subtitle="Reach the Right Audience. Drive Real Results. Build a Powerful Online Presence."
-    backgroundImage="/service_cards/digital-marketing.jpg"
+    backgroundImage="/service_cards/digital-marketing.webp"
     accentColor="#7C3AED" 
   />
 );

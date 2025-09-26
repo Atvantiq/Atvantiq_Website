@@ -10,22 +10,22 @@ const stats = [
   {
     title: "150+",
     subtitle: "Tech Experts On-board",
-    image: "/tiles/experts.jpeg",
+    image: "/tiles/experts.webp",
   },
   {
     title: "20+",
     subtitle: "Years Of Expertise",
-    image: "/tiles/years.png",
+    image: "/tiles/years.webp",
   },
   {
     title: "100+",
     subtitle: "Projects Delivered",
-    image: "/tiles/projects.jpeg",
+    image: "/tiles/projects.webp",
   },
   {
     title: "08+",
     subtitle: "Countries Served",
-    image: "/tiles/countries.jpeg",
+    image: "/tiles/countries.webp",
   },
 ];
 
@@ -85,6 +85,7 @@ const AboutUs = () => {
                   fill
                   className="absolute inset-0 w-full h-full object-cover z-0 opacity-75 transition duration-500 group-hover:brightness-110"
                   style={{ objectFit: "cover" }}
+                  loading="lazy"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
 
