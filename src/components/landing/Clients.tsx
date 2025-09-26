@@ -1,12 +1,11 @@
 'use client';
-import React, { memo } from "react"; // Import 'memo'
+import React, { memo } from "react"; 
 import Image from "next/image";
 import { SwiperSlide,Swiper } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-// Moved clientLogos array outside the component to prevent re-creation on every render
 const clientLogos = [
   "/clients/nokia.png",
   "/clients/ceragon 1.png",
@@ -19,7 +18,6 @@ const clientLogos = [
   "/clients/paloalto.png",
 ];
 
-// OPTIMIZATION: Wrap the component in React.memo
 function Clients(){
 return (
     <>
@@ -36,20 +34,19 @@ return (
 
   {/* Swiper Carousel */}
   <Swiper
-    // OPTIMIZATION: Added the custom class 'gpu-hint-clients' to apply translateZ(0) via CSS
-    className="w-full px-2 sm:px-4 gpu-hint-clients" 
+    className="w-full px-2 sm:px-4"
     slidesPerView={2}
     spaceBetween={12}
     loop={true}
     centeredSlides={true}
-    // Autoplay delay of 2500ms is retained, but note that increasing it slightly (e.g., to 3000ms) would further reduce CPU load.
-    autoplay={{ delay: 2500, disableOnInteraction: false }}
+    autoplay={{ delay: 3000, disableOnInteraction: false }}
     breakpoints={{
       480: { slidesPerView: 3, spaceBetween: 16 },
       768: { slidesPerView: 4, spaceBetween: 20 },
       1024: { slidesPerView: 5, spaceBetween: 24 },
     }}
     modules={[Autoplay]}
+    style={{ willChange: 'transform' }} 
   >
     {clientLogos.map((src, index) => (
       <SwiperSlide key={index} className="flex justify-center items-center">
@@ -58,7 +55,6 @@ return (
           alt={`Client ${index + 1}`}
           width={100}
           height={24}
-          // OPTIMIZATION: Added transform translate-z-0 for GPU acceleration on the image hover transition
           className="max-h-[30px] w-auto object-contain grayscale brightness-200 contrast-200 hover:grayscale-0 transition duration-300 transform translate-z-0"
         />
       </SwiperSlide>
@@ -66,13 +62,6 @@ return (
   </Swiper>
 </div>
 
-{/* OPTIMIZATION: Added a minimal style block for the GPU hint, using a unique class name */}
-<style jsx global>{`
-    .gpu-hint-clients .swiper-wrapper {
-        /* Force GPU layer for the continuous sliding animation */
-        transform: translateZ(0) !important; 
-    }
-`}</style>
 </>
 );
 }

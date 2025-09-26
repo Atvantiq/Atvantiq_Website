@@ -1,12 +1,11 @@
 'use client';
-import React, { memo } from "react"; // Import 'memo'
+import React, { memo } from "react";
 import Image from "next/image";
 import { SwiperSlide,Swiper } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-// Moved clientLogos array outside the component to prevent re-creation on every render
 const clientLogos = [
   "/clients/asus.png",
   "/clients/aws.png",
@@ -18,38 +17,32 @@ const clientLogos = [
   "/clients/honeywell.png",
 ];
 
-// OPTIMIZATION: Wrap the component in React.memo
 function Partners(){
 return (
     <>
-    {/* Client Logo Slider */}
 <div className="relative bg-[#1a1a1a] py-4 md:py-6 overflow-hidden">
-  {/* Heading */}
   <h3 className="text-center text-sm sm:text-base md:text-xl text-gray-300 font-medium font-['Plus_Jakarta_Sans'] mb-4 md:mb-6 px-4">
     Trusted by <span className="text-[#2674D3] font-semibold">500+</span> Partners worldwide
   </h3>
 
-  {/* Fading overlays (left & right) */}
   <div className="absolute left-0 top-0 h-full w-20 sm:w-24 md:w-md bg-gradient-to-r from-[#1a1a1a] to-transparent z-10 pointer-events-none" />
   <div className="absolute right-0 top-0 h-full w-20 sm:w-24 md:w-md bg-gradient-to-l from-[#1a1a1a] to-transparent z-10 pointer-events-none" />
 
   {/* Swiper Carousel */}
   <Swiper
-    // OPTIMIZATION: Added the custom class 'gpu-hint' to apply translateZ(0) via CSS
-    className="w-full px-2 sm:px-4 gpu-hint" 
+    className="w-full px-2 sm:px-4"
     slidesPerView={2}
     spaceBetween={12}
     loop={true}
     centeredSlides={true}
-    // Autoplay delay of 2500ms is a bit fast for a homepage. 
-    // Increasing it to 3500ms or 4000ms may further reduce CPU load without noticeable UX change.
-    autoplay={{ delay: 2500, disableOnInteraction: false }} 
+    autoplay={{ delay: 2500, disableOnInteraction: false }}
     breakpoints={{
       480: { slidesPerView: 3, spaceBetween: 16 },
       768: { slidesPerView: 4, spaceBetween: 20 },
       1024: { slidesPerView: 5, spaceBetween: 24 },
     }}
     modules={[Autoplay]}
+    style={{ willChange: 'transform' }} 
   >
     {clientLogos.map((src, index) => (
       <SwiperSlide key={index} className="flex justify-center items-center">
@@ -58,20 +51,12 @@ return (
           alt={`Client ${index + 1}`}
           width={100}
           height={24}
-          // OPTIMIZATION: Added translate-z-0 to the image for its hover transition
-          className="max-h-[35px] w-auto object-contain grayscale brightness-200 contrast-200 hover:grayscale-0 transition duration-300 transform translate-z-0" 
+          className="max-h-[35px] w-auto object-contain grayscale brightness-200 contrast-200 hover:grayscale-0 transition duration-300 transform translate-z-0"
         />
       </SwiperSlide>
     ))}
   </Swiper>
 </div>
-{/* OPTIMIZATION: Added a minimal style block for the GPU hint */}
-<style jsx global>{`
-    .gpu-hint .swiper-wrapper {
-        /* Force GPU layer for the continuous sliding animation */
-        transform: translateZ(0) !important; 
-    }
-`}</style>
 </>
 );
 }
