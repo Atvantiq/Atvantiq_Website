@@ -1,12 +1,10 @@
 import AboutUs from "@/components/landing/About";
 import Clients from "@/components/landing/Clients";
 import HeroSection from "@/components/landing/Hero";
-import IndustriesSection from "@/components/landing/Industries";
 import ServicesSection from "@/components/landing/Services";
 import Navbar from "@/components/Navbar";
-import React, { lazy, Suspense } from 'react'; // Import lazy and Suspense
-
-// Dynamically import components that are lower on the page
+import React, { lazy, Suspense } from 'react';
+const IndustriesSection = lazy(() => import("@/components/landing/Industries"));
 const Partners = lazy(() => import("@/components/landing/Partners"));
 const WhyChooseUsSection = lazy(() => import("@/components/landing/Why"));
 const TestimonialsSection = lazy(() => import("@/components/landing/Testimonials"));
@@ -22,14 +20,13 @@ export default function Home() {
         <HeroSection />
         <Clients />
         <AboutUs />
-        {/* Render critical sections normally */}
-        
-
-        {/* Render lower sections wrapped in Suspense */}
-        <Suspense fallback={<div>Loading more sections...</div>}>
         <div id="services">
           <ServicesSection />
         </div>
+        
+
+        <Suspense fallback={<div>Loading more sections...</div>}>
+        
         <IndustriesSection/>
             <Partners />
             <WhyChooseUsSection />
