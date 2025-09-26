@@ -107,17 +107,17 @@ const Navbar = () => {
             { title: "Backhaul Services", path: "/services/telecom/backhaul-services" },
           ],
         },
-        {
-          title: "Cloud Services",
-          path: "/services/cloud-services",
-          subItems: [
-            { title: "Cloud architecture & consulting", path: "/services/cloud-services/architecture-consulting" },
-            { title: "Cloud migration & deployment", path: "/services/cloud-services/migration-deployment" },
-            { title: "AWS, Azure, and Google Cloud solutions", path: "/services/cloud-services/cloud-solutions" },
-            { title: "DevOps & CI/CD pipelines", path: "/services/cloud-services/devops-cicd" },
-            { title: "Managed cloud operations & support", path: "/services/cloud-services/managed-operations" },
-          ],
-        },
+        // {
+        //   title: "Cloud Services",
+        //   path: "/services/cloud-services",
+        //   subItems: [
+        //     { title: "Cloud architecture & consulting", path: "/services/cloud-services/architecture-consulting" },
+        //     { title: "Cloud migration & deployment", path: "/services/cloud-services/migration-deployment" },
+        //     { title: "AWS, Azure, and Google Cloud solutions", path: "/services/cloud-services/cloud-solutions" },
+        //     { title: "DevOps & CI/CD pipelines", path: "/services/cloud-services/devops-cicd" },
+        //     { title: "Managed cloud operations & support", path: "/services/cloud-services/managed-operations" },
+        //   ],
+        // },
         {
           title: "Solar Energy Solutions",
           path: "/services/solar-energy",

@@ -3,6 +3,8 @@ const cybersecurityServices = [
   {
     title: "Security Risk Assessment & Audit",
     icon: "🔒",
+    category: "cybersecurity",
+    slug: "risk-assessment",
     description:
       "We begin by identifying security gaps in your systems, infrastructure, and data handling processes. Our assessments are tailored for global compliance standards like ISO 27001, GDPR, HIPAA, and more.",
     features: [
@@ -15,6 +17,8 @@ const cybersecurityServices = [
   {
     title: "Managed Security Services (MSSP)",
     icon: "🛡️",
+    category: "cybersecurity",
+    slug: "managed-security",
     description:
       "Our 24/7 security operations center (SOC) monitors, detects, and responds to threats in real-time. We handle everything from threat intelligence to incident response and SIEM integration.",
     features: [
@@ -27,6 +31,8 @@ const cybersecurityServices = [
   {
     title: "Network Security & Firewall Management",
     icon: "🌐",
+    category: "cybersecurity",
+    slug: "network-security",
     description:
       "We design and deploy multi-layered network defenses using next-gen firewalls, intrusion prevention systems (IPS), and VPN solutions to block malicious traffic and unauthorized access.",
     features: [
@@ -39,6 +45,8 @@ const cybersecurityServices = [
   {
     title: "Endpoint Security Solutions",
     icon: "💻",
+    category: "cybersecurity",
+    slug: "endpoint-security",
     description:
       "Protect your devices — laptops, mobile phones, and servers — with advanced endpoint protection platforms (EPP) and endpoint detection and response (EDR) solutions.",
     features: [
@@ -51,6 +59,8 @@ const cybersecurityServices = [
   {
     title: "Cloud Security & DevSecOps",
     icon: "☁️",
+    category: "cybersecurity",
+    slug: "cloud-security",
     description:
       "We secure your cloud infrastructure on AWS, Azure, and Google Cloud with identity access controls, encryption, container security, and automated policy enforcement.",
     features: [
@@ -63,6 +73,8 @@ const cybersecurityServices = [
   {
     title: "Vulnerability Management & Penetration Testing",
     icon: "🎯",
+    category: "cybersecurity",
+    slug: "vulnerability-management",
     description:
       "Identify and fix security flaws before hackers exploit them. We conduct regular penetration testing, ethical hacking, and vulnerability assessments to strengthen your defense.",
     features: [
@@ -75,6 +87,8 @@ const cybersecurityServices = [
   {
     title: "Cybersecurity Awareness & Training",
     icon: "🎓",
+    category: "cybersecurity",
+    slug: "awareness-training",
     description:
       "Humans are the weakest link in security. We provide employee training, phishing simulations, and awareness campaigns to help your team recognize and avoid cyber threats.",
     features: [

@@ -4,6 +4,7 @@ const cloudServices = [
   {
     title: "Cloud Consulting & Strategy",
     icon: "🎯",
+    category: "cloud-services",
     description:
       "We evaluate your existing IT environment and define a roadmap for cloud adoption that aligns with your business goals. From cost analysis to architecture planning, we set the foundation for a successful transformation.",
     features: [

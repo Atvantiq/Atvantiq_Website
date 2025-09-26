@@ -1,9 +1,12 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 
 type Service = {
   title: string;
   icon: React.ReactNode;
+  category?: string;
+  slug?: string;
   description: string;
   features: string[];
 };
@@ -118,9 +121,10 @@ const ServicesSection = ({
 
                 {/* CTA Button */}
                 <div className="mt-8 justify-center justify-items-center">
-                  <button className="bg-gradient-to-r from-[#2674D3] to-[#2861B3] text-white font-semibold px-4 py-2 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">
+                  <Link  href={`/services/${services[selectedService].category}/${services[selectedService].slug}`}
+    passHref className="bg-gradient-to-r from-[#2674D3] to-[#2861B3] text-white font-semibold px-4 py-2 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">
                     {ctaText}
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

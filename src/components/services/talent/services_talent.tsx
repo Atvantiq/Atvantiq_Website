@@ -3,6 +3,8 @@ const talentServices = [
   {
     title: "Contract & Full-Time Placements",
     icon: "👥",
+    category: "talent-outsourcing",
+    slug: "contract-placements",
     description:
       "We provide pre-vetted professionals for short-term contracts, long-term roles, and permanent positions across development, DevOps, cybersecurity, data science, and more.",
     features: [
@@ -15,6 +17,8 @@ const talentServices = [
   {
     title: "Project-Based Outsourcing",
     icon: "🚀",
+    category: "talent-outsourcing",
+    slug: "project-outsourcing",
     description:
       "Need to quickly scale a team for a project? We offer project-specific hiring with a focus on speed, cost-efficiency, and quality — from developers to complete agile squads.",
     features: [
@@ -27,6 +31,8 @@ const talentServices = [
   {
     title: "Technical Recruiters & HR Consulting",
     icon: "🎯",
+    category: "talent-outsourcing",
+    slug: "hr-consulting",
     description:
       "Our in-house technical recruitment experts use advanced screening tools and domain-based assessments to find the right candidates faster. We also support HR process optimization and digital HR transformation.",
     features: [
@@ -39,6 +45,8 @@ const talentServices = [
   {
     title: "Software-Based Onboarding & Compliance",
     icon: "💻",
+    category: "talent-outsourcing",
+    slug: "onboarding",
     description:
       "We leverage a cloud-based onboarding platform to streamline documentation, contracts, background checks, and compliance — saving you time and reducing errors.",
     features: [
@@ -51,6 +59,8 @@ const talentServices = [
   {
     title: "Payroll Management & Contractor Compliance",
     icon: "📋",
+    category: "talent-outsourcing",
+    slug: "payroll",
     description:
       "We offer payroll management, tax compliance, benefits administration, and contractor payments — freeing you from HR complexities while ensuring 100% statutory adherence.",
     features: [

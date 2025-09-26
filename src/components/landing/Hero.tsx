@@ -70,9 +70,9 @@ const HeroSection = () => {
         </p>
 
         <div className="pt-20 md:pt-25 flex flex-col md:flex-row justify-end gap-2 md:gap-4">
-          <button className="transition-all duration-300 transform hover:-translate-y-1 hover:opacity-90 text-white px-4 py-2 rounded-xl font-medium text-xs md:text-sm border-2 border-white hover:bg-gradient-to-r from-[#2674D3] to-[#2861B3]">
+          <Link href="#services" className="transition-all duration-300 transform hover:-translate-y-1 hover:opacity-90 text-white px-4 py-2 rounded-xl font-medium text-xs md:text-sm border-2 border-white hover:bg-gradient-to-r from-[#2674D3] to-[#2861B3]">
             Explore Our Services
-          </button>
+          </Link>
           <Link href="/contact-us" className="text-white px-4 py-2 rounded-xl font-medium text-xs md:text-sm bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:border-2 border-white hover:bg-none transition">
             Get a Free Consultation
           </Link>

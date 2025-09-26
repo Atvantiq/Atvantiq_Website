@@ -263,7 +263,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             Get in touch with our experts to discuss how we can help you achieve your goals.
           </p>
           <Link 
-            href="/contact"
+            href="/contact-us"
             className="inline-flex items-center gap-2 bg-white text-[#2674D3] font-semibold px-8 py-4 rounded-xl hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1"
           >
             Get Started Today

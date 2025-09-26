@@ -98,7 +98,7 @@ const ServiceSection = ({
         {/* CTA Button */}
         <motion.div variants={itemVariants}>
           <Link
-            href="/contact"
+            href="/contact-us"
             className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-[#2674D3] to-[#2861B3] rounded-xl hover:from-[#2861B3] hover:to-[#2674D3] transition-all duration-300 group shadow-lg hover:shadow-[#2674D3]/50"
           >
             {ctaText}

@@ -4,6 +4,8 @@ const aiServices = [
   {
     title: "AI Consulting & Strategy",
     icon: "💡",
+    category: "ai-ml-development",
+    slug: "ai-consulting",
     description:
       "Need help getting started? We guide you through identifying the right use cases for your industry, preparing your data, and building an AI roadmap that aligns with your business goals.",
     features: [
@@ -16,6 +18,8 @@ const aiServices = [
   {
     title: "Custom Machine Learning Model Development",
     icon: "🔧",
+    category: "ai-ml-development",
+    slug: "custom-ml-model",
     description:
       "We design and develop production-ready ML models for forecasting, pattern recognition, fraud detection, and more — fully tailored to your business logic.",
     features: [
@@ -28,6 +32,8 @@ const aiServices = [
   {
     title: "Natural Language Processing (NLP)",
     icon: "🗣️",
+    category: "ai-ml-development",
+    slug: "nlp",
     description:
       "We build intelligent systems that understand and process human language — including AI chatbots, voice recognition, and sentiment analysis tools.",
     features: [
@@ -40,6 +46,8 @@ const aiServices = [
   {
     title: "Computer Vision Solutions",
     icon: "👁️",
+    category: "ai-ml-development",
+    slug: "computer-vision",
     description:
       "From facial recognition to defect detection, our Computer Vision services allow machines to 'see' and act based on image and video inputs.",
     features: [
@@ -52,6 +60,8 @@ const aiServices = [
   {
     title: "Generative AI & GPT-based Automation",
     icon: "🤖",
+    category: "ai-ml-development",
+    slug: "generative-ai",
     description:
       "We build tools using OpenAI's GPT, LLaMA, and similar models for content generation, smart document handling, email automation, and more.",
     features: [
@@ -64,6 +74,8 @@ const aiServices = [
   {
     title: "AI-Powered Process Automation",
     icon: "⚙️",
+    category: "ai-ml-development",
+    slug: "ai-automation",
     description:
       "Automate operations, reduce human error, and boost ROI with intelligent automation that adapts over time using real-time data.",
     features: [

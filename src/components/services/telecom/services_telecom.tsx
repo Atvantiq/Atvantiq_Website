@@ -4,6 +4,8 @@ const telecomServices = [
   {
     title: "RAN (Radio Access Network)",
     icon: "📶",
+    category: "telecom",
+    slug: "radio-access-network",
     description:
       "We provide complete 5G/4G network services — from planning and design to optimization and post-deployment support.",
     features: [
@@ -18,6 +20,8 @@ const telecomServices = [
   {
     title: "Backhaul Services",
     icon: "🔗",
+    category: "telecom",
+    slug: "backhaul-services",
     description:
       "We support high-performance IP/MPLS and Ethernet backhaul infrastructure to connect RAN to the core, ensuring bandwidth efficiency and low latency.",
     features: [
@@ -29,6 +33,8 @@ const telecomServices = [
   {
     title: "Transport Network Services",
     icon: "🚛",
+    category: "telecom",
+    slug: "transport-network",
     description:
       "We offer fiber-based FTTx transport services, microwave/UBR links, and enterprise-grade ONT deployments for seamless data transmission across access and distribution layers.",
     features: [
@@ -42,6 +48,8 @@ const telecomServices = [
   {
     title: "Core Network Services",
     icon: "🧠",
+    category: "telecom",
+    slug: "core-network",
     description:
       "We deliver advanced core network architecture and deployment for mobile, fixed, and enterprise networks — supporting packet core, aggregation, and MEC setups.",
     features: [

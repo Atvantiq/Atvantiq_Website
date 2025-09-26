@@ -72,10 +72,10 @@ export default function WhyChooseUsSection() {
                   <h3 className="text-white text-xl md:text-2xl font-medium mb-2">
                     Get started!
                   </h3>
-                  <button className="bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:from-[#2861B3] hover:to-[#24579e] text-white px-4 py-2 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
+                  <Link href="/contact-us" className="bg-gradient-to-r from-[#2674D3] to-[#2861B3] hover:from-[#2861B3] hover:to-[#24579e] text-white px-4 py-2 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
                     <span>→</span>
-                    <span>Free Trail</span>
-                  </button>
+                    <span>Free Trial</span>
+                  </Link>
                 </div>
               </div>
             </div>

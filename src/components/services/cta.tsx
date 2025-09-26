@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type CTASectionProps = {
   title: string;
@@ -29,12 +30,12 @@ const CTASection = ({
             {description}
           </div>
 
-          <button className="bg-gradient-to-r from-[#2674D3] to-[#1A82E8] text-white font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1 flex items-center space-x-3">
+          <Link href="/contact-us" className="bg-gradient-to-r from-[#2674D3] to-[#1A82E8] text-white font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all w-fit duration-300 transform hover:-translate-y-1 flex items-center space-x-3">
             <span>{ctaText}</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </button>
+          </Link>
         </div>
 
         {/* Right Image */}

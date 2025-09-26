@@ -18,7 +18,9 @@ export default function Home() {
         <HeroSection />
         <Clients />
         <AboutUs />
-        <ServicesSection />
+        <div id="services">
+          <ServicesSection />
+        </div>
         <IndustriesSection/>
         <Partners />
         <WhyChooseUsSection />

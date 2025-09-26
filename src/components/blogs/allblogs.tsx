@@ -131,13 +131,13 @@ const BlogSection: React.FC = () => {
         )}
 
         {/* Load More Button */}
-        {filteredPosts.length > 0 && (
+        {/* {filteredPosts.length > 0 && (
           <div className="text-center mt-12">
             <button className="bg-gradient-to-r from-[#2674D3] to-[#1A82E8] text-white font-semibold px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">
               Load More Articles
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );

@@ -31,7 +31,7 @@ import { usePathname } from 'next/navigation';
 
 const AboutUs = () => {
   const pathname = usePathname();
-  const showMoreButton = pathname !== '/about'; // hide on /about
+  const showMoreButton = pathname !== '/about/' && pathname !== '/about'; 
 
   return (
     <section className="bg-[#3b4246] text-white pb-20 ">

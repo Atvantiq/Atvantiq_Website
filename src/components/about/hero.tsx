@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-
+import Link from 'next/link';
 
 const AboutUsHero = () => {
   const [word1, setWord1] = useState('');
@@ -106,9 +106,9 @@ const AboutUsHero = () => {
           </p>
 
           <div className="pt-6">
-            <button className="bg-gradient-to-r from-[#2674D3] to-[#2861B3] text-white font-semibold px-8 py-3 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">
+            <Link href="/contact-us" className="bg-gradient-to-r from-[#2674D3] to-[#2861B3] text-white font-semibold px-8 py-3 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">
               Contact Us
-            </button>
+            </Link>
           </div>
         </div>
       </div>

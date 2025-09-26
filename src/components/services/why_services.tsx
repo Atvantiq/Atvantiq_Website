@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Reason = {
   title: string;
@@ -81,9 +82,9 @@ const WhyServiceSection = ({
 
             {/* CTA */}
             <div className="mt-10">
-              <button className="bg-gradient-to-r from-[#2674D3] to-[#2861B3] text-white font-semibold px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">
+              <Link href="/contact-us" className="bg-gradient-to-r from-[#2674D3] to-[#2861B3] text-white font-semibold px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">
                 {ctaText}
-              </button>
+              </Link>
             </div>
           </div>
         </div>

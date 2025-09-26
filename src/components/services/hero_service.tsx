@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type ServiceHeroSectionProps = {
   title?: string;
@@ -8,7 +9,6 @@ type ServiceHeroSectionProps = {
   subtitle: string;
   backgroundImage?: string;
   ctaText?: string;
-  onCtaClick?: React.MouseEventHandler<HTMLButtonElement>;
   accentColor?: string;
 };
 
@@ -18,7 +18,6 @@ const ServiceHeroSection: React.FC<ServiceHeroSectionProps> = ({
   subtitle, 
   backgroundImage = "/service_cards/default.jpg",
   ctaText = "Get Started",
-  onCtaClick,
   accentColor = "#2674D3"
 }) => {
   return (
@@ -57,7 +56,7 @@ const ServiceHeroSection: React.FC<ServiceHeroSectionProps> = ({
         </p>
 
         {/* CTA Button */}
-        <button 
+        <Link href="/contact-us"
           className="text-white font-semibold px-8 py-4 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
           style={{
             background: `linear-gradient(to right, ${accentColor}, ${accentColor}dd)`,
@@ -69,10 +68,9 @@ const ServiceHeroSection: React.FC<ServiceHeroSectionProps> = ({
           onMouseLeave={(e) => {
             (e.target as HTMLButtonElement).style.boxShadow = `0 0 0 rgba(${parseInt(accentColor.slice(1, 3), 16)}, ${parseInt(accentColor.slice(3, 5), 16)}, ${parseInt(accentColor.slice(5, 7), 16)}, 0.25)`;
           }}
-          onClick={onCtaClick}
         >
           {ctaText}
-        </button>
+        </Link>
       </div>
     </section>
   );

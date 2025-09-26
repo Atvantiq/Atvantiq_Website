@@ -3,6 +3,8 @@ const digitalMarketingServices = [
   {
     title: "Search Engine Optimization (SEO)",
     icon: "🔍",
+    category: "digital-marketing",
+    slug: "seo",
     description:
       "Improve your website's visibility and rank higher on Google. We focus on technical SEO, on-page optimization, and high-quality backlinks to drive long-term organic growth.",
     features: [
@@ -15,6 +17,8 @@ const digitalMarketingServices = [
   {
     title: "Pay-Per-Click Advertising (PPC)",
     icon: "💰",
+    category: "digital-marketing",
+    slug: "ppc",
     description:
       "Launch high-converting ad campaigns on Google Ads, Bing, LinkedIn, Meta (Facebook/Instagram), and more. We optimize every click for maximum ROI and lead quality.",
     features: [
@@ -27,6 +31,8 @@ const digitalMarketingServices = [
   {
     title: "Social Media Marketing",
     icon: "📱",
+    category: "digital-marketing",
+    slug: "social-media-marketing",
     description:
       "Engage and grow your audience across platforms like Facebook, Instagram, LinkedIn, Twitter, and YouTube. From creative content to paid promotion — we manage it all.",
     features: [
@@ -39,6 +45,8 @@ const digitalMarketingServices = [
   {
     title: "Content Marketing",
     icon: "📝",
+    category: "digital-marketing",
+    slug: "content-marketing",
     description:
       "We create and distribute strategic content that educates, attracts, and converts — including blogs, infographics, videos, and landing pages that align with SEO goals.",
     features: [
@@ -51,6 +59,8 @@ const digitalMarketingServices = [
   {
     title: "Email Marketing & Automation",
     icon: "📧",
+    category: "digital-marketing",
+    slug: "email-marketing",
     description:
       "Nurture leads and boost retention with personalized, automated email campaigns — from onboarding flows to newsletters and drip sequences.",
     features: [
@@ -63,6 +73,8 @@ const digitalMarketingServices = [
   {
     title: "Online Reputation Management (ORM)",
     icon: "⭐",
+    category: "digital-marketing",
+    slug: "orm",
     description:
       "Protect your brand image with proactive review management, brand monitoring, and crisis response strategies to build trust and credibility.",
     features: [
@@ -75,6 +87,8 @@ const digitalMarketingServices = [
   {
     title: "Analytics & Conversion Optimization",
     icon: "📊",
+    category: "digital-marketing",
+    slug: "analytics",
     description:
       "Track performance with precision. We use tools like Google Analytics, Search Console, Tag Manager, and Hotjar to continuously improve user experience and conversions.",
     features: [

@@ -4,6 +4,8 @@ const webMobileServices = [
   {
     title: "Custom Web Application Development",
     icon: "🌐",
+    category: "web-mobile-development",
+    slug: "custom-web",
     description:
       "We create robust, high-performance web apps tailored to your business logic — from customer portals and CRMs to e-commerce platforms and enterprise dashboards.",
     features: [
@@ -16,6 +18,8 @@ const webMobileServices = [
   {
     title: "iOS & Android App Development",
     icon: "📱",
+    category: "web-mobile-development",
+    slug: "mobile-apps",
     description:
       "Reach users on every device with native iOS and Android apps, or choose hybrid frameworks like Flutter and React Native for faster cross-platform delivery.",
     features: [
@@ -28,6 +32,8 @@ const webMobileServices = [
   {
     title: "Progressive Web Apps (PWAs)",
     icon: "⚡",
+    category: "web-mobile-development",
+    slug: "progressive-web-apps",
     description:
       "Build blazing-fast web apps that behave like mobile apps. PWAs work offline, are installable, and boost engagement and conversions.",
     features: [
@@ -40,6 +46,8 @@ const webMobileServices = [
   {
     title: "UI/UX Design & Prototyping",
     icon: "🎨",
+    category: "web-mobile-development",
+    slug: "ui-ux",
     description:
       "Great products start with great design. Our UX experts craft user journeys and interfaces that are intuitive, accessible, and beautiful.",
     features: [
@@ -52,6 +60,8 @@ const webMobileServices = [
   {
     title: "API Development & Integration",
     icon: "🔌",
+    category: "web-mobile-development",
+    slug: "api-development",
     description:
       "We enable seamless integrations with third-party platforms, ERPs, payment gateways, and CRMs to create connected ecosystems.",
     features: [
@@ -64,6 +74,8 @@ const webMobileServices = [
   {
     title: "E-Commerce Website & App Development",
     icon: "🛒",
+    category: "web-mobile-development",
+    slug: "ecommerce",
     description:
       "Build high-converting digital stores using Shopify, WooCommerce, Magento, or custom solutions — complete with secure payments and inventory tools.",
     features: [
@@ -76,6 +88,8 @@ const webMobileServices = [
   {
     title: "MVP Development for Startups",
     icon: "🚀",
+    category: "web-mobile-development",
+    slug: "mvp-development",
     description:
       "Have an idea? We help validate and launch it fast with Minimum Viable Product (MVP) development that's lean, scalable, and investor-ready.",
     features: [
