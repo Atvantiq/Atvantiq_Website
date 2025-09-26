@@ -187,7 +187,7 @@ export default function WhyChooseUsSection() {
           <p className="text-[10px] sm:text-sm md:text-xl text-white">
             Be an Atvantiq member and Accelerate your Growth
           </p>
-          <Link href='/people/career' className="border-2 border-white text-white hover:bg-white hover:text-black font-medium px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg transition-all duration-300 text-xs sm:text-sm md:text-base whitespace-nowrap">
+          <Link href='/people/careers' className="border-2 border-white text-white hover:bg-white hover:text-black font-medium px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg transition-all duration-300 text-xs sm:text-sm md:text-base whitespace-nowrap">
             <span className="sm:hidden">Current Openings</span>
             <span className="hidden sm:inline">View All Current Opening</span>
           </Link>

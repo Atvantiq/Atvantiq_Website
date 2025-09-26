@@ -118,17 +118,17 @@ const Navbar = () => {
         //     { title: "Managed cloud operations & support", path: "/services/cloud-services/managed-operations" },
         //   ],
         // },
-        {
-          title: "Solar Energy Solutions",
-          path: "/services/solar-energy",
-          subItems: [
-            { title: "Residential & commercial solar panel installations", path: "/services/solar-energy/installations" },
-            { title: "Battery storage solutions", path: "/services/solar-energy/battery-storage" },
-            { title: "System maintenance & repair", path: "/services/solar-energy/maintenance-repair" },
-            { title: "Solar energy consultation", path: "/services/solar-energy/consultation" },
-            { title: "Green energy audits", path: "/services/solar-energy/green-audits" },
-          ],
-        },
+        // {
+        //   title: "Solar Energy Solutions",
+        //   path: "/services/solar-energy",
+        //   subItems: [
+        //     { title: "Residential & commercial solar panel installations", path: "/services/solar-energy/installations" },
+        //     { title: "Battery storage solutions", path: "/services/solar-energy/battery-storage" },
+        //     { title: "System maintenance & repair", path: "/services/solar-energy/maintenance-repair" },
+        //     { title: "Solar energy consultation", path: "/services/solar-energy/consultation" },
+        //     { title: "Green energy audits", path: "/services/solar-energy/green-audits" },
+        //   ],
+        // },
         {
           title: "Talent Outsourcing Services",
           path: "/services/talent-outsourcing",
